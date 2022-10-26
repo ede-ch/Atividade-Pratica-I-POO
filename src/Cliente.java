@@ -1,36 +1,41 @@
-public class Cliente {
-
+public class Cliente  {
+    
    // A variable declaration.
-    private long CPF;
+    private int CPF;
     private String nome;
     private String endereco;
-    private String telefone;
-    private String email;
+    private int telefone;
+    private int carteiraMotorista;
+
     
     // A constructor.
-    public Cliente(long CPF, String nome, String endereco, String telefone, String email) {
+    public Cliente(int CPF, String nome, String endereco, int telefone, int carteiraMotorista) {
         this.CPF = CPF;
         this.nome = nome;
         this.endereco = endereco;
         this.telefone = telefone;
-        this.email = email;
+        this.carteiraMotorista = carteiraMotorista;
     }
     
-   /**
+   public Cliente() {
+    }
+
+/**
     * This function returns the CPF of the client
     * 
     * @return The CPF number.
     */
-    public long getCPF() {
+    public int getCPF() {
         return CPF;
     }
     
     /**
-     * This function sets the CPF of the object to the value of the parameter CPF
+     * This function sets the CPF of the client
      * 
-     * @param CPF The CPF of the client
+     * @param CPF The CPF of the client.
      */
-    public void setCPF(long CPF) {
+    
+    public void setCPF(int CPF) {
         this.CPF = CPF;
     }
     
@@ -70,48 +75,49 @@ public class Cliente {
         this.endereco = endereco;
     }
     
+    
     /**
      * This function returns the value of the variable telefone
      * 
      * @return The method is returning the value of the variable telefone.
      */
-    public String getTelefone() {
+    public int getTelefone() {
         return telefone;
     }
     
+    
     /**
-     * This function sets the value of the variable telefone to the value of the parameter telefone
+     * This function sets the value of the variable telefone to the value of the variable telefone
      * 
-     * @param telefone String
+     * @param telefone int
      */
-    public void setTelefone(String telefone) {
+    public void setTelefone(int telefone) {
         this.telefone = telefone;
     }
     
-    /**
-     * This function returns the email of the user
-     * 
-     * @return The email address of the user.
-     */
-    public String getEmail() {
-        return email;
+  
+   /**
+    * This function returns the value of the variable carteiraMotorista
+    * 
+    * @return The value of the variable carteiraMotorista.
+    */
+    
+    public int getCarteiraMotorista() {
+        return carteiraMotorista;
+    }
+
+   /**
+    * This function sets the value of the variable carteiraMotorista to the value of the parameter
+    * carteiraMotorista
+    * 
+    * @param carteiraMotorista Driver's license
+    */
+   
+    public void setCarteiraMotorista(int carteiraMotorista) {
+        this.carteiraMotorista = carteiraMotorista;
     }
     
-    /**
-     * This function sets the email of the user
-     * 
-     * @param email The email address of the user.
-     */
-    public void setEmail(String email) {
-        this.email = email;
-    }
-    
-    // A Java annotation. It is used to tell the compiler that the element is meant to override an
-    // element declared in a superclass.
-    @Override
-    // A method that returns a string representation of the object.
-    public String toString() {
-        return "Cliente{" + "CPF=" + CPF + ", nome=" + nome + ", endereco=" + endereco + ", telefone=" + telefone + ", email=" + email + '}';
-    }
+
+
     
 }

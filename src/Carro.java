@@ -1,10 +1,18 @@
 public class Carro extends Veiculo {
 
+    // Creating a class called Carro.
     private int numPortas;
     private int numPassageiros;
     private boolean arCondicionado;
-    private float combustivel; 
+    private float mediaKmLitro; 
 
+    public Carro(String placa, String modelo, int ano, float valorDiaria, int id, int numPortas, int numPassageiros, boolean arCondicionado, float mediaKmLitro) {
+        super (placa, modelo, ano, valorDiaria, id);
+        this.numPortas = numPortas;
+        this.numPassageiros = numPassageiros;
+        this.arCondicionado = arCondicionado;
+        this.mediaKmLitro = mediaKmLitro;
+    }
 
     /**
      * This function returns the value of the variable numPortas
@@ -64,36 +72,40 @@ public class Carro extends Veiculo {
     }
 
     /**
-     * This function returns the value of the variable combustivel
+     * This function returns the value of the variable mediaKmLitro
      * 
-     * @return The value of the variable combustivel.
+     * @return The value of the variable mediaKmLitro.
      */
-    public float getCombustivel() {
-        return combustivel;
+    public float getMediaKmLitro() {
+        return mediaKmLitro;
     }
 
     /**
-     * This function sets the value of the variable combustivel to the value of the
-     * parameter combustivel
+     * This function sets the value of the variable mediaKmLitro to the value of the
+     * parameter mediaKmLitro
      * 
-     * @param combustivel float
+     * @param mediaKmLitro float
      */
-    public void setCombustivel(float combustivel) {
-        this.combustivel = combustivel;
+    public void setMediaKmLitro(float mediaKmLitro) {
+        this.mediaKmLitro = mediaKmLitro;
     }
-
     
-
-
-
-
-
-
-
-
-
-
-
 
     
 }
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+    
+

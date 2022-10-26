@@ -1,9 +1,18 @@
 public class Onibus extends Veiculo {
 
+    // Declaring the variables.
     private int numPassageiros;
     private boolean arCondicionado;
     private String categoria;
     private boolean internet;
+
+    public Onibus(String placa, String modelo, int ano, float valorDiaria, int id, int numPassageiros, boolean arCondicionado, String categoria, boolean internet) {
+        super(placa, modelo, ano, valorDiaria, id);
+        this.numPassageiros = numPassageiros;
+        this.arCondicionado = arCondicionado;
+        this.categoria = categoria;
+        this.internet = internet;
+    }
 
     /**
      * This function returns the value of the variable numPassageiros
@@ -80,6 +89,5 @@ public class Onibus extends Veiculo {
     public void setInternet(boolean internet) {
         this.internet = internet;
     }
-    
-    
+
 }

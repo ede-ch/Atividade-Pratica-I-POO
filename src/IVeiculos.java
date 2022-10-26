@@ -2,7 +2,7 @@
  * Interface que permite a manipulação de um conjunto de veículos.
  * @author Aline
  */
-public interface IVeiculos {
+public interface IVeiculos  {
 
     /**
      * Adiciona um veiculo na relação de veiculos.

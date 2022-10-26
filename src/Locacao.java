@@ -1,27 +1,23 @@
 public class Locacao {
 
-    // A private variable.
+    
+   // Declaring the variables.
     private int codigo;
     private Cliente cliente;
     private Veiculo veiculo;
     private int dataLocacao;
     private int dataDevolucao;
-    private double valorLocacao;
-    private double valorDevolucao;
-    private double valorTotal;
-    private boolean devolvido;
+    private boolean seguro;
+
 
     // A constructor.
-    public Locacao(int codigo, Cliente cliente, Veiculo veiculo, int dataLocacao, int dataDevolucao, double valorLocacao, double valorDevolucao, double valorTotal, boolean devolvido) {
+    public Locacao(int codigo, Cliente cliente, Veiculo veiculo, int dataLocacao, int dataDevolucao, boolean seguro) {
         this.codigo = codigo;
         this.cliente = cliente;
         this.veiculo = veiculo;
         this.dataLocacao = dataLocacao;
         this.dataDevolucao = dataDevolucao;
-        this.valorLocacao = valorLocacao;
-        this.valorDevolucao = valorDevolucao;
-        this.valorTotal = valorTotal;
-        this.devolvido = devolvido;
+        this.seguro = seguro;
     }
 
     /**
@@ -33,26 +29,30 @@ public class Locacao {
         return codigo;
     }
 
+
     /**
-     * This function sets the value of the variable codigo to the value of the parameter codigo
+     * This function sets the value of the variable codigo to the value of the
+     * parameter codigo
      * 
      * @param codigo int
      */
     public void setCodigo(int codigo) {
         this.codigo = codigo;
+
     }
 
     /**
-     * This function returns the cliente
+     * This function returns the value of the variable cliente
      * 
-     * @return The cliente object.
+     * @return The value of the variable cliente.
      */
     public Cliente getCliente() {
         return cliente;
     }
 
     /**
-     * This function sets the cliente variable to the cliente parameter
+     * This function sets the value of the variable cliente to the value of the
+     * parameter cliente
      * 
      * @param cliente Cliente
      */
@@ -61,34 +61,36 @@ public class Locacao {
     }
 
     /**
-     * This function returns the vehicle
+     * This function returns the value of the variable veiculo
      * 
-     * @return The method is returning the value of the variable veiculo.
+     * @return The value of the variable veiculo.
      */
     public Veiculo getVeiculo() {
         return veiculo;
     }
 
     /**
-     * It sets the value of the veiculo variable.
+     * This function sets the value of the variable veiculo to the value of the
+     * parameter veiculo
      * 
-     * @param veiculo is the object that I'm trying to save
+     * @param veiculo Veiculo
      */
     public void setVeiculo(Veiculo veiculo) {
         this.veiculo = veiculo;
     }
 
     /**
-     * This function returns the dataLocacao
+     * This function returns the value of the variable dataLocacao
      * 
-     * @return The dataLocacao is being returned.
+     * @return The value of the variable dataLocacao.
      */
     public int getDataLocacao() {
         return dataLocacao;
     }
 
     /**
-     * This function sets the dataLocacao variable to the value of the parameter dataLocacao
+     * This function sets the value of the variable dataLocacao to the value of the
+     * parameter dataLocacao
      * 
      * @param dataLocacao int
      */
@@ -97,100 +99,42 @@ public class Locacao {
     }
 
     /**
-     * This function returns the dataDevolucao variable
+     * This function returns the value of the variable dataDevolucao
      * 
-     * @return The dataDevolucao variable is being returned.
+     * @return The value of the variable dataDevolucao.
      */
     public int getDataDevolucao() {
         return dataDevolucao;
     }
 
     /**
-     * It sets the dataDevolucao variable to the value of the parameter.
+     * This function sets the value of the variable dataDevolucao to the value of the
+     * parameter dataDevolucao
      * 
-     * @param dataDevolucao the date the book is due to be returned
+     * @param dataDevolucao int
      */
     public void setDataDevolucao(int dataDevolucao) {
         this.dataDevolucao = dataDevolucao;
     }
 
     /**
-     * This function returns the value of the variable valorLocacao
+     * This function returns the value of the variable seguro
      * 
-     * @return The value of the variable valorLocacao.
+     * @return The value of the variable seguro.
      */
-    public double getValorLocacao() {
-        return valorLocacao;
+    public boolean isSeguro() {
+        return seguro;
     }
 
     /**
-     * This function sets the value of the variable valorLocacao to the value of the parameter
-     * valorLocacao
+     * This function sets the value of the variable seguro to the value of the
+     * parameter seguro
      * 
-     * @param valorLocacao double
+     * @param seguro boolean
      */
-    public void setValorLocacao(double valorLocacao) {
-        this.valorLocacao = valorLocacao;
+    public void setSeguro(boolean seguro) {
+        this.seguro = seguro;
     }
 
-    /**
-     * This function returns the value of the variable valorDevolucao
-     * 
-     * @return The value of the variable valorDevolucao.
-     */
-    public double getValorDevolucao() {
-        return valorDevolucao;
-    }
 
-    /**
-     * It sets the value of the variable valorDevolucao.
-     * 
-     * @param valorDevolucao the value of the return
-     */
-    public void setValorDevolucao(double valorDevolucao) {
-        this.valorDevolucao = valorDevolucao;
-    }
-
-    /**
-     * This function returns the value of the variable valorTotal
-     * 
-     * @return The value of the variable valorTotal.
-     */
-    public double getValorTotal() {
-        return valorTotal;
-    }
-
-    /**
-     * It sets the value of the variable valorTotal to the value of the parameter valorTotal.
-     * 
-     * @param valorTotal Total value of the order
-     */
-    public void setValorTotal(double valorTotal) {
-        this.valorTotal = valorTotal;
-    }
-
-    /**
-     * This function returns the value of the variable devolvido
-     * 
-     * @return The value of the variable devolvido.
-     */
-    public boolean isDevolvido() {
-        return devolvido;
-    }
-
-    /**
-     * This function sets the value of the variable devolvido to the value of the parameter devolvido
-     * 
-     * @param devolvido boolean
-     */
-    public void setDevolvido(boolean devolvido) {
-        this.devolvido = devolvido;
-    }
-
-    
-
-
-  
-    
-    
 }

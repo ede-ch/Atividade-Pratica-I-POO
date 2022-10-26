@@ -1,7 +1,14 @@
 public class Caminhao extends Veiculo {
 
+    // Declaring the variables numEixos and capacidadeCarga.
     private int numEixos;
     private float capacidadeCarga;
+
+    public Caminhao(String placa, String modelo, int ano, float valorDiaria, int id, int numEixos, float capacidadeCarga) {
+        super(placa, modelo, ano, valorDiaria, id);
+        this.numEixos = numEixos;
+        this.capacidadeCarga = capacidadeCarga;
+    }
 
     /**
      * This function returns the value of the variable numEixos
