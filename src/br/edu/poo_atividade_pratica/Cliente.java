@@ -1,15 +1,17 @@
 package br.edu.poo_atividade_pratica;
 
-public class Cliente {
+public class Cliente implements IClientes{
     // A variable declaration.
-    private int CPF;
+    private long CPF;
     private String nome;
     private String endereco;
     private int telefone;
     private int carteiraMotorista;
 
+    private Locadora locadora = new Locadora();
+
     // A constructor.
-    public Cliente(int CPF, String nome, String endereco, int telefone, int carteiraMotorista) {
+    public Cliente(long CPF, String nome, String endereco, int telefone, int carteiraMotorista) {
         this.CPF = CPF;
         this.nome = nome;
         this.endereco = endereco;
@@ -22,28 +24,21 @@ public class Cliente {
     }
 
     /**
-    * This function returns the CPF of the client
-    * 
-    * @return The CPF number.
-    */
-    public int getCPF() {
+     * @return The CPF number.
+     */
+    public long getCPF() {
         return CPF;
     }
     
     /**
-     * This function sets the CPF of the client
-     * 
      * @param CPF The CPF of the client.
      */
-    public void setCPF(int CPF) {
+    public void setCPF(long CPF) {
         this.CPF = CPF;
     }
     
     /**
-     * This function returns the value of the variable nome
-     * 
-     * @return The method getNome() is returning the value of the variable nome.
-     */
+    * @return The method getNome() is returning the value of the variable nome. */
     public String getNome() {
         return nome;
     }
@@ -58,8 +53,6 @@ public class Cliente {
     }
     
     /**
-     * This function returns the endereco of the object
-     * 
      * @return The value of the variable endereco.
      */
     public String getEndereco() {
@@ -67,57 +60,109 @@ public class Cliente {
     }
     
     /**
-     * This function sets the endereco variable to the value of the endereco parameter
-     * 
      * @param endereco String
      */
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
     
-    
     /**
-     * This function returns the value of the variable telefone
-     * 
      * @return The method is returning the value of the variable telefone.
      */
     public int getTelefone() {
         return telefone;
     }
     
-    
     /**
-     * This function sets the value of the variable telefone to the value of the variable telefone
-     * 
      * @param telefone int
      */
     public void setTelefone(int telefone) {
         this.telefone = telefone;
     }
-    
   
     /**
-    * This function returns the value of the variable carteiraMotorista
-    * 
-    * @return The value of the variable carteiraMotorista.
-    */
-    
+     * @return The value of the variable carteiraMotorista.
+     */
     public int getCarteiraMotorista() {
         return carteiraMotorista;
     }
 
     /**
-    * This function sets the value of the variable carteiraMotorista to the value of the parameter
-    * carteiraMotorista
-    * 
-    * @param carteiraMotorista Driver's license
-    */
-   
+     * @param carteiraMotorista Driver's license
+     */
     public void setCarteiraMotorista(int carteiraMotorista) {
         this.carteiraMotorista = carteiraMotorista;
     }
-    
 
-
+    public String toString() {
+        return "CPF: " + CPF + ", Nome:" + nome + ", Endereco:" + endereco + ", Telefone:" + telefone
+                + ", Carteira de Motorista: " + carteiraMotorista;
+    }
     
+    public void add(Cliente c) {
+        locadora.addCliente(c);
+    }
+    
+    public Cliente get(long CPF) {
+        if (CPF > 0) {
+            for (int i = 0; i < locadora.getListaClientes().length; i++) {
+                if (locadora.getListaClientes()[i].getCPF() == CPF) {
+                    return locadora.getListaClientes()[i];
+                }
+            }
+        }
+        return null;
+    }
+    
+    public String getInfo(long CPF) {
+        if (CPF > 0) {
+            for (int i = 0; i < locadora.getListaClientes().length; i++) {
+                if (locadora.getListaClientes()[i].getCPF() == CPF) {
+                    return locadora.getListaClientes()[i].toString();
+                }
+            }
+        }
+        return null;
+    }
+    
+    public String getInfo() {
+        if (locadora.getListaClientes().length > 0) {
+            for (int i = 0; i < locadora.getListaClientes().length; i++) {
+                return locadora.getListaClientes()[i].toString();
+            }
+        }
+        return "Não há clientes cadastrados.";
+    }
+    
+    public String getResumoInfo() {
+        if (locadora.getListaClientes().length > 0) {
+            for (int i = 0; i < locadora.getListaClientes().length; i++) {
+                return "CPF: " + locadora.getListaClientes()[i].getCPF() + ", Nome: " + locadora.getListaClientes()[i].getNome();
+            }
+        }
+        return "Não há clientes cadastrados.";
+    }
+    
+    public boolean remove(long CPF) {
+        if (CPF > 0) {
+            for (int i = 0; i < locadora.getListaClientes().length; i++) {
+                if (locadora.getListaClientes()[i].getCPF() == CPF) {
+                    locadora.getListaClientes()[i] = null;
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    
+    public boolean existe(long CPF) {
+        if (CPF > 0) {
+            for (int i = 0; i < locadora.getListaClientes().length; i++) {
+                if (locadora.getListaClientes()[i].getCPF() == CPF) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }

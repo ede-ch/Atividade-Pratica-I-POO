@@ -21,10 +21,6 @@ public class Veiculo implements IVeiculos {
         this.id = numId++;
         add(this);
     }
-
-    public Veiculo(Veiculo v) {
-        Veiculo veiculo = v;
-    }
     
     public Veiculo() {
         //Default constructor.

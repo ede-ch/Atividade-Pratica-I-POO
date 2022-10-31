@@ -61,7 +61,7 @@ public class Locadora {
 
     public void addVeiculo(Veiculo v) {
         if (v != null && v instanceof Veiculo && numVeiculos < listaVeiculos.length) {
-            listaVeiculos[numVeiculos] = new Veiculo(v);
+            listaVeiculos[numVeiculos] = v;
             numVeiculos++;
         }
         System.err.println("Veiculo invalido");
@@ -79,4 +79,25 @@ public class Locadora {
         System.err.println("Veiculo invalido");
     }
 
+    public void addCliente(Cliente c) {
+        if (c != null && c instanceof Cliente && numClientes < listaClientes.length) {
+            listaClientes[numClientes] = c;
+            numClientes++;
+        }
+        System.err.println("Cliente invalido");
+    }
+
+    public void removeCliente(Cliente c) {
+        if (c != null && c instanceof Cliente) {
+            for (int i = 0; i < numClientes; i++) {
+                if (listaClientes[i].getCPF() == c.getCPF()) {
+                    listaClientes[numClientes - 1] = null;
+                    numClientes--;
+                }
+            }
+        }
+        System.err.println("Cliente invalido");
+    }
+
 }
+                                              
