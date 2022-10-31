@@ -1,13 +1,13 @@
-public class Cliente  {
-    
-   // A variable declaration.
+package br.edu.poo_atividade_pratica;
+
+public class Cliente {
+    // A variable declaration.
     private int CPF;
     private String nome;
     private String endereco;
     private int telefone;
     private int carteiraMotorista;
 
-    
     // A constructor.
     public Cliente(int CPF, String nome, String endereco, int telefone, int carteiraMotorista) {
         this.CPF = CPF;
@@ -17,10 +17,11 @@ public class Cliente  {
         this.carteiraMotorista = carteiraMotorista;
     }
     
-   public Cliente() {
+    public Cliente() {
+        //Default constructor.
     }
 
-/**
+    /**
     * This function returns the CPF of the client
     * 
     * @return The CPF number.
@@ -34,7 +35,6 @@ public class Cliente  {
      * 
      * @param CPF The CPF of the client.
      */
-    
     public void setCPF(int CPF) {
         this.CPF = CPF;
     }
@@ -96,7 +96,7 @@ public class Cliente  {
     }
     
   
-   /**
+    /**
     * This function returns the value of the variable carteiraMotorista
     * 
     * @return The value of the variable carteiraMotorista.
@@ -106,7 +106,7 @@ public class Cliente  {
         return carteiraMotorista;
     }
 
-   /**
+    /**
     * This function sets the value of the variable carteiraMotorista to the value of the parameter
     * carteiraMotorista
     * 

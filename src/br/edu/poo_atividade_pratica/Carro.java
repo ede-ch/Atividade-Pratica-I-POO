@@ -1,3 +1,4 @@
+package br.edu.poo_atividade_pratica;
 public class Carro extends Veiculo {
 
     // Creating a class called Carro.
@@ -6,8 +7,8 @@ public class Carro extends Veiculo {
     private boolean arCondicionado;
     private float mediaKmLitro; 
 
-    public Carro(String placa, String modelo, int ano, float valorDiaria, int id, int numPortas, int numPassageiros, boolean arCondicionado, float mediaKmLitro) {
-        super (placa, modelo, ano, valorDiaria, id);
+    public Carro(String placa, String modelo, int ano, float valorDiaria, int numPortas, int numPassageiros, boolean arCondicionado, float mediaKmLitro) {
+        super (placa, modelo, ano, valorDiaria);
         this.numPortas = numPortas;
         this.numPassageiros = numPassageiros;
         this.arCondicionado = arCondicionado;
@@ -89,9 +90,6 @@ public class Carro extends Veiculo {
     public void setMediaKmLitro(float mediaKmLitro) {
         this.mediaKmLitro = mediaKmLitro;
     }
-    
-
-    
 }
 
     

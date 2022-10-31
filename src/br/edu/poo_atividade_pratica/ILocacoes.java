@@ -1,3 +1,4 @@
+package br.edu.poo_atividade_pratica;
 /**
  * Interface que permite manipular um conjunto de locações.
  * @author Aline

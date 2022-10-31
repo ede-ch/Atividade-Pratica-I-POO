@@ -1,3 +1,4 @@
+package br.edu.poo_atividade_pratica;
 /**
  * Interface que permite a manipulação de um conjunto de veículos.
  * @author Aline

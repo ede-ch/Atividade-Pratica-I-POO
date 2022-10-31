@@ -1,3 +1,4 @@
+package br.edu.poo_atividade_pratica;
 public class Onibus extends Veiculo {
 
     // Declaring the variables.
@@ -6,8 +7,8 @@ public class Onibus extends Veiculo {
     private String categoria;
     private boolean internet;
 
-    public Onibus(String placa, String modelo, int ano, float valorDiaria, int id, int numPassageiros, boolean arCondicionado, String categoria, boolean internet) {
-        super(placa, modelo, ano, valorDiaria, id);
+    public Onibus(String placa, String modelo, int ano, float valorDiaria, int numPassageiros, boolean arCondicionado, String categoria, boolean internet) {
+        super(placa, modelo, ano, valorDiaria);
         this.numPassageiros = numPassageiros;
         this.arCondicionado = arCondicionado;
         this.categoria = categoria;

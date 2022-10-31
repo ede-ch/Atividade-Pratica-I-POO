@@ -1,6 +1,6 @@
-public class Locacao {
+package br.edu.poo_atividade_pratica;
 
-    
+public class Locacao {
    // Declaring the variables.
     private int codigo;
     private Cliente cliente;
@@ -38,7 +38,6 @@ public class Locacao {
      */
     public void setCodigo(int codigo) {
         this.codigo = codigo;
-
     }
 
     /**
@@ -135,6 +134,4 @@ public class Locacao {
     public void setSeguro(boolean seguro) {
         this.seguro = seguro;
     }
-
-
 }

@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+package br.edu.poo_atividade_pratica;
 
 public class Veiculo implements IVeiculos {
 
@@ -8,21 +8,28 @@ public class Veiculo implements IVeiculos {
     private int ano;
     private float valorDiaria;
     private int id;
+    private static int numId = 10000;
 
-    
-    // Creating an ArrayList of type Veiculo.
-    ArrayList<Veiculo> veiculos = new ArrayList<Veiculo>();
+    private Locadora locadora = new Locadora();
     
     // A constructor.
-    public Veiculo(String placa, String modelo, int ano, float valorDiaria, int id) {
+    public Veiculo(String placa, String modelo, int ano, float valorDiaria) {
         this.placa = placa;
         this.modelo = modelo;
         this.ano = ano;
         this.valorDiaria = valorDiaria;
-        this.id = id;
+        this.id = numId++;
+        add(this);
+    }
+
+    public Veiculo(Veiculo v) {
+        Veiculo veiculo = v;
     }
     
-
+    public Veiculo() {
+        //Default constructor.
+    }
+    
     /**
      * This function returns the value of the variable placa
      * 
@@ -136,12 +143,9 @@ public class Veiculo implements IVeiculos {
      * @param v Veiculo
      */
     public void add(Veiculo v) {
-        if (veiculos != null) {
-            veiculos.add(v);
-        } else {
-            System.out.println("Veículo está vazio");
+        if (v != null && v instanceof Veiculo) {
+            locadora.addVeiculo(v);
         }
-
     }
 
     /**
@@ -152,12 +156,11 @@ public class Veiculo implements IVeiculos {
      * @param placa String
      * @return The method returns the object Veiculo.
      */
-
     public Veiculo get(String placa) {
-        if (veiculos != null) {
-            for (Veiculo veiculo : veiculos) {
-                if (veiculo.getPlaca().equals(placa)) {
-                    return veiculo;
+        if (placa != null) {
+            for (int i = 0; i < locadora.getListaVeiculos().length; i++) {
+                if (locadora.getListaVeiculos()[i].getPlaca().equals(placa)) {
+                    return locadora.getListaVeiculos()[i];
                 }
             }
         }
@@ -172,12 +175,12 @@ public class Veiculo implements IVeiculos {
      * @return The method is returning the toString() method of the class Veiculo.
      */
     public String getInfo() {
-        if (veiculos != null) {
-            for (Veiculo veiculo : veiculos) {
-                return toString();
+        if (locadora.getListaVeiculos().length > 0) {
+            for (int i = 0; i < locadora.getListaVeiculos().length;) {
+                return locadora.getListaVeiculos()[i].toString();
             }
         }
-        return null;
+        return "Não há veículos cadastrados";
     }
 
     /**
@@ -188,15 +191,14 @@ public class Veiculo implements IVeiculos {
      * @return The method is returning a String.
      */
     public String getInfo(String placa) {
-        if (veiculos != null) {
-            for (Veiculo veiculo : veiculos) {
-                if (veiculo.getPlaca().equals(placa)) {
-                    return toString();
+        if (placa != null) {
+            for (int i = 0; i < locadora.getListaVeiculos().length; i++) {
+                if (locadora.getListaVeiculos()[i].getPlaca().equals(placa)) {
+                    return locadora.getListaVeiculos()[i].toString();
                 }
             }
         }
-
-        return ("Veículo não encontrado");
+        return "Veículo não encontrado";
     }
 
     /**
@@ -207,13 +209,14 @@ public class Veiculo implements IVeiculos {
      * @return The method is returning the String "Veículo não encontrado"
      */
     public String getResumoInfo() {
-        if (veiculos != null) {
-            for (Veiculo veiculo : veiculos) {
-                return "Placa: " + placa + " Modelo: " + modelo + " Ano: " + ano;
+        if (locadora.getListaVeiculos().length > 0) {
+            for (int i = 0; i < locadora.getListaVeiculos().length;) {
+                return "Placa: " + locadora.getListaVeiculos()[i].getPlaca() + " Modelo: "
+                        + locadora.getListaVeiculos()[i].getModelo() + " Ano: "
+                        + locadora.getListaVeiculos()[i].getAno();
             }
         }
-
-        return ("Veículo não encontrado");
+        return "Veículo não encontrado";
     }
 
     /**
@@ -223,15 +226,14 @@ public class Veiculo implements IVeiculos {
      * @return A boolean value.
      */
     public boolean remove(String placa) {
-        if (veiculos != null) {
-            for (Veiculo veiculo : veiculos) {
-                if (veiculo.getPlaca().equals(placa)) {
-                    veiculos.remove(veiculo);
+        if (placa != null) {
+            for (int i = 0; i < locadora.getListaVeiculos().length; i++) {
+                if (locadora.getListaVeiculos()[i].getPlaca().equals(placa)) {
+                    locadora.removeVeiculo(locadora.getListaVeiculos()[i]);
                     return true;
                 }
             }
         }
-
         return false;
     }
 
@@ -242,14 +244,13 @@ public class Veiculo implements IVeiculos {
      * @return A boolean value.
      */
     public boolean existe(String placa) {
-        if (veiculos != null) {
-            for (Veiculo veiculo : veiculos) {
-                if (veiculo.getPlaca().equals(placa)) {
+        if (placa != null) {
+            for (int i = 0; i < locadora.getListaVeiculos().length; i++) {
+                if (locadora.getListaVeiculos()[i].getPlaca().equals(placa)) {
                     return true;
                 }
             }
         }
-
         return false;
     }
 }
