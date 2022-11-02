@@ -81,4 +81,9 @@ public class Carro extends Veiculo {
     public void setMediaKmLitro(float mediaKmLitro) {
         this.mediaKmLitro = mediaKmLitro;
     }
+
+    public String toString() {
+        return "[Carro: " + super.toString() + ", Número de portas: " + numPortas + ", Número de passageiros: " + numPassageiros
+                + ", Ar condicionado: " + arCondicionado + ", Média de quilômetros por litro: " + mediaKmLitro + "]\n";
+    }
 }

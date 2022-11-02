@@ -141,4 +141,10 @@ public class Locacao {
     public void setDataDevolucao(Date dataDevolucao) {
         this.dataDevolucao = dataDevolucao;
     }
+
+    public String toString() {
+        return "[Locação: " + codigo + ", Cliente: " + cliente + ", Veículo: " + veiculo + ", Seguro: "
+                + seguro + ", Data de locação: " + formatoData.format(dataLocacao) + ", Data de devolução: "
+                + formatoData.format(dataDevolucao) + "]\n";
+    }
 }

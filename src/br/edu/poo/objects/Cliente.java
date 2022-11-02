@@ -98,4 +98,10 @@ public class Cliente {
     public void setCarteiraMotorista(int carteiraMotorista) {
         this.carteiraMotorista = carteiraMotorista;
     }
+
+    public String toString() {
+        return "[Cliente: " + nome + ", CPF: " + CPF + ", Endereço: " + endereco
+                + ", Telefone: " + telefone + ", Carteira de Motorista: "
+                + carteiraMotorista + "]\n";
+    }
 }

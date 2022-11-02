@@ -47,4 +47,9 @@ public class Caminhao extends Veiculo {
     public void setCapacidadeCarga(float capacidadeCarga) {
         this.capacidadeCarga = capacidadeCarga;
     }
+
+    public String toString() {
+        return "[Caminhão: " + super.toString() + " Número de eixos: " + numEixos + " Capacidade de carga: "
+                + capacidadeCarga + "]\n";
+    }
 }

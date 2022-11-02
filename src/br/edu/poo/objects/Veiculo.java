@@ -1,6 +1,6 @@
 package br.edu.poo.objects;
 
-public class Veiculo{
+public class Veiculo {
     private String placa;
     private String modelo;
     private int ano;
@@ -80,5 +80,10 @@ public class Veiculo{
      */
     public void setValorDiaria(float valorDiaria) {
         this.valorDiaria = valorDiaria;
+    }
+
+    public String toString() {
+        return "Placa: " + placa + ", Modelo: " + modelo + ", Ano: " + ano + ", Valor da diária: "
+                + valorDiaria;
     }
 }

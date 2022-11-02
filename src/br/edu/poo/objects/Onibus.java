@@ -81,4 +81,9 @@ public class Onibus extends Veiculo {
     public void setInternet(boolean internet) {
         this.internet = internet;
     }
+
+    public String toString() {
+        return "[Ônibus: " + super.toString() + " Número de passageiros: " + numPassageiros + " Categoria: "
+                + categoria + " Ar condicionado: " + arCondicionado + " Internet: " + internet + "]\n";
+    }
 }
