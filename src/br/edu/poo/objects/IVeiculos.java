@@ -1,4 +1,4 @@
-package br.edu.poo_atividade_pratica;
+package br.edu.poo.objects;
 /**
  * Interface que permite a manipulação de um conjunto de veículos.
  * @author Aline

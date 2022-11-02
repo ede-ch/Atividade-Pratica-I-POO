@@ -1,10 +1,15 @@
-package br.edu.poo_atividade_pratica;
+package br.edu.poo.gui;
+
+import br.edu.poo.objects.Carro;
+import br.edu.poo.objects.Cliente;
+import br.edu.poo.objects.Locacao;
+import br.edu.poo.objects.Veiculo;
+
 public class Main {
     public static void main(String[] args) {
-
-        Locadora locadora = new Locadora(30, 30, 30);
         Veiculo veiculo = new Veiculo();
         Cliente cliente = new Cliente();
+        Locacao locacao = new Locacao();
 
         Veiculo veiculo1 = new Carro("ABC-1234", "Fusca", 1970, 100, 2, 4, false, 10);
         Veiculo veiculo2 = new Carro("ABB-1233", "Monza", 1999, 15, 4, 5, true, 8);
@@ -17,9 +22,12 @@ public class Main {
         Cliente cliente3 = new Cliente(1234567892, "Carol", "Rua 3", 123456789, 987654323);
         Cliente cliente4 = new Cliente(1234567893, "Ana", "Rua 4", 123456789, 987654324);
         Cliente cliente5 = new Cliente(1234567894, "Pedro", "Rua 5", 123456789, 987654325);
+        
+        Locacao locacao1 = new Locacao(cliente1, veiculo1, "12/12/2022", "12/01/2023", true);
+        Locacao locacao2 = new Locacao(cliente2, veiculo2, "25/11/2022", "25/12/2022", true);
+        Locacao locacao3 = new Locacao(cliente3, veiculo3, "07/11/2022", "14/11/2023", true);
+        Locacao locacao4 = new Locacao(cliente4, veiculo4, "12/12/2022", "12/01/2023", true);
+        Locacao locacao5 = new Locacao(cliente5, veiculo5, "12/12/2022", "12/01/2023", true);
 
-
-        locadora.removeVeiculo(veiculo3);
-        System.out.println(veiculo.getInfo());
     }
-}
+}    

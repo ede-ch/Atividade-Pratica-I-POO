@@ -1,8 +1,9 @@
-package br.edu.poo_atividade_pratica;
+package br.edu.poo.objects;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class Locacao {
     private Cliente cliente;
@@ -12,9 +13,9 @@ public class Locacao {
     private int codigo;
     private Date dataLocacao; // Variável aparece como "não usada" no VSCode devido a um problema
     private Date dataDevolucao; // de tempo de execução, mas funciona normalmente.
-
-    SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
-
+    
+    SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy", new Locale("pt","BR"));
+    
     /**
      * Construtor da classe Locacao.
      * @param cliente Cliente que está locando o veículo.
@@ -28,22 +29,24 @@ public class Locacao {
      * @param codigo Código da locação. !IMPORTANTE! O código deve ser único.
      */
     public Locacao(Cliente cliente, Veiculo veiculo, String dataLocacao,
-            String dataDevolucao, boolean seguro) {
+    String dataDevolucao, boolean seguro) {
         this.cliente = cliente;
         this.veiculo = veiculo;
         this.seguro = seguro;
         try {
+            formatoData.setLenient(false); // Não aceita datas inválidas.
             this.dataLocacao = formatoData.parse(dataLocacao);
         } catch (ParseException e) {
             System.err.println(
-                    "Erro ao converter data de locação. \nVerifique se o formato da data (dd/MM/yyyy) está correta.");
+                    "Erro ao converter data de locação. Verifique se a data e o formato (dd/MM/yyyy) estão corretos.");
             e.printStackTrace();
         }
         try {
+            formatoData.setLenient(false); // Não aceita datas inválidas.
             this.dataDevolucao = formatoData.parse(dataDevolucao);
         } catch (ParseException e) {
             System.err.println(
-                    "Erro ao converter data de devolução. \nVerifique se o formato da data (dd/MM/yyyy) está correta.");
+                    "Erro ao converter data de devolução. Verifique se a data e o formato (dd/MM/yyyy) estão corretos.");
             e.printStackTrace();
         }
         this.codigo = numCodigo++;

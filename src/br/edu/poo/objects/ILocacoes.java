@@ -1,4 +1,4 @@
-package br.edu.poo_atividade_pratica;
+package br.edu.poo.objects;
 /**
  * Interface que permite manipular um conjunto de locações.
  * @author Aline
