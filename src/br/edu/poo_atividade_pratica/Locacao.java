@@ -17,15 +17,15 @@ public class Locacao {
 
     /**
      * Construtor da classe Locacao.
-     * @param codigo Código da locação. !IMPORTANTE! O código deve ser único.
      * @param cliente Cliente que está locando o veículo.
      * @param veiculo Veículo que está sendo locado. 
+     * @param seguro Booleano indicando se o cliente contratou o seguro.
      * @param dataLocacao String para ser convertida em Date e armazenando data da locação.
      * @param dataDevolucao String para ser convertida em Date e armazenando data de devolução.
      * dataLocacao e dataDevolucao estão em um bloco try/catch para tratar uma exceção do tipo 
      * ParseException, pois o método parse() não pode ser verificado em tempo de execução.
      * https://stackoverflow.com/questions/41058499/why-the-parseexception-appears-when-use-simpledateformat
-     * @param seguro Booleano indicando se o cliente contratou o seguro.
+     * @param codigo Código da locação. !IMPORTANTE! O código deve ser único.
      */
     public Locacao(Cliente cliente, Veiculo veiculo, String dataLocacao,
             String dataDevolucao, boolean seguro) {
@@ -57,33 +57,19 @@ public class Locacao {
     }
 
     /**
-     * @return Código da locação do tipo int.
-     */
-    public int getCodigo() {
-        return codigo;
-    }
-
-    /**
-     * @param codigo Seta o código da locação do tipo int.
-     */
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
-    }
-
-    /**
      * @return Cliente do tipo Cliente.
      */
     public Cliente getCliente() {
         return cliente;
     }
-
+    
     /**
      * @param cliente Seta o cliente do tipo Cliente.
      */
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
-
+    
     /**
      * @return Veículo do tipo Veiculo.
      */
@@ -101,7 +87,7 @@ public class Locacao {
     /**
      * @return Tipo boolean se o locador contratou um seguro.
      */
-    public boolean haveSeguro() {
+    public boolean getSeguro() {
         return seguro;
     }
 
@@ -110,5 +96,46 @@ public class Locacao {
      */
     public void setSeguro(boolean seguro) {
         this.seguro = seguro;
+    }
+
+    /**
+     * @return Código da locação do tipo int.
+     */
+    public int getCodigo() {
+        return codigo;
+    }
+    /**
+     * @param codigo Seta o código da locação do tipo int.
+     */
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    /**
+     * @return Data de locação do tipo Date.
+     */
+    public Date getDataLocacao() {
+        return dataLocacao;
+    }
+
+    /**
+     * @param dataLocacao Seta a data de locação do tipo Date.
+     */
+    public void setDataLocacao(Date dataLocacao) {
+        this.dataLocacao = dataLocacao;
+    }
+
+    /**
+     * @return Data de devolução do tipo Date.
+     */
+    public Date getDataDevolucao() {
+        return dataDevolucao;
+    }
+
+    /**
+     * @param dataDevolucao Seta a data de devolução do tipo Date.
+     */
+    public void setDataDevolucao(Date dataDevolucao) {
+        this.dataDevolucao = dataDevolucao;
     }
 }
