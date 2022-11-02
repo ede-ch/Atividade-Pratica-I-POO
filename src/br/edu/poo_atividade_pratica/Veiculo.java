@@ -5,88 +5,80 @@ public class Veiculo{
     private String modelo;
     private int ano;
     private float valorDiaria;
-    private int id;
-    private static int numId = 10000;
 
+    /**
+     * @param placa Placa do veículo.
+     * @param modelo Modelo do veículo.
+     * @param ano Ano do veículo.
+     * @param valorDiaria Valor da diária do veículo.
+     */
     public Veiculo(String placa, String modelo, int ano, float valorDiaria) {
         this.placa = placa;
         this.modelo = modelo;
         this.ano = ano;
         this.valorDiaria = valorDiaria;
-        this.id = numId++;
     }
 
+    /**
+     * Possibilita a criação de um objeto Veiculo sem parâmetros.
+     */
     public Veiculo() {
         // Construtor padrão
     }
 
     /**
-     * @return String return the placa
+     * @return Placa do veículo do tipo String.
      */
     public String getPlaca() {
         return placa;
     }
 
     /**
-     * @param placa the placa to set
+     * @param placa Seta a placa do veículo do tipo String.
      */
     public void setPlaca(String placa) {
         this.placa = placa;
     }
 
     /**
-     * @return String return the modelo
+     * @return Modelo do veículo do tipo String.
      */
     public String getModelo() {
         return modelo;
     }
 
     /**
-     * @param modelo the modelo to set
+     * @param modelo Seta o modelo do veículo do tipo String.
      */
     public void setModelo(String modelo) {
         this.modelo = modelo;
     }
 
     /**
-     * @return int return the ano
+     * @return Ano do veículo do tipo int.
      */
     public int getAno() {
         return ano;
     }
 
     /**
-     * @param ano the ano to set
+     * @param ano Seta o ano do veículo do tipo int.
      */
     public void setAno(int ano) {
         this.ano = ano;
     }
 
     /**
-     * @return float return the valorDiaria
+     * @return Valor da diária do veículo do tipo float.
      */
     public float getValorDiaria() {
         return valorDiaria;
     }
 
     /**
-     * @param valorDiaria the valorDiaria to set
+     * @param valorDiaria Seta o valor da diária do veículo do tipo float.
      */
     public void setValorDiaria(float valorDiaria) {
         this.valorDiaria = valorDiaria;
-    }
-
-    /**
-     * @return int return the id
-     */
-    public int getId() {
-        return id;
-    }
-
-    /**
-     * @param id the id to set
-     */
-    public void setId(int id) {
-        this.id = id;
     }
 }

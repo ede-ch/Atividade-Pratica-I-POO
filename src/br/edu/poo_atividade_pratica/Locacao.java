@@ -1,111 +1,114 @@
 package br.edu.poo_atividade_pratica;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Locacao {
-    // Declaring the variables.
-    private int codigo;
     private Cliente cliente;
     private Veiculo veiculo;
-    private int dataLocacao;
-    private int dataDevolucao;
     private boolean seguro;
+    private static int numCodigo = 10000;
+    private int codigo;
+    private Date dataLocacao; // Variável aparece como "não usada" no VSCode devido a um problema
+    private Date dataDevolucao; // de tempo de execução, mas funciona normalmente.
 
-    // A constructor.
-    public Locacao(int codigo, Cliente cliente, Veiculo veiculo, int dataLocacao, int dataDevolucao,
-            boolean seguro) {
-        this.codigo = codigo;
+    SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
+
+    /**
+     * Construtor da classe Locacao.
+     * @param codigo Código da locação. !IMPORTANTE! O código deve ser único.
+     * @param cliente Cliente que está locando o veículo.
+     * @param veiculo Veículo que está sendo locado. 
+     * @param dataLocacao String para ser convertida em Date e armazenando data da locação.
+     * @param dataDevolucao String para ser convertida em Date e armazenando data de devolução.
+     * dataLocacao e dataDevolucao estão em um bloco try/catch para tratar uma exceção do tipo 
+     * ParseException, pois o método parse() não pode ser verificado em tempo de execução.
+     * https://stackoverflow.com/questions/41058499/why-the-parseexception-appears-when-use-simpledateformat
+     * @param seguro Booleano indicando se o cliente contratou o seguro.
+     */
+    public Locacao(Cliente cliente, Veiculo veiculo, String dataLocacao,
+            String dataDevolucao, boolean seguro) {
         this.cliente = cliente;
         this.veiculo = veiculo;
-        this.dataLocacao = dataLocacao;
-        this.dataDevolucao = dataDevolucao;
         this.seguro = seguro;
+        try {
+            this.dataLocacao = formatoData.parse(dataLocacao);
+        } catch (ParseException e) {
+            System.err.println(
+                    "Erro ao converter data de locação. \nVerifique se o formato da data (dd/MM/yyyy) está correta.");
+            e.printStackTrace();
+        }
+        try {
+            this.dataDevolucao = formatoData.parse(dataDevolucao);
+        } catch (ParseException e) {
+            System.err.println(
+                    "Erro ao converter data de devolução. \nVerifique se o formato da data (dd/MM/yyyy) está correta.");
+            e.printStackTrace();
+        }
+        this.codigo = numCodigo++;
     }
 
+    /**
+     * Possibilita a criação de um objeto Locacao sem parâmetros.
+     */
     public Locacao() {
         // Construtor padrão
     }
 
     /**
-     * @return int return the codigo
+     * @return Código da locação do tipo int.
      */
     public int getCodigo() {
         return codigo;
     }
 
     /**
-     * @param codigo the codigo to set
+     * @param codigo Seta o código da locação do tipo int.
      */
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
 
     /**
-     * @return Cliente return the cliente
+     * @return Cliente do tipo Cliente.
      */
     public Cliente getCliente() {
         return cliente;
     }
 
     /**
-     * @param cliente the cliente to set
+     * @param cliente Seta o cliente do tipo Cliente.
      */
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
 
     /**
-     * @return Veiculo return the veiculo
+     * @return Veículo do tipo Veiculo.
      */
     public Veiculo getVeiculo() {
         return veiculo;
     }
 
     /**
-     * @param veiculo the veiculo to set
+     * @param veiculo Seta o veículo do tipo Veiculo.
      */
     public void setVeiculo(Veiculo veiculo) {
         this.veiculo = veiculo;
     }
 
     /**
-     * @return int return the dataLocacao
+     * @return Tipo boolean se o locador contratou um seguro.
      */
-    public int getDataLocacao() {
-        return dataLocacao;
-    }
-
-    /**
-     * @param dataLocacao the dataLocacao to set
-     */
-    public void setDataLocacao(int dataLocacao) {
-        this.dataLocacao = dataLocacao;
-    }
-
-    /**
-     * @return int return the dataDevolucao
-     */
-    public int getDataDevolucao() {
-        return dataDevolucao;
-    }
-
-    /**
-     * @param dataDevolucao the dataDevolucao to set
-     */
-    public void setDataDevolucao(int dataDevolucao) {
-        this.dataDevolucao = dataDevolucao;
-    }
-
-    /**
-     * @return boolean return the seguro
-     */
-    public boolean isSeguro() {
+    public boolean haveSeguro() {
         return seguro;
     }
 
     /**
-     * @param seguro the seguro to set
+     * @param seguro Seta o tipo boolean se o locador contratou um seguro.
      */
     public void setSeguro(boolean seguro) {
         this.seguro = seguro;
     }
-
 }

@@ -3,73 +3,82 @@ package br.edu.poo_atividade_pratica;
 public class Onibus extends Veiculo {
 
     private int numPassageiros;
-    private boolean arCondicionado;
     private String categoria;
+    private boolean arCondicionado;
     private boolean internet;
 
+    /**
+     * @param placa Placa do veículo.
+     * @param modelo Modelo do veículo.
+     * @param ano Ano do veículo.
+     * @param valorDiaria Valor da diária do veículo.
+     * @param numPassageiros Número de passageiros do ônibus.
+     * @param arCondicionado Se o ônibus possui ar condicionado ou não.
+     * @param categoria Categoria do ônibus.
+     * @param internet Se o ônibus possui internet ou não.
+     */
     public Onibus(String placa, String modelo, int ano, float valorDiaria, int numPassageiros,
-            boolean arCondicionado, String categoria, boolean internet) {
+            String categoria, boolean arCondicionado, boolean internet) {
         super(placa, modelo, ano, valorDiaria);
         this.numPassageiros = numPassageiros;
-        this.arCondicionado = arCondicionado;
         this.categoria = categoria;
+        this.arCondicionado = arCondicionado;
         this.internet = internet;
     }
 
     /**
-     * @return int return the numPassageiros
+     * @return Número de passageiros do ônibus do tipo int.
      */
     public int getNumPassageiros() {
         return numPassageiros;
     }
 
     /**
-     * @param numPassageiros the numPassageiros to set
+     * @param numPassageiros Seta o número de passageiros do ônibus do tipo int.
      */
     public void setNumPassageiros(int numPassageiros) {
         this.numPassageiros = numPassageiros;
     }
 
     /**
-     * @return boolean return the arCondicionado
+     * @return Booleano que indica se o ônibus possui ar condicionado ou não.
      */
     public boolean isArCondicionado() {
         return arCondicionado;
     }
 
     /**
-     * @param arCondicionado the arCondicionado to set
+     * @param arCondicionado Seta um booleano que indica se o ônibus possui ar condicionado ou não.
      */
     public void setArCondicionado(boolean arCondicionado) {
         this.arCondicionado = arCondicionado;
     }
 
     /**
-     * @return String return the categoria
+     * @return Categoria do ônibus do tipo String.
      */
     public String getCategoria() {
         return categoria;
     }
 
     /**
-     * @param categoria the categoria to set
+     * @param categoria Seta a categoria do ônibus do tipo String.
      */
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
 
     /**
-     * @return boolean return the internet
+     * @return Tipo booleano se o ônibus possui internet ou não.
      */
     public boolean isInternet() {
         return internet;
     }
 
     /**
-     * @param internet the internet to set
+     * @param internet Seta um tipo booleano se o ônibus possui internet ou não.
      */
     public void setInternet(boolean internet) {
         this.internet = internet;
     }
-
 }

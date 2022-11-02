@@ -7,6 +7,13 @@ public class Cliente {
     private int telefone;
     private int carteiraMotorista;
 
+    /**
+     * @param CPF CPF do cliente.
+     * @param nome Nome do cliente.
+     * @param endereco Endereço do cliente.
+     * @param telefone Telefone do cliente.
+     * @param carteiraMotorista Número da carteira de motorista do cliente.
+     */
     public Cliente(long CPF, String nome, String endereco, int telefone, int carteiraMotorista) {
         this.CPF = CPF;
         this.nome = nome;
@@ -15,75 +22,78 @@ public class Cliente {
         this.carteiraMotorista = carteiraMotorista;
     }
 
+    /**
+     * Possibilita a criação de um objeto Cliente sem parâmetros.
+     */
     public Cliente() {
         // Construtor padrão
     }
 
     /**
-     * @return long return the CPF
+     * @return CPF do cliente do tipo long.
      */
     public long getCPF() {
         return CPF;
     }
 
     /**
-     * @param CPF the CPF to set
+     * @param CPF Seta o CPF do cliente do tipo long.
      */
     public void setCPF(long CPF) {
         this.CPF = CPF;
     }
 
     /**
-     * @return String return the nome
+     * @return Nome do cliente do tipo String.
      */
     public String getNome() {
         return nome;
     }
 
     /**
-     * @param nome the nome to set
+     * @param nome Seta o nome do cliente do tipo String.
      */
     public void setNome(String nome) {
         this.nome = nome;
     }
 
     /**
-     * @return String return the endereco
+     * @return Endereço do cliente do tipo String.
      */
     public String getEndereco() {
         return endereco;
     }
 
     /**
-     * @param endereco the endereco to set
+     * @param endereco Seta o endereço do cliente do tipo String.
      */
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
 
     /**
-     * @return int return the telefone
+     * @return Telefone do cliente do tipo int.
      */
     public int getTelefone() {
         return telefone;
     }
 
     /**
-     * @param telefone the telefone to set
+     * @param telefone Seta o telefone do cliente do tipo int.
      */
     public void setTelefone(int telefone) {
         this.telefone = telefone;
     }
 
     /**
-     * @return int return the carteiraMotorista
+     * @return Número da carteira de motorista do cliente do tipo int.
      */
     public int getCarteiraMotorista() {
         return carteiraMotorista;
     }
 
     /**
-     * @param carteiraMotorista the carteiraMotorista to set
+     * @param carteiraMotorista Seta o número da carteira de motorista do cliente do tipo int.
      */
     public void setCarteiraMotorista(int carteiraMotorista) {
         this.carteiraMotorista = carteiraMotorista;

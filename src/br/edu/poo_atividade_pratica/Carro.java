@@ -7,6 +7,16 @@ public class Carro extends Veiculo {
     private boolean arCondicionado;
     private float mediaKmLitro;
 
+    /**
+     * @param placa Placa do veículo.
+     * @param modelo Modelo do veículo.
+     * @param ano Ano do veículo.
+     * @param valorDiaria Valor da diária do veículo.
+     * @param numPortas Número de portas do carro.
+     * @param numPassageiros Número de passageiros do carro.
+     * @param arCondicionado Se o carro possui ar condicionado ou não.
+     * @param mediaKmLitro Média de quilômetros por litro do carro.
+     */
     public Carro(String placa, String modelo, int ano, float valorDiaria, int numPortas,
             int numPassageiros, boolean arCondicionado, float mediaKmLitro) {
         super(placa, modelo, ano, valorDiaria);
@@ -17,59 +27,58 @@ public class Carro extends Veiculo {
     }
 
     /**
-     * @return int return the numPortas
+     * @return Número de portas do carro do tipo int.
      */
     public int getNumPortas() {
         return numPortas;
     }
 
     /**
-     * @param numPortas the numPortas to set
+     * @param numPortas Seta o número de portas do carro do tipo int.
      */
     public void setNumPortas(int numPortas) {
         this.numPortas = numPortas;
     }
 
     /**
-     * @return int return the numPassageiros
+     * @return Número de passageiros do carro do tipo int.
      */
     public int getNumPassageiros() {
         return numPassageiros;
     }
 
     /**
-     * @param numPassageiros the numPassageiros to set
+     * @param numPassageiros Seta o número de passageiros do carro do tipo int.
      */
     public void setNumPassageiros(int numPassageiros) {
         this.numPassageiros = numPassageiros;
     }
 
     /**
-     * @return boolean return the arCondicionado
+     * @return Se o carro possui ar condicionado ou não do tipo boolean.
      */
     public boolean isArCondicionado() {
         return arCondicionado;
     }
 
     /**
-     * @param arCondicionado the arCondicionado to set
+     * @param arCondicionado Seta se o carro possui ar condicionado ou não do tipo boolean.
      */
     public void setArCondicionado(boolean arCondicionado) {
         this.arCondicionado = arCondicionado;
     }
 
     /**
-     * @return float return the mediaKmLitro
+     * @return Média de quilômetros por litro do carro do tipo float.
      */
     public float getMediaKmLitro() {
         return mediaKmLitro;
     }
 
     /**
-     * @param mediaKmLitro the mediaKmLitro to set
+     * @param mediaKmLitro Seta a média de quilômetros por litro do carro do tipo float.
      */
     public void setMediaKmLitro(float mediaKmLitro) {
         this.mediaKmLitro = mediaKmLitro;
     }
-
 }
