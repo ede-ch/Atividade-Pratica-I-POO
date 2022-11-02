@@ -1,14 +1,15 @@
 package br.edu.poo_atividade_pratica;
+
 public class Carro extends Veiculo {
 
-    // Creating a class called Carro.
     private int numPortas;
     private int numPassageiros;
     private boolean arCondicionado;
-    private float mediaKmLitro; 
+    private float mediaKmLitro;
 
-    public Carro(String placa, String modelo, int ano, float valorDiaria, int numPortas, int numPassageiros, boolean arCondicionado, float mediaKmLitro) {
-        super (placa, modelo, ano, valorDiaria);
+    public Carro(String placa, String modelo, int ano, float valorDiaria, int numPortas,
+            int numPassageiros, boolean arCondicionado, float mediaKmLitro) {
+        super(placa, modelo, ano, valorDiaria);
         this.numPortas = numPortas;
         this.numPassageiros = numPassageiros;
         this.arCondicionado = arCondicionado;
@@ -16,94 +17,59 @@ public class Carro extends Veiculo {
     }
 
     /**
-     * This function returns the value of the variable numPortas
-     * 
-     * @return The value of the variable numPortas.
+     * @return int return the numPortas
      */
     public int getNumPortas() {
         return numPortas;
     }
 
     /**
-     * This function sets the value of the variable numPortas to the value of the
-     * parameter numPortas
-     * 
-     * @param numPortas int
+     * @param numPortas the numPortas to set
      */
     public void setNumPortas(int numPortas) {
         this.numPortas = numPortas;
     }
 
     /**
-     * This function returns the value of the variable numPassageiros
-     * 
-     * @return The value of the variable numPassageiros.
+     * @return int return the numPassageiros
      */
     public int getNumPassageiros() {
         return numPassageiros;
     }
 
     /**
-     * This function sets the value of the variable numPassageiros to the value of
-     * the parameter numPassageiros
-     * 
-     * @param numPassageiros int
+     * @param numPassageiros the numPassageiros to set
      */
     public void setNumPassageiros(int numPassageiros) {
         this.numPassageiros = numPassageiros;
     }
 
     /**
-     * This function returns the value of the variable arCondicionado
-     * 
-     * @return The value of the variable arCondicionado.
+     * @return boolean return the arCondicionado
      */
     public boolean isArCondicionado() {
         return arCondicionado;
     }
 
     /**
-     * This function sets the value of the variable arCondicionado to the value of
-     * the parameter arCondicionado
-     * 
-     * @param arCondicionado boolean
+     * @param arCondicionado the arCondicionado to set
      */
     public void setArCondicionado(boolean arCondicionado) {
         this.arCondicionado = arCondicionado;
     }
 
     /**
-     * This function returns the value of the variable mediaKmLitro
-     * 
-     * @return The value of the variable mediaKmLitro.
+     * @return float return the mediaKmLitro
      */
     public float getMediaKmLitro() {
         return mediaKmLitro;
     }
 
     /**
-     * This function sets the value of the variable mediaKmLitro to the value of the
-     * parameter mediaKmLitro
-     * 
-     * @param mediaKmLitro float
+     * @param mediaKmLitro the mediaKmLitro to set
      */
     public void setMediaKmLitro(float mediaKmLitro) {
         this.mediaKmLitro = mediaKmLitro;
     }
+
 }
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-    
-

@@ -1,13 +1,14 @@
 package br.edu.poo_atividade_pratica;
+
 public class Onibus extends Veiculo {
 
-    // Declaring the variables.
     private int numPassageiros;
     private boolean arCondicionado;
     private String categoria;
     private boolean internet;
 
-    public Onibus(String placa, String modelo, int ano, float valorDiaria, int numPassageiros, boolean arCondicionado, String categoria, boolean internet) {
+    public Onibus(String placa, String modelo, int ano, float valorDiaria, int numPassageiros,
+            boolean arCondicionado, String categoria, boolean internet) {
         super(placa, modelo, ano, valorDiaria);
         this.numPassageiros = numPassageiros;
         this.arCondicionado = arCondicionado;
@@ -16,76 +17,56 @@ public class Onibus extends Veiculo {
     }
 
     /**
-     * This function returns the value of the variable numPassageiros
-     * 
-     * @return The value of the variable numPassageiros.
+     * @return int return the numPassageiros
      */
     public int getNumPassageiros() {
         return numPassageiros;
     }
 
     /**
-     * This function sets the value of the variable numPassageiros to the value of
-     * the parameter numPassageiros
-     * 
-     * @param numPassageiros int
+     * @param numPassageiros the numPassageiros to set
      */
     public void setNumPassageiros(int numPassageiros) {
         this.numPassageiros = numPassageiros;
     }
 
     /**
-     * This function returns the value of the variable arCondicionado
-     * 
-     * @return The value of the variable arCondicionado.
+     * @return boolean return the arCondicionado
      */
     public boolean isArCondicionado() {
         return arCondicionado;
     }
 
     /**
-     * This function sets the value of the variable arCondicionado to the value of
-     * the parameter arCondicionado
-     * 
-     * @param arCondicionado boolean
+     * @param arCondicionado the arCondicionado to set
      */
     public void setArCondicionado(boolean arCondicionado) {
         this.arCondicionado = arCondicionado;
     }
 
     /**
-     * This function returns the value of the variable categoria
-     * 
-     * @return The value of the variable categoria.
+     * @return String return the categoria
      */
     public String getCategoria() {
         return categoria;
     }
 
     /**
-     * This function sets the value of the variable categoria to the value of the
-     * parameter categoria
-     * 
-     * @param categoria String
+     * @param categoria the categoria to set
      */
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
 
     /**
-     * This function returns the value of the variable internet
-     * 
-     * @return The value of the variable internet.
+     * @return boolean return the internet
      */
     public boolean isInternet() {
         return internet;
     }
 
     /**
-     * This function sets the value of the variable internet to the value of the
-     * parameter internet
-     * 
-     * @param internet boolean
+     * @param internet the internet to set
      */
     public void setInternet(boolean internet) {
         this.internet = internet;
