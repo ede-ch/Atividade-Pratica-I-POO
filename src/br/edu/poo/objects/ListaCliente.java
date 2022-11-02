@@ -5,7 +5,7 @@ public class ListaCliente implements IClientes {
     private int numClientes;
 
     /**
-     * @param c cliente do tipo Cliente. 
+     * @param c Cliente do tipo Cliente. 
      * Se "c" não é nulo e é uma instância do tipo Cliente, adiciona um cliente na lista de clientes.
      * Caso contrário, não adiciona e retorna "Não é um cliente válido".
      * !Inicializar a variável numClientes com "0"!
@@ -20,8 +20,9 @@ public class ListaCliente implements IClientes {
 
     /**
      * @param CPF CPF do cliente do tipo long.
+     * @return Cliente com o CPF informado.
      * @return "null" se o CPF não for válido ou não for encontrado.
-     * Se CPF maior que zero e encontra um CPF igual na lista, procura o cliente na lista de clientes.
+     * Se CPF maior que zero e encontra um CPF igual na lista, exibe o cliente na lista de clientes.
      * Caso contrário, retorna "null".
      */
     @Override
@@ -38,8 +39,8 @@ public class ListaCliente implements IClientes {
     
     /**
      * @param CPF CPF do cliente do tipo long.
-     * @return "Cliente não encontrado" se o CPF não for válido ou não for encontrado.
      * @return Cliente com o CPF informado.
+     * @return "Cliente não encontrado" se o CPF não for válido ou não for encontrado.
      * Se CPF maior que zero e encontra um CPF igual na lista, retorna informações sobre o cliente.
      * Caso contrário, retorna "Cliente não encontrado".
      */
@@ -73,6 +74,7 @@ public class ListaCliente implements IClientes {
     }
 
     /**
+     * @return Informaçoes resumidas sobre todos os clientes.
      * @return "Não há clientes cadastrados" se a lista de clientes estiver vazia.
      * Se o tamanho da lista de clientes for maior que zero, para cada cliente na lista de clientes,
      * retorna informações resumidas sobre os clientes.

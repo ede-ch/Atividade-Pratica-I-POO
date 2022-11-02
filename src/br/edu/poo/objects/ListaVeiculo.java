@@ -22,7 +22,7 @@ public class ListaVeiculo implements IVeiculos {
      * @param placa placa do veículo do tipo String.
      * @return Veículo com a placa informada.
      * @return "null" se a placa não for válida ou não for encontrada.
-     * Se a placa não for nula, procura o veículo na lista de veículos.
+     * Se a placa não for nula, exibe o veículo na lista de veículos.
      * Caso contrário, retorna "null".
      */
     @Override
@@ -73,9 +73,10 @@ public class ListaVeiculo implements IVeiculos {
     }
 
     /**
-     * @return Informações sobre todos os veículos.
+     * @return Informações resumidas sobre todos os veículos.
      * @return "Não há veículos cadastrados" se não existir nenhum veículo.
-     * Se existir algum veículo, retorna informações sobre todos os veículos.
+     * Se existir algum veículo, para cada veículo na lista de veículos,
+     * retorna informações resumidas sobre todos os veículos.
      * Caso contrário, retorna "Não há veículos cadastrados".
      */
     @Override
@@ -93,7 +94,7 @@ public class ListaVeiculo implements IVeiculos {
      * @param placa placa do veículo do tipo String.
      * @return "true" se a placa for válida e o veículo for encontrado.
      * @return "false" se a placa não for válida ou não for encontrada.
-     * Se a placa não for nula, remove o veículo da lista de veículos e retorna true.
+     * Se a placa não for nula e o veículo existir, remove o veículo da lista de veículos e retorna true.
      * Caso contrário, retorna false.
      */
     @Override
@@ -115,7 +116,7 @@ public class ListaVeiculo implements IVeiculos {
      * @param placa placa do veículo do tipo String.
      * @return "true" se a placa for válida e o veículo for encontrado.
      * @return "false" se a placa não for válida ou não for encontrada.
-     * Se a placa não for nula, retorna true.
+     * Se a placa não for nula e o veículo existir, retorna true.
      * Caso contrário, retorna false.
      */
     @Override
