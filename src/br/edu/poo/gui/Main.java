@@ -1,9 +1,6 @@
 package br.edu.poo.gui;
 
-import br.edu.poo.objects.Carro;
-import br.edu.poo.objects.Cliente;
-import br.edu.poo.objects.Locacao;
-import br.edu.poo.objects.Veiculo;
+import br.edu.poo.objects.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -29,5 +26,8 @@ public class Main {
         Locacao locacao4 = new Locacao(cliente4, veiculo4, "12/12/2022", "12/01/2023", true);
         Locacao locacao5 = new Locacao(cliente5, veiculo5, "12/12/2022", "12/01/2023", true);
 
+        MenuVeiculo menuVeiculo = new MenuVeiculo();
+        
+        menuVeiculo.Menu();
     }
 }    
