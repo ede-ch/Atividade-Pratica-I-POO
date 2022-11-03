@@ -100,8 +100,8 @@ public class Cliente {
     }
 
     public String toString() {
-        return "[Cliente: " + nome + ", CPF: " + CPF + ", Endereço: " + endereco
-                + ", Telefone: " + telefone + ", Carteira de Motorista: "
-                + carteiraMotorista + "]\n";
+        return "Cliente: " + nome + "\nCPF: " + CPF + "\nEndereço: " + endereco
+                + "\nTelefone: " + telefone + "\nCarteira de Motorista: "
+                + carteiraMotorista;
     }
 }

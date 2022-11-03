@@ -83,7 +83,7 @@ public class Veiculo {
     }
 
     public String toString() {
-        return "Placa: " + placa + ", Modelo: " + modelo + ", Ano: " + ano + ", Valor da diária: "
+        return "Placa: " + placa + "\nModelo: " + modelo + "\nAno: " + ano + "\nValor da diária: "
                 + valorDiaria;
     }
 }

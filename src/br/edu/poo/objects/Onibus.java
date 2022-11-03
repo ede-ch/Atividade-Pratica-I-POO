@@ -83,7 +83,7 @@ public class Onibus extends Veiculo {
     }
 
     public String toString() {
-        return "[Ônibus: " + super.toString() + " Número de passageiros: " + numPassageiros + " Categoria: "
-                + categoria + " Ar condicionado: " + arCondicionado + " Internet: " + internet + "]\n";
+        return "Ônibus: " + super.toString() + "\nNúmero de passageiros: " + numPassageiros + "\nCategoria: "
+                + categoria + "\nAr condicionado: " + arCondicionado + "\nInternet: " + internet ;
     }
 }

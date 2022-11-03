@@ -143,8 +143,8 @@ public class Locacao {
     }
 
     public String toString() {
-        return "[Locação: " + codigo + ", Cliente: " + cliente + ", Veículo: " + veiculo + ", Seguro: "
-                + seguro + ", Data de locação: " + formatoData.format(dataLocacao) + ", Data de devolução: "
-                + formatoData.format(dataDevolucao) + "]\n";
+        return "Locação: " + codigo + "\n" + cliente + "\n" + veiculo + "\nSeguro: "
+                + seguro + "\nData de locação: " + formatoData.format(dataLocacao) + "\nData de devolução: "
+                + formatoData.format(dataDevolucao);
     }
 }

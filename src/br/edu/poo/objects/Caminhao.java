@@ -49,7 +49,7 @@ public class Caminhao extends Veiculo {
     }
 
     public String toString() {
-        return "[Caminhão: " + super.toString() + " Número de eixos: " + numEixos + " Capacidade de carga: "
-                + capacidadeCarga + "]\n";
+        return "Caminhão: " + super.toString() + "\nNúmero de eixos: " + numEixos + "\nCapacidade de carga: "
+                + capacidadeCarga;
     }
 }

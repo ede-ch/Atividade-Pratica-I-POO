@@ -83,7 +83,7 @@ public class Carro extends Veiculo {
     }
 
     public String toString() {
-        return "[Carro: " + super.toString() + ", Número de portas: " + numPortas + ", Número de passageiros: " + numPassageiros
-                + ", Ar condicionado: " + arCondicionado + ", Média de quilômetros por litro: " + mediaKmLitro + "]\n";
+        return "Carro: " + super.toString() + "\nNúmero de portas: " + numPortas + "\nNúmero de passageiros: " + numPassageiros
+                + "\nAr condicionado: " + arCondicionado + "\nMédia de quilômetros por litro: " + mediaKmLitro;
     }
 }
