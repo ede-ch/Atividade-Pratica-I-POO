@@ -1,8 +1,20 @@
 package br.edu.poo.objects;
 
+import java.util.ArrayList;
+
+/**
+ * Classe que implementa uma lista de veículos e seus métodos.
+ * Durante o processo de desenvolvimento dos métodos, a IDE VSCode
+ * impediu a criação de métodos com retornos diferentes dentro de 
+ * um bloco IF-ELSE. Essa é uma noção de programação estruturada
+ * conhecida como Single-Entry-Single-Exit (SESE). A comunidade
+ * crê que isso é uma convenção herdada da linguagem C.
+ * https://softwareengineering.stackexchange.com/questions/118703/where-did-the-notion-of-one-return-only-come-from
+ * Notes on structured programming by Prof. Dr E. W. Dijkstra https://www.cs.utexas.edu/users/EWD/ewd02xx/EWD249.PDF
+ * 
+ */
 public class ListaVeiculo implements IVeiculos {
-    private Veiculo[] listaVeiculos;
-    private int numVeiculos;
+    private ArrayList<Veiculo> listaVeiculos = new ArrayList<Veiculo>();
 
     /**
      * @param v veiculo do tipo Veiculo. 
@@ -13,9 +25,11 @@ public class ListaVeiculo implements IVeiculos {
     @Override
     public void add(Veiculo v) {
         if (v != null && v instanceof Veiculo) {
-            listaVeiculos[numVeiculos++] = v;
+            listaVeiculos.add(v);
+            System.out.println("Veículo adicionado com sucesso!");
+        } else {
+            System.err.println("Não é um veículo válido.");
         }
-        System.err.println("Não é um veículo válido.");
     }
 
     /**
@@ -27,14 +41,18 @@ public class ListaVeiculo implements IVeiculos {
      */
     @Override
     public Veiculo get(String placa) {
+        Veiculo resultado = null;
+
         if (placa != null) {
-            for (int i = 0; i < listaVeiculos.length; i++) {
-                if (listaVeiculos[i].getPlaca().equals(placa)) {
-                    return listaVeiculos[i];
+            for (int i = 0; i < listaVeiculos.size(); i++) {
+                if (listaVeiculos.get(i).getPlaca().equals(placa)) {
+                    resultado = listaVeiculos.get(i);
                 }
             }
+        } else {
+            resultado = null;
         }
-        return null;
+        return resultado;
     }
 
     /**
@@ -46,14 +64,18 @@ public class ListaVeiculo implements IVeiculos {
      */
     @Override
     public String getInfo(String placa) {
+        String resultado = null;
+
         if (placa != null) {
-            for (int i = 0; i < listaVeiculos.length; i++) {
-                if (listaVeiculos[i].getPlaca().equals(placa)) {
-                    return listaVeiculos[i].toString();
+            for (int i = 0; i < listaVeiculos.size(); i++) {
+                if (listaVeiculos.get(i).getPlaca().equals(placa)) {
+                    resultado = listaVeiculos.get(i).toString();
                 }
             }
+        } else {
+            resultado = "Veiculo não encontrado";
         }
-        return "Veiculo não encontrado";
+        return resultado;
     }
 
     /**
@@ -64,12 +86,16 @@ public class ListaVeiculo implements IVeiculos {
      */
     @Override
     public String getInfo() {
-        if (listaVeiculos.length > 0) {
+        String resultado = null;
+
+        if (listaVeiculos.size() > 0) {
             for (Veiculo veiculo : listaVeiculos) {
-                return veiculo.toString();
+                resultado = veiculo.toString();
             }
+        } else {
+            resultado = "Não há veículos cadastrados";
         }
-        return "Não há veículos cadastrados";
+        return resultado;
     }
 
     /**
@@ -81,13 +107,17 @@ public class ListaVeiculo implements IVeiculos {
      */
     @Override
     public String getResumoInfo() {
-        if (listaVeiculos.length > 0) {
+        String resultado = null;
+
+        if (listaVeiculos.size() > 0) {
             for (Veiculo veiculo : listaVeiculos) {
-                return veiculo.getPlaca() + veiculo.getAno()
+                resultado = veiculo.getPlaca() + veiculo.getAno()
                         + veiculo.getValorDiaria();
             }
+        } else {
+            resultado = "Não há veículos cadastrados";
         }
-        return "Não há veículos cadastrados";
+        return resultado;
     }
 
     /**
@@ -99,17 +129,18 @@ public class ListaVeiculo implements IVeiculos {
      */
     @Override
     public boolean remove(String placa) {
+        boolean resultado = false;
         if (placa != null) {
-            for (int i = 0; i < listaVeiculos.length; i++) {
-                if (listaVeiculos[i].getPlaca().equals(placa)) {
-                    listaVeiculos[i] = listaVeiculos[numVeiculos - 1];
-                    listaVeiculos[numVeiculos - 1] = null;
-                    numVeiculos--;
+            for (int i = 0; i < listaVeiculos.size(); i++) {
+                if (listaVeiculos.get(i).getPlaca().equals(placa)) {
+                    listaVeiculos.remove(i);
                     return true;
                 }
             }
+        } else {
+            return false;
         }
-        return false;
+        return resultado;
     }
 
     /**
@@ -121,13 +152,17 @@ public class ListaVeiculo implements IVeiculos {
      */
     @Override
     public boolean existe(String placa) {
+        boolean resultado = false;
+
         if (placa != null) {
-            for (int i = 0; i < listaVeiculos.length; i++) {
-                if (listaVeiculos[i].getPlaca().equals(placa)) {
-                    return true;
+            for (int i = 0; i < listaVeiculos.size(); i++) {
+                if (listaVeiculos.get(i).getPlaca().equals(placa)) {
+                    resultado = true;
                 }
             }
+        }else {
+            resultado = false;
         }
-        return false;
+        return resultado;
     }
 }
