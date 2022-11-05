@@ -134,6 +134,7 @@ public class ListaVeiculo implements IVeiculos {
             for (int i = 0; i < listaVeiculos.size(); i++) {
                 if (listaVeiculos.get(i).getPlaca().equals(placa)) {
                     listaVeiculos.remove(i);
+                    System.out.print("Veículo removido com sucesso!");
                     return true;
                 }
             }
@@ -158,10 +159,12 @@ public class ListaVeiculo implements IVeiculos {
             for (int i = 0; i < listaVeiculos.size(); i++) {
                 if (listaVeiculos.get(i).getPlaca().equals(placa)) {
                     resultado = true;
+                    System.out.print("Veículo encontrado!");
                 }
             }
-        }else {
+        } else {
             resultado = false;
+            System.out.print("Veículo não encontrado");
         }
         return resultado;
     }

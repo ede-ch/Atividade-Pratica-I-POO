@@ -1,9 +1,9 @@
 package br.edu.poo.objects;
 
-public class ListaLocacao implements ILocacoes {
-    private Locacao[] listaLocacoes;
-    private int numLocacoes;
+import java.util.ArrayList;
 
+public class ListaLocacao implements ILocacoes {
+    private ArrayList<Locacao> listaLocacoes = new ArrayList<Locacao>();
     /**
      * @param l Locação do tipo Locacao. 
      * Se "l" não é nulo e é uma instância do tipo Locacao, adiciona uma locação na lista de locações.
@@ -13,9 +13,11 @@ public class ListaLocacao implements ILocacoes {
     @Override
     public void add(Locacao l) {
         if (l != null && l instanceof Locacao) {
-            listaLocacoes[numLocacoes++] = l;
+            listaLocacoes.add(l);
+            System.out.println("Locação adicionada com sucesso!");
+        } else {
+            System.err.println("Não é uma locação válida.");
         }
-        System.err.println("Não é uma locação válida.");
     }
 
     /**
@@ -27,14 +29,18 @@ public class ListaLocacao implements ILocacoes {
      */
     @Override
     public Locacao get(int codigo) {
+        Locacao resultado = null;
+
         if (codigo > 0) {
-            for (int i = 0; i < listaLocacoes.length; i++) {
-                if (listaLocacoes[i].getCodigo() == codigo) {
-                    return listaLocacoes[i];
+            for (int i = 0; i < listaLocacoes.size(); i++) {
+                if (listaLocacoes.get(i).getCodigo() == codigo) {
+                    resultado = listaLocacoes.get(i);
                 }
             }
+        } else {
+            resultado = null;
         }
-        return null;
+        return resultado;
     }
 
     /**
@@ -46,14 +52,18 @@ public class ListaLocacao implements ILocacoes {
      */
     @Override
     public String getInfo(int codigo) {
+        String resultado = null;
+
         if (codigo > 0) {
-            for (int i = 0; i < listaLocacoes.length; i++) {
-                if (listaLocacoes[i].getCodigo() == codigo) {
-                    return listaLocacoes[i].toString();
+            for (int i = 0; i < listaLocacoes.size(); i++) {
+                if (listaLocacoes.get(i).getCodigo() == codigo) {
+                    resultado = listaLocacoes.get(i).toString();
                 }
             }
+        } else {
+            resultado = "Locação não encontrada";
         }
-        return "Locação não encontrada";
+        return resultado;
     }
 
     /**
@@ -65,12 +75,16 @@ public class ListaLocacao implements ILocacoes {
      */
     @Override
     public String getInfo() {
-        if (listaLocacoes.length > 0) {
+        String resultado = null;
+
+        if (listaLocacoes.size() > 0) {
             for (Locacao locacao : listaLocacoes) {
-                return locacao.toString();
+                resultado = locacao.toString();
             }
+        } else {
+            resultado = "Não há locações cadastradas";
         }
-        return "Não há locações cadastradas";
+        return resultado;
     }
 
     /**
@@ -83,15 +97,21 @@ public class ListaLocacao implements ILocacoes {
      */
     @Override
     public boolean remove(int codigo) {
+        boolean resultado = false;
+
         if (codigo > 0) {
-            for (int i = 0; i < listaLocacoes.length; i++) {
-                if (listaLocacoes[i].getCodigo() == codigo) {
-                    listaLocacoes[i] = null;
-                    return true;
+            for (int i = 0; i < listaLocacoes.size(); i++) {
+                if (listaLocacoes.get(i).getCodigo() == codigo) {
+                    listaLocacoes.remove(i);
+                    System.out.print("Locação removida com sucesso!");
+                    resultado = true;
                 }
             }
+        } else {
+            resultado = false;
+            System.err.println("Locação não encontrada");
         }
-        return false;
+        return resultado;
     }
     
     /**
@@ -103,13 +123,17 @@ public class ListaLocacao implements ILocacoes {
      */
     @Override
     public boolean existe(int codigo) {
+        boolean resultado = false;
+
         if (codigo > 0) {
-            for (int i = 0; i < listaLocacoes.length; i++) {
-                if (listaLocacoes[i].getCodigo() == codigo) {
-                    return true;
+            for (int i = 0; i < listaLocacoes.size(); i++) {
+                if (listaLocacoes.get(i).getCodigo() == codigo) {
+                    resultado = true;
                 }
             }
+        } else {
+            resultado = false;
         }
-        return false;
+        return resultado;
     }
 }

@@ -1,9 +1,9 @@
 package br.edu.poo.objects;
 
-public class ListaCliente implements IClientes {
-    private Cliente[] listaClientes;
-    private int numClientes;
+import java.util.ArrayList;
 
+public class ListaCliente implements IClientes {
+    private ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
     /**
      * @param c Cliente do tipo Cliente. 
      * Se "c" não é nulo e é uma instância do tipo Cliente, adiciona um cliente na lista de clientes.
@@ -13,9 +13,11 @@ public class ListaCliente implements IClientes {
     @Override
     public void add(Cliente c) {
         if (c != null && c instanceof Cliente) {
-            listaClientes[numClientes++] = c;
+            listaClientes.add(c);
+            System.out.println("Cliente adicionado com sucesso!");
+        } else {
+            System.err.println("Não é um cliente válido.");
         }
-        System.err.println("Não é um cliente válido.");
     }
 
     /**
@@ -27,14 +29,18 @@ public class ListaCliente implements IClientes {
      */
     @Override
     public Cliente get(long CPF) {
+        Cliente resultado = null;
+
         if (CPF > 0) {
-            for (int i = 0; i < listaClientes.length; i++) {
-                if (listaClientes[i].getCPF() == CPF) {
-                    return listaClientes[i];
+            for (int i = 0; i < listaClientes.size(); i++) {
+                if (listaClientes.get(i).getCPF() == CPF) {
+                    resultado = listaClientes.get(i);
                 }
             }
+        } else {
+            resultado = null;
         }
-        return null;
+        return resultado;
     }
     
     /**
@@ -46,14 +52,18 @@ public class ListaCliente implements IClientes {
      */
     @Override
     public String getInfo(long CPF) {
+        String resultado = null;
+
         if (CPF > 0) {
-            for (int i = 0; i < listaClientes.length; i++) {
-                if (listaClientes[i].getCPF() == CPF) {
-                    return listaClientes[i].toString();
+            for (int i = 0; i < listaClientes.size(); i++) {
+                if (listaClientes.get(i).getCPF() == CPF) {
+                    resultado = listaClientes.get(i).toString();
                 }
             }
+        } else {
+            resultado = "Cliente não encontrado";
         }
-        return "Cliente não encontrado";
+        return resultado;
     }
 
     /**
@@ -65,12 +75,16 @@ public class ListaCliente implements IClientes {
      */
     @Override
     public String getInfo() {
-        if (listaClientes.length > 0) {
+        String resultado = null;
+
+        if (listaClientes.size() > 0) {
             for (Cliente cliente : listaClientes) {
-                return cliente.toString();
+                resultado = cliente.toString();
             }
+        } else {
+            resultado = "Não há clientes cadastrados";
         }
-        return "Não há clientes cadastrados";
+        return resultado;
     }
 
     /**
@@ -82,13 +96,17 @@ public class ListaCliente implements IClientes {
      */
     @Override
     public String getResumoInfo() {
-        if (listaClientes.length > 0) {
+        String resultado = null;
+
+        if (listaClientes.size() > 0) {
             for (Cliente cliente : listaClientes) {
-                return cliente.getCPF() + cliente.getNome()
+                resultado = cliente.getCPF() + cliente.getNome()
                         + cliente.getTelefone();
             }
+        } else {
+            resultado = "Não há clientes cadastrados";
         }
-        return "Não há clientes cadastrados";
+        return resultado;
     }
 
     /**
@@ -100,15 +118,21 @@ public class ListaCliente implements IClientes {
      */
     @Override
     public boolean remove(long CPF) {
+        boolean resultado = false;
+
         if (CPF > 0) {
-            for (int i = 0; i < listaClientes.length; i++) {
-                if (listaClientes[i].getCPF() == CPF) {
-                    listaClientes[i] = listaClientes[--numClientes];
-                    return true;
+            for (int i = 0; i < listaClientes.size(); i++) {
+                if (listaClientes.get(i).getCPF() == CPF) {
+                    listaClientes.remove(i);
+                    System.out.println("Cliente removido com sucesso!");
+                    resultado = true;
                 }
             }
+        } else {
+            resultado = false;
+            System.err.println("Não é um CPF válido.");
         }
-        return false;
+        return resultado;
     }
 
     /**
@@ -121,8 +145,8 @@ public class ListaCliente implements IClientes {
     @Override
     public boolean existe(long CPF) {
         if (CPF > 0) {
-            for (int i = 0; i < listaClientes.length; i++) {
-                if (listaClientes[i].getCPF() == CPF) {
+            for (int i = 0; i < listaClientes.size(); i++) {
+                if (listaClientes.get(i).getCPF() == CPF) {
                     return true;
                 }
             }
