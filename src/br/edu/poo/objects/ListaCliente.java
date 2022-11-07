@@ -78,8 +78,8 @@ public class ListaCliente implements IClientes {
         String resultado = null;
 
         if (listaClientes.size() > 0) {
-            for (Cliente cliente : listaClientes) {
-                resultado = cliente.toString();
+            for (int i = 0; i < listaClientes.size(); i++) {
+                resultado = listaClientes.get(i).toString();
             }
         } else {
             resultado = "Não há clientes cadastrados";
@@ -99,9 +99,9 @@ public class ListaCliente implements IClientes {
         String resultado = null;
 
         if (listaClientes.size() > 0) {
-            for (Cliente cliente : listaClientes) {
-                resultado = cliente.getCPF() + cliente.getNome()
-                        + cliente.getTelefone();
+            for (int i = 0; i < listaClientes.size(); i++) {
+                resultado = listaClientes.get(i).getCPF() + listaClientes.get(i).getNome()
+                        + listaClientes.get(i).getTelefone();
             }
         } else {
             resultado = "Não há clientes cadastrados";
