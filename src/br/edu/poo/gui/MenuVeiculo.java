@@ -252,7 +252,7 @@ public class MenuVeiculo {
         System.out.print("Essa ação é irreversível. Deseja continuar?  \n1 - Sim 2 - Não: ");
         int opcao = input.nextInt();
         if (opcao == 1) {
-            metodoVeiculo.remove(placa);
+            System.out.println(metodoVeiculo.remove(placa));
             System.out.println("Veículo removido com sucesso!");
         } else if (opcao == 2) {
             System.out.println("Operação cancelada");
