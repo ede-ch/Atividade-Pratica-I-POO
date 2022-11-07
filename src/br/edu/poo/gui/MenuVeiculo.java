@@ -9,48 +9,66 @@ public class MenuVeiculo {
     Scanner input = new Scanner(System.in);
 
     public void Menu() {
-        System.out.print(
-                "1 - Adicionar veículo \n2 - Pesquisar um veículo \n3 - Exibir informações de um veículo \n4 - Exibir informações de todos veículos"
-                        + "\n5 - Exibir informações resumidas de todos veículos \n6 - Remover um veículo \n7 - Verificar existência de um veículo \n8 - Sair \nDigite a opção desejada: ");
+        int opcao = 0;
+        do {
+            System.out.print(
+                    "1 - Adicionar veículo \n2 - Pesquisar um veículo \n3 - Exibir informações de um veículo \n4 - Exibir informações de todos veículos"
+                            + "\n5 - Exibir informações resumidas de todos veículos \n6 - Remover um veículo \n7 - Verificar existência de um veículo \n8 - Sair \nDigite a opção desejada: ");
 
-        int opcao = input.nextInt();
-        switch (opcao) {
-            case 1:
-                addVeiculo();
-                break;
+            if (input.hasNextInt()) {
+                opcao = input.nextInt();
+            } else {
+                opcao = 0;
+            }
+                    
+            switch (opcao) {
+                case 1:
+                    addVeiculo();
+                    break;
 
-            case 2:
-                pesquisarVeiculo();
-                break;
+                case 2:
+                    pesquisarVeiculo();
+                    break;
 
-            case 3:
-                exibeInfoVeiculo();
-                break;
+                case 3:
+                    exibeInfoVeiculo();
+                    break;
 
-            case 4:
-                dadosTodosVeiculos();
-                break;
+                case 4:
+                    dadosTodosVeiculos();
+                    break;
 
-            case 5:
-                resumoVeiculos();
-                break;
+                case 5:
+                    resumoVeiculos();
+                    break;
 
-            case 6:
-                removeVeiculo();
-                break;
+                case 6:
+                    removeVeiculo();
+                    break;
 
-            case 7:
-                existeVeiculo();
-                break;
+                case 7:
+                    existeVeiculo();
+                    break;
 
-            case 8:
-                System.exit(0);
-                break;
+                case 8:
+                    System.out.println("Deseja sair? 1 - Sim 2 - Não: ");
+                    opcao = input.nextInt();
+                    if (opcao == 1) {
+                        System.out.println("Saindo...");
+                        System.exit(0);
+                    } else if (opcao == 2) {
+                        Menu();
+                    } else {
+                        System.out.println("Opção inválida!");
+                        Menu();
+                    }
+                    break;
 
-            default:
-                System.out.println("Opção inválida");
-                break;
-        }
+                default:
+                    System.out.println("Opção inválida");
+                    break;
+            }
+        } while (opcao != 8);
     }
 
     public void addVeiculo() {
@@ -140,7 +158,8 @@ public class MenuVeiculo {
         System.out.println("Digite a média de consumo do carro: ");
         float mediaKmLitro = input.nextFloat();
 
-        Veiculo carro = new Carro(placa, modelo, ano, valorDiaria, numPortas, numPassageiros, arCondicionado,
+        Veiculo carro = new Carro(placa, modelo, ano, valorDiaria, numPortas, numPassageiros,
+                arCondicionado,
                 mediaKmLitro);
 
         metodoVeiculo.add(carro);
@@ -149,7 +168,7 @@ public class MenuVeiculo {
     public void addOnibus() {
         System.out.print("Digite a placa do ônibus: ");
         String placa = input.nextLine();
-        
+
         String modelo = input.nextLine();
         System.out.print("Digite o modelo do ônibus: ");
         modelo = input.nextLine();
@@ -189,11 +208,12 @@ public class MenuVeiculo {
             System.out.println("Opção inválida");
         }
 
-        Veiculo onibus = new Onibus(placa, modelo, ano, valorDiaria, numPassageiros, categoria, arCondicionado,
+        Veiculo onibus = new Onibus(placa, modelo, ano, valorDiaria, numPassageiros, categoria,
+                arCondicionado,
                 internet);
 
         metodoVeiculo.add(onibus);
-    }  
+    }
 
     public void pesquisarVeiculo() {
         System.out.print("Digite a placa do veículo: ");
@@ -208,7 +228,7 @@ public class MenuVeiculo {
 
         metodoVeiculo.getInfo(placa);
     }
-    
+
     public void dadosTodosVeiculos() {
         System.out.print("Aqui estão os dados de todos os veículos: ");
 
