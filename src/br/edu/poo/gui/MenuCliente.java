@@ -5,6 +5,7 @@ import java.util.Scanner;
 import br.edu.poo.objects.*;
 
 public class MenuCliente {
+    private MenuLocadora menuLocadora = new MenuLocadora();
     private ListaCliente metodoCliente = new ListaCliente();
     Scanner input1 = new Scanner(System.in);
 
@@ -12,23 +13,23 @@ public class MenuCliente {
         int opcao = 0;
         do {
             System.out.println("\n\n");
-        System.out.println("+-------------------------------------------------------+");
-        System.out.println("|              Menu de Opções                           |");
-        System.out.println("+-------------------------------------------------------+");
-        System.out.println("| 1 - Adicionar cliente                                 |");
-        System.out.println("| 2 - Pesquisar um cliente                              |");
-        System.out.println("| 3 - Exibir informações de um cliente                  |");
-        System.out.println("| 4 - Exibir informações de todos clientes              |");
-        System.out.println("| 5 - Exibir informações resumidas de todos clientes    |");
-        System.out.println("| 6 - Remover um cliente                                |");
-        System.out.println("| 7 - Verificar existência de um cliente                |");
-        System.out.println("| 8 - Sair                                              |");
-        System.out.println("+-------------------------------------------------------+");
-        System.out.print("Opção: ");
-        
-            
+            System.out.println("+-------------------------------------------------------+");
+            System.out.println("|              Menu de Opções                           |");
+            System.out.println("+-------------------------------------------------------+");
+            System.out.println("| 1 - Adicionar cliente                                 |");
+            System.out.println("| 2 - Pesquisar um cliente                              |");
+            System.out.println("| 3 - Exibir informações de um cliente                  |");
+            System.out.println("| 4 - Exibir informações de todos clientes              |");
+            System.out.println("| 5 - Exibir informações resumidas de todos clientes    |");
+            System.out.println("| 6 - Remover um cliente                                |");
+            System.out.println("| 7 - Verificar existência de um cliente                |");
+            System.out.println("| 8 - Voltar                                            |");
+            System.out.println("+-------------------------------------------------------+");
+            System.out.print("Opção: ");
+
+
             opcao = input1.nextInt();
-                    
+
             switch (opcao) {
                 case 1:
                     addCliente();
@@ -59,26 +60,16 @@ public class MenuCliente {
                     break;
 
                 case 8:
-                    System.out.println("Deseja sair? 1 - Sim 2 - Não: ");
-                    opcao = input1.nextInt();
-                    if (opcao == 1) {
-                        System.out.println("Saindo...");
-                        System.exit(0);
-                    } else if (opcao == 2) {
-                        Menu();
-                    } else {
-                        System.out.println("Opção inválida!");
-                        Menu();
-                    }
-                    default:
-                        System.out.println("Opção inválida!");
-                        Menu();
+                    menuLocadora.Menu();
+                default:
+                    System.out.println("Opção inválida!");
+                    Menu();
             }
         } while (opcao != 8);
     }
 
     public void addCliente() {
-    
+
         System.out.print("Digite o CPF do cliente: ");
         long cpf = input1.nextLong();
 
@@ -93,42 +84,42 @@ public class MenuCliente {
 
         System.out.println("Digite a carteira do cliente: ");
         int carteira = input1.nextInt();
-    
+
         Cliente cliente = new Cliente(cpf, nome, endereco, telefone, carteira);
-            metodoCliente.add(cliente);
+        metodoCliente.add(cliente);
     }
 
     public void pesquisarCliente() {
         System.out.println("Digite o CPF do cliente: ");
         long cpf = input1.nextLong();
         System.out.println(metodoCliente.get(cpf));
-        
+
     }
 
-    public void exibeInfoCliente(){
+    public void exibeInfoCliente() {
         System.out.println("Digite o CPF do cliente: ");
         long cpf = input1.nextLong();
         System.out.println(metodoCliente.getInfo(cpf));
     }
 
-    public void dadosTodosClientes(){
+    public void dadosTodosClientes() {
         System.out.println("Clientes cadastrados: ");
         System.out.println(metodoCliente.getInfo());
     }
 
-    public void resumoClientes(){
+    public void resumoClientes() {
         System.out.println("Clientes cadastrados: ");
         System.out.println(metodoCliente.getResumoInfo());
-        
+
     }
 
-    public void removeCliente(){
+    public void removeCliente() {
         System.out.println("Digite o CPF do cliente: ");
         long cpf = input1.nextLong();
         System.out.println(metodoCliente.remove(cpf));
     }
 
-    public void existeCliente(){
+    public void existeCliente() {
         System.out.println("Digite o CPF do cliente: ");
         long cpf = input1.nextLong();
         System.out.println(metodoCliente.existe(cpf));

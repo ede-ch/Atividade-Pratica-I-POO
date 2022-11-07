@@ -4,6 +4,7 @@ import br.edu.poo.objects.*;
 import java.util.Scanner;
 
 public class MenuLocacao {
+    private MenuLocadora menuLocadora = new MenuLocadora();
     private ListaLocacao metodoLocacao = new ListaLocacao();
     private ListaCliente metodoCliente = new ListaCliente();
     private ListaVeiculo metodoVeiculo = new ListaVeiculo();
@@ -22,7 +23,7 @@ public class MenuLocacao {
             System.out.println("| 04 - Todas locações                       |");
             System.out.println("| 05 - Remove                               |");
             System.out.println("| 06 - Verifica                             |");
-            System.out.println("| 07 - Sair                                 |");
+            System.out.println("| 07 - Voltar                               |");
             System.out.println("+-------------------------------------------+");
 
             System.out.print("Opção: ");
@@ -51,20 +52,11 @@ public class MenuLocacao {
                     existeLocacao();
                     break;
                 case 7:
-                    System.out.println("Deseja sair? 1 - Sim 2 - Não: ");
-                    opcao = input.nextInt();
-                    if (opcao == 1) {
-                        System.out.println("Saindo...");
-                        System.exit(0);
-                    } else if (opcao == 2) {
-                        Menu();
-                    } else {
-                        System.out.println("Opção inválida!");
-                        Menu();
-                    }
+                    menuLocadora.Menu();
                     break;
                 default:
                     System.out.println("Opção inválida!");
+                    Menu();
             }
         } while (opcao != 7);
     }
