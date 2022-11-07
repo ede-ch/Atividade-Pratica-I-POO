@@ -4,7 +4,6 @@ import br.edu.poo.objects.*;
 import java.util.Scanner;
 
 public class MenuLocacao {
-    private MenuLocadora menuLocadora = new MenuLocadora();
     private ListaLocacao metodoLocacao = new ListaLocacao();
     private ListaCliente metodoCliente = new ListaCliente();
     private ListaVeiculo metodoVeiculo = new ListaVeiculo();
@@ -52,7 +51,7 @@ public class MenuLocacao {
                     existeLocacao();
                     break;
                 case 7:
-                    menuLocadora.Menu();
+
                     break;
                 default:
                     System.out.println("Opção inválida!");

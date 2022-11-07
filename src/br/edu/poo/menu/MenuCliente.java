@@ -1,11 +1,9 @@
 package br.edu.poo.menu;
 
 import java.util.Scanner;
-
 import br.edu.poo.objects.*;
 
 public class MenuCliente {
-    private MenuLocadora menuLocadora = new MenuLocadora();
     private ListaCliente metodoCliente = new ListaCliente();
     Scanner input1 = new Scanner(System.in);
 
@@ -60,7 +58,7 @@ public class MenuCliente {
                     break;
 
                 case 8:
-                    menuLocadora.Menu();
+
                 default:
                     System.out.println("Opção inválida!");
                     Menu();
@@ -79,8 +77,9 @@ public class MenuCliente {
         System.out.println("Digite o telefone do cliente: ");
         int telefone = input1.nextInt();
 
+        String endereco = input1.nextLine();
         System.out.println("Digite o endereço do cliente: ");
-        String endereco = input1.next();
+        endereco = input1.nextLine();
 
         System.out.println("Digite a carteira do cliente: ");
         int carteira = input1.nextInt();

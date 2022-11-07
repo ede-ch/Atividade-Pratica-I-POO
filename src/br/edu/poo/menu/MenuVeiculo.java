@@ -5,7 +5,6 @@ import br.edu.poo.objects.*;
 import java.util.Scanner;
 
 public class MenuVeiculo {
-    private MenuLocadora menuLocadora = new MenuLocadora();
     private ListaVeiculo metodoVeiculo = new ListaVeiculo();
     Scanner input = new Scanner(System.in);
 
@@ -58,7 +57,7 @@ public class MenuVeiculo {
                     break;
 
                 case 8:
-                    menuLocadora.Menu();
+                    //MenuLocadora.Menu();
                     break;
 
                 default:
