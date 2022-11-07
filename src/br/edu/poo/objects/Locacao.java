@@ -58,6 +58,7 @@ public class Locacao {
     public Locacao() {
         // Construtor padrão
     }
+    
 
     /**
      * @return Cliente do tipo Cliente.

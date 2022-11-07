@@ -74,7 +74,7 @@ public class ListaCliente implements IClientes {
      * Caso contrário, retorna "Não há clientes cadastrados".
      */
     @Override
-    public String getInfo() {
+    public String getInfoTotal() {
         String resultado = null;
 
         if (listaClientes.size() > 0) {

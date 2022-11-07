@@ -30,7 +30,7 @@ public interface IClientes {
      * @return String com as informaçoes de todos os clientes
      * ou null caso não exista nenhum cliente.
      */
-    public String getInfo();
+    public String getInfoTotal();
     
     /**
      * Captura uma String com o CPF e o nome de todos os clientes.

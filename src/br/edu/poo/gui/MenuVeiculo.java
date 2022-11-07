@@ -14,13 +14,9 @@ public class MenuVeiculo {
             System.out.print(
                     "1 - Adicionar veículo \n2 - Pesquisar um veículo \n3 - Exibir informações de um veículo \n4 - Exibir informações de todos veículos"
                             + "\n5 - Exibir informações resumidas de todos veículos \n6 - Remover um veículo \n7 - Verificar existência de um veículo \n8 - Sair \nDigite a opção desejada: ");
-
-            if (input.hasNextInt()) {
-                opcao = input.nextInt();
-            } else {
-                opcao = 0;
-            }
-                    
+            
+            opcao = input.nextInt();
+            
             switch (opcao) {
                 case 1:
                     addVeiculo();
@@ -186,7 +182,7 @@ public class MenuVeiculo {
         System.out.print("Digite a categoria do ônibus: ");
         categoria = input.nextLine();
 
-        System.out.print("O ônibus possui ar condicionado? \n1 - Sim \n2 - Não");
+        System.out.print("O ônibus possui ar condicionado? \n1 - Sim 2 - Não: ");
         int arCond = input.nextInt();
         boolean arCondicionado = false;
         if (arCond == 1) {
@@ -197,7 +193,7 @@ public class MenuVeiculo {
             System.out.println("Opção inválida");
         }
 
-        System.out.print("O ônibus possui internet? \n1 - Sim \n2 - Não");
+        System.out.print("O ônibus possui internet? \n1 - Sim 2 - Não: ");
         int net = input.nextInt();
         boolean internet = false;
         if (net == 1) {
@@ -216,34 +212,37 @@ public class MenuVeiculo {
     }
 
     public void pesquisarVeiculo() {
-        System.out.print("Digite a placa do veículo: ");
         String placa = input.nextLine();
+        System.out.print("Digite a placa do veículo: ");
+        placa = input.nextLine();
 
-        metodoVeiculo.get(placa);
+        System.out.println("Veículo encontrado: " + metodoVeiculo.get(placa));
     }
 
     public void exibeInfoVeiculo() {
-        System.out.print("Digite a placa do veículo: ");
         String placa = input.nextLine();
+        System.out.print("Digite a placa do veículo: ");
+        placa = input.nextLine();
 
-        metodoVeiculo.getInfo(placa);
+        System.out.println("Veículo encontrado: " + metodoVeiculo.getInfo(placa));
     }
 
     public void dadosTodosVeiculos() {
         System.out.print("Aqui estão os dados de todos os veículos: ");
 
-        metodoVeiculo.getInfo();
+        System.out.println(metodoVeiculo.getInfo());
     }
 
     public void resumoVeiculos() {
         System.out.print("Aqui está o resumo dos veículos: ");
 
-        metodoVeiculo.getResumoInfo();
+        System.out.println(metodoVeiculo.getResumoInfo());
     }
 
     public void removeVeiculo() {
-        System.out.print("Digite a placa do veículo: ");
         String placa = input.nextLine();
+        System.out.print("Digite a placa do veículo: ");
+        placa = input.nextLine();
 
         System.out.print("Essa ação é irreversível. Deseja continuar?  \n1 - Sim \n2 - Não: ");
         int opcao = input.nextInt();
@@ -258,9 +257,10 @@ public class MenuVeiculo {
     }
 
     public void existeVeiculo() {
-        System.out.println("Digite a placa do veículo: ");
         String placa = input.nextLine();
+        System.out.println("Digite a placa do veículo: ");
+        placa = input.nextLine();
 
-        metodoVeiculo.existe(placa);
+        System.out.println(metodoVeiculo.existe(placa));
     }
 }
