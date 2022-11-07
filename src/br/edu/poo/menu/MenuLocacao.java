@@ -1,4 +1,4 @@
-package br.edu.poo.gui;
+package br.edu.poo.menu;
 
 import br.edu.poo.objects.*;
 import java.util.Scanner;
