@@ -101,7 +101,7 @@ public class MenuCliente {
     public void pesquisarCliente() {
         System.out.println("Digite o CPF do cliente: ");
         long cpf = input1.nextLong();
-        System.out.print(metodoCliente.get(cpf));
+        System.out.println(metodoCliente.get(cpf));
         
     }
 
@@ -112,11 +112,8 @@ public class MenuCliente {
     }
 
     public void dadosTodosClientes(){
-        System.out.println(" \n Clientes cadastrados: ");
-        System.out.println("Cliente 1: " + metodoCliente.get(0));
-        System.out.println(metodoCliente.getInfoTotal());
-        System .out.println("Cliente 2: " + metodoCliente.get(1));
-        System.out.println(metodoCliente.getInfoTotal());
+        System.out.println("Clientes cadastrados: ");
+        System.out.println(metodoCliente.getInfo());
     }
 
     public void resumoClientes(){
@@ -128,7 +125,7 @@ public class MenuCliente {
     public void removeCliente(){
         System.out.println("Digite o CPF do cliente: ");
         long cpf = input1.nextLong();
-        metodoCliente.remove(cpf);
+        System.out.println(metodoCliente.remove(cpf));
     }
 
     public void existeCliente(){
