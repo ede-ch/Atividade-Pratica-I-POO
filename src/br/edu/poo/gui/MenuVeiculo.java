@@ -11,10 +11,20 @@ public class MenuVeiculo {
     public void Menu() {
         int opcao = 0;
         do {
-            System.out.print(
-                    "1 - Adicionar veículo \n2 - Pesquisar um veículo \n3 - Exibir informações de um veículo \n4 - Exibir informações de todos veículos"
-                            + "\n5 - Exibir informações resumidas de todos veículos \n6 - Remover um veículo \n7 - Verificar existência de um veículo \n8 - Sair \nDigite a opção desejada: ");
-
+            System.out.println("+-------------------------------------------------------+");
+            System.out.println("|              Menu de Opções                           |");
+            System.out.println("+-------------------------------------------------------+");
+            System.out.println("| 1 - Adicionar veículo                                 |");
+            System.out.println("| 2 - Pesquisar um veículo                              |");
+            System.out.println("| 3 - Exibir informações de um veículo                  |");
+            System.out.println("| 4 - Exibir informações de todos veículos              |");
+            System.out.println("| 5 - Exibir informações resumidas de todos veículos    |");
+            System.out.println("| 6 - Remover um veículo                                |");
+            System.out.println("| 7 - Verificar existência de um veículo                |");
+            System.out.println("| 8 - Sair                                              |");
+            System.out.println("+-------------------------------------------------------+");
+            
+            System.out.print("Opção: ");
             opcao = input.nextInt();
 
             switch (opcao) {
