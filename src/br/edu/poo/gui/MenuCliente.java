@@ -13,7 +13,7 @@ public class MenuCliente {
         do {
             System.out.println("\n\n");
         System.out.println("+-------------------------------------------------------+");
-        System.out.println("|              Menu de Opções                           |");
+        System.out.println("|              Menu de Opções do Cliente                |");
         System.out.println("+-------------------------------------------------------+");
         System.out.println("| 1 - Adicionar cliente                                 |");
         System.out.println("| 2 - Pesquisar um cliente                              |");
@@ -22,7 +22,8 @@ public class MenuCliente {
         System.out.println("| 5 - Exibir informações resumidas de todos clientes    |");
         System.out.println("| 6 - Remover um cliente                                |");
         System.out.println("| 7 - Verificar existência de um cliente                |");
-        System.out.println("| 8 - Sair                                              |");
+        System.out.println("| 8 - Voltar ao menu principal                          |");
+        System.out.println("| 9 - Sair                                              |");
         System.out.println("+-------------------------------------------------------+");
         System.out.print("Opção: ");
         
@@ -59,7 +60,11 @@ public class MenuCliente {
                     break;
 
                 case 8:
-                    System.out.println("Deseja sair? 1 - Sim 2 - Não: ");
+                    System.out.println("Voltando ao menu principal...");
+                    break;
+
+                case 9:
+                    System.out.print("Deseja sair? 1 - Sim 2 - Não: ");
                     opcao = input1.nextInt();
                     if (opcao == 1) {
                         System.out.println("Saindo...");
@@ -82,16 +87,16 @@ public class MenuCliente {
         System.out.print("Digite o CPF do cliente: ");
         long cpf = input1.nextLong();
 
-        System.out.println("Digite o nome do cliente: ");
+        System.out.print("Digite o nome do cliente: ");
         String nome = input1.next();
 
-        System.out.println("Digite o telefone do cliente: ");
+        System.out.print("Digite o telefone do cliente: ");
         int telefone = input1.nextInt();
 
-        System.out.println("Digite o endereço do cliente: ");
+        System.out.print("Digite o endereço do cliente: ");
         String endereco = input1.next();
 
-        System.out.println("Digite a carteira do cliente: ");
+        System.out.print("Digite a carteira do cliente: ");
         int carteira = input1.nextInt();
     
         Cliente cliente = new Cliente(cpf, nome, endereco, telefone, carteira);
@@ -99,14 +104,14 @@ public class MenuCliente {
     }
 
     public void pesquisarCliente() {
-        System.out.println("Digite o CPF do cliente: ");
+        System.out.print("Digite o CPF do cliente: ");
         long cpf = input1.nextLong();
         System.out.println(metodoCliente.get(cpf));
         
     }
 
     public void exibeInfoCliente(){
-        System.out.println("Digite o CPF do cliente: ");
+        System.out.print("Digite o CPF do cliente: ");
         long cpf = input1.nextLong();
         System.out.println(metodoCliente.getInfo(cpf));
     }
@@ -123,13 +128,13 @@ public class MenuCliente {
     }
 
     public void removeCliente(){
-        System.out.println("Digite o CPF do cliente: ");
+        System.out.print("Digite o CPF do cliente: ");
         long cpf = input1.nextLong();
         System.out.println(metodoCliente.remove(cpf));
     }
 
     public void existeCliente(){
-        System.out.println("Digite o CPF do cliente: ");
+        System.out.print("Digite o CPF do cliente: ");
         long cpf = input1.nextLong();
         System.out.println(metodoCliente.existe(cpf));
     }

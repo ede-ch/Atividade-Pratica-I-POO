@@ -12,7 +12,7 @@ public class MenuVeiculo {
         int opcao = 0;
         do {
             System.out.println("+-------------------------------------------------------+");
-            System.out.println("|              Menu de Opções                           |");
+            System.out.println("|              Menu de Opções do Veiculo                |");
             System.out.println("+-------------------------------------------------------+");
             System.out.println("| 1 - Adicionar veículo                                 |");
             System.out.println("| 2 - Pesquisar um veículo                              |");
@@ -21,7 +21,8 @@ public class MenuVeiculo {
             System.out.println("| 5 - Exibir informações resumidas de todos veículos    |");
             System.out.println("| 6 - Remover um veículo                                |");
             System.out.println("| 7 - Verificar existência de um veículo                |");
-            System.out.println("| 8 - Sair                                              |");
+            System.out.println("| 8 - Voltar ao menu principal                          |");
+            System.out.println("| 9 - Sair                                              |");
             System.out.println("+-------------------------------------------------------+");
             
             System.out.print("Opção: ");
@@ -57,6 +58,10 @@ public class MenuVeiculo {
                     break;
 
                 case 8:
+                    System.out.println("Voltando ao menu principal...");
+                    break;
+
+                case 9:
                     System.out.println("Deseja sair? 1 - Sim 2 - Não: ");
                     opcao = input.nextInt();
                     if (opcao == 1) {
@@ -273,7 +278,7 @@ public class MenuVeiculo {
 
     public void existeVeiculo() {
         String placa = input.nextLine();
-        System.out.println("Digite a placa do veículo: ");
+        System.out.print("Digite a placa do veículo: ");
         placa = input.nextLine();
 
         System.out.println(metodoVeiculo.existe(placa));

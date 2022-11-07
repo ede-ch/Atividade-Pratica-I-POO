@@ -76,8 +76,14 @@ public class ListaCliente implements IClientes {
     @Override
     public String getInfo() {
         String resultado = null;
+        final int POINTER = 0;
+        boolean point = false;
 
-        if (listaClientes.size() > 0) {
+        if (listaClientes.size() > POINTER) {
+            point = true;
+        }
+
+        if (point == true) {
             for (int i = 0; i < listaClientes.size(); i++) {
                 resultado = listaClientes.get(i).toString();
             }

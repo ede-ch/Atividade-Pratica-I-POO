@@ -16,15 +16,16 @@ public class MenuLocacao {
         do {
             System.out.println("\n\n");
             System.out.println("+-------------------------------------------+");
-            System.out.println("|              Menu de Opções               |");
+            System.out.println("|          Menu de Opções da Locação        |");
             System.out.println("+-------------------------------------------+");
-            System.out.println("| 01 - Cadastrar                            |");
-            System.out.println("| 02 - Pesquisar                            |");
-            System.out.println("| 03 - Exibe Info                           |");
-            System.out.println("| 04 - Todas locações                       |");
-            System.out.println("| 05 - Remove                               |");
-            System.out.println("| 06 - Verifica                             |");
-            System.out.println("| 07 - Sair                                 |");
+            System.out.println("| 1 - Cadastrar                            |");
+            System.out.println("| 2 - Pesquisar                            |");
+            System.out.println("| 3 - Exibe Info                           |");
+            System.out.println("| 4 - Todas locações                       |");
+            System.out.println("| 5 - Remove                               |");
+            System.out.println("| 6 - Verifica                             |");
+            System.out.println("| 7 - Voltar ao menu principal             |");
+            System.out.println("| 8 - Sair                                 |");
             System.out.println("+-------------------------------------------+");
 
             System.out.print("Opção: ");
@@ -53,7 +54,11 @@ public class MenuLocacao {
                 case 6:
                     existeLocacao();
                     break;
-                case 7:
+                case 8:
+                    System.out.println("Voltando ao menu principal...");
+                    break;
+
+                case 9:
                     System.out.println("Deseja sair? 1 - Sim 2 - Não: ");
                     opcao = input.nextInt();
                     if (opcao == 1) {
@@ -74,21 +79,21 @@ public class MenuLocacao {
 
     // Este método adiciona uma nova locação no sistema.
     public void addLocacao() {
-        System.out.println("Digite o CPF do cliente: ");
+        System.out.print("Digite o CPF do cliente: ");
         long cpf = input.nextLong();
         Cliente cliente = metodoCliente.get(cpf);
 
         String placa = input.nextLine();
-        System.out.println("Digite a placa do veículo: ");
+        System.out.print("Digite a placa do veículo: ");
         placa = input.nextLine();
         Veiculo veiculo = metodoVeiculo.get(placa);
 
         String dataLocacao = input.nextLine();
-        System.out.println("Digite a data de locação: ");
+        System.out.print("Digite a data de locação: ");
         dataLocacao = input.nextLine();
 
         String dataDevolucao = input.nextLine();
-        System.out.println("Digite a data de devolução: ");
+        System.out.print("Digite a data de devolução: ");
         dataDevolucao = input.nextLine();
 
         System.out.print("O veículo possui seguro? \n1 - Sim 2 - Não: ");
