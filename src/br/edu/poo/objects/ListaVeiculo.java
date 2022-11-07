@@ -89,8 +89,8 @@ public class ListaVeiculo implements IVeiculos {
         String resultado = null;
 
         if (listaVeiculos.size() > 0) {
-            for (Veiculo veiculo : listaVeiculos) {
-                resultado = veiculo.toString();
+            for (int i = 0; i < listaVeiculos.size(); i++) {
+                resultado = listaVeiculos.get(i).toString();
             }
         } else {
             resultado = "Não há veículos cadastrados";
@@ -110,9 +110,9 @@ public class ListaVeiculo implements IVeiculos {
         String resultado = null;
 
         if (listaVeiculos.size() > 0) {
-            for (Veiculo veiculo : listaVeiculos) {
-                resultado = veiculo.getPlaca() + veiculo.getAno()
-                        + veiculo.getValorDiaria();
+            for (int i = 0; i < listaVeiculos.size(); i++) {
+                resultado = listaVeiculos.get(i).getPlaca() + listaVeiculos.get(i).getAno()
+                        + listaVeiculos.get(i).getValorDiaria();
             }
         } else {
             resultado = "Não há veículos cadastrados";

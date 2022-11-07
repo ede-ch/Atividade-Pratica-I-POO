@@ -14,9 +14,9 @@ public class MenuVeiculo {
             System.out.print(
                     "1 - Adicionar veículo \n2 - Pesquisar um veículo \n3 - Exibir informações de um veículo \n4 - Exibir informações de todos veículos"
                             + "\n5 - Exibir informações resumidas de todos veículos \n6 - Remover um veículo \n7 - Verificar existência de um veículo \n8 - Sair \nDigite a opção desejada: ");
-            
+
             opcao = input.nextInt();
-            
+
             switch (opcao) {
                 case 1:
                     addVeiculo();
@@ -68,36 +68,39 @@ public class MenuVeiculo {
     }
 
     public void addVeiculo() {
-        System.out.print(
-                "Qual o tipo de veículo? \n1 - Caminhão \n2 - Carro \n3 - ônibus \n4 - Voltar \nDigite a opção desejada: ");
+        int tipo = 0;
+        do {
+            System.out.print(
+                    "Qual o tipo de veículo? \n1 - Caminhão \n2 - Carro \n3 - ônibus \n4 - Voltar \nDigite a opção desejada: ");
+            tipo = input.nextInt();
+            switch (tipo) {
+                case 1:
+                    addCaminhao();
+                    break;
 
-        int tipo = input.nextInt();
-        switch (tipo) {
-            case 1:
-                addCaminhao();
-                break;
+                case 2:
+                    addCarro();
+                    break;
 
-            case 2:
-                addCarro();
-                break;
+                case 3:
+                    addOnibus();
+                    break;
 
-            case 3:
-                addOnibus();
-                break;
+                case 4:
+                    Menu();
+                    break;
 
-            case 4:
-                Menu();
-                break;
-
-            default:
-                System.out.println("Opção inválida");
-                break;
-        }
+                default:
+                    System.out.println("Opção inválida");
+                    break;
+            }
+        } while (tipo != 4);
     }
 
     public void addCaminhao() {
-        System.out.print("Digite a placa do caminhão: ");
         String placa = input.nextLine();
+        System.out.print("Digite a placa do caminhão: ");
+        placa = input.nextLine();
 
         String modelo = input.nextLine();
         System.out.print("Digite o modelo do caminhão: ");
@@ -121,8 +124,9 @@ public class MenuVeiculo {
     }
 
     public void addCarro() {
-        System.out.print("Digite a placa do carro: ");
         String placa = input.nextLine();
+        System.out.print("Digite a placa do carro: ");
+        placa = input.nextLine();
 
         String modelo = input.nextLine();
         System.out.print("Digite o modelo do carro: ");
@@ -140,7 +144,7 @@ public class MenuVeiculo {
         System.out.print("Digite o número de passageiros do carro: ");
         int numPassageiros = input.nextInt();
 
-        System.out.print("O carro possui ar condicionado? \n1 - Sim \n2 - Não");
+        System.out.print("O carro possui ar condicionado? \n1 - Sim 2 - Não: ");
         int arCond = input.nextInt();
         boolean arCondicionado = false;
         if (arCond == 1) {
@@ -162,8 +166,9 @@ public class MenuVeiculo {
     }
 
     public void addOnibus() {
-        System.out.print("Digite a placa do ônibus: ");
         String placa = input.nextLine();
+        System.out.print("Digite a placa do ônibus: ");
+        placa = input.nextLine();
 
         String modelo = input.nextLine();
         System.out.print("Digite o modelo do ônibus: ");
@@ -216,7 +221,7 @@ public class MenuVeiculo {
         System.out.print("Digite a placa do veículo: ");
         placa = input.nextLine();
 
-        System.out.println("Veículo encontrado: " + metodoVeiculo.get(placa));
+        System.out.println("Veículo encontrado:\n " + metodoVeiculo.get(placa));
     }
 
     public void exibeInfoVeiculo() {
@@ -224,17 +229,17 @@ public class MenuVeiculo {
         System.out.print("Digite a placa do veículo: ");
         placa = input.nextLine();
 
-        System.out.println("Veículo encontrado: " + metodoVeiculo.getInfo(placa));
+        System.out.println("Veículo encontrado:\n " + metodoVeiculo.getInfo(placa));
     }
 
     public void dadosTodosVeiculos() {
-        System.out.print("Aqui estão os dados de todos os veículos: ");
+        System.out.print("Aqui estão os dados de todos os veículos:\n ");
 
         System.out.println(metodoVeiculo.getInfo());
     }
 
     public void resumoVeiculos() {
-        System.out.print("Aqui está o resumo dos veículos: ");
+        System.out.print("Aqui está o resumo dos veículos:\n ");
 
         System.out.println(metodoVeiculo.getResumoInfo());
     }
@@ -244,7 +249,7 @@ public class MenuVeiculo {
         System.out.print("Digite a placa do veículo: ");
         placa = input.nextLine();
 
-        System.out.print("Essa ação é irreversível. Deseja continuar?  \n1 - Sim \n2 - Não: ");
+        System.out.print("Essa ação é irreversível. Deseja continuar?  \n1 - Sim 2 - Não: ");
         int opcao = input.nextInt();
         if (opcao == 1) {
             metodoVeiculo.remove(placa);

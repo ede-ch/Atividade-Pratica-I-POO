@@ -78,8 +78,8 @@ public class ListaLocacao implements ILocacoes {
         String resultado = null;
 
         if (listaLocacoes.size() > 0) {
-            for (Locacao locacao : listaLocacoes) {
-                resultado = locacao.toString();
+            for (int i = 0; i < listaLocacoes.size(); i++) {
+                resultado = listaLocacoes.get(i).toString();
             }
         } else {
             resultado = "Não há locações cadastradas";
