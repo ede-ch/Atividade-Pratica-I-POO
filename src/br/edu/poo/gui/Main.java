@@ -11,6 +11,8 @@ public class Main {
         MenuLocacao menuLocacao = new MenuLocacao();
 
         
+
+        
         try (Scanner input = new Scanner(System.in)) {
             int opcao = 0;
             do {

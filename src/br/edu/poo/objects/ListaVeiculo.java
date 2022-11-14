@@ -67,7 +67,7 @@ public class ListaVeiculo implements IVeiculos {
         String resultado = null;
 
         if (placa != null) {
-            for (int i = 0; i < listaVeiculos.size(); i++) {
+            for (int i= 0; i < listaVeiculos.size(); i++) {
                 if (listaVeiculos.get(i).getPlaca().equals(placa)) {
                     resultado = listaVeiculos.get(i).toString();
                 }
@@ -86,12 +86,15 @@ public class ListaVeiculo implements IVeiculos {
      */
     @Override
     public String getInfo() {
-        String resultado = null;
+        String resultado = "";
 
         if (listaVeiculos.size() > 0) {
             for (int i = 0; i < listaVeiculos.size(); i++) {
-                resultado = listaVeiculos.get(i).toString();
+                resultado += listaVeiculos.get(i).toString();
             }
+            //for (Veiculo veiculo : listaVeiculos) {
+            //    resultado = veiculo.toString();
+            //}
         } else {
             resultado = "Não há veículos cadastrados";
         }

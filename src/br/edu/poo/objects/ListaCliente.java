@@ -75,17 +75,11 @@ public class ListaCliente implements IClientes {
      */
     @Override
     public String getInfo() {
-        String resultado = null;
-        final int POINTER = 0;
-        boolean point = false;
+        String resultado = "";
 
-        if (listaClientes.size() > POINTER) {
-            point = true;
-        }
-
-        if (point == true) {
+        if (listaClientes.size() > 0) {
             for (int i = 0; i < listaClientes.size(); i++) {
-                resultado = listaClientes.get(i).toString();
+                resultado += listaClientes.get(i).toString();
             }
         } else {
             resultado = "Não há clientes cadastrados";

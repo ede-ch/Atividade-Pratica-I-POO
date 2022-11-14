@@ -75,11 +75,11 @@ public class ListaLocacao implements ILocacoes {
      */
     @Override
     public String getInfo() {
-        String resultado = null;
+        String resultado = "";
 
         if (listaLocacoes.size() > 0) {
             for (int i = 0; i < listaLocacoes.size(); i++) {
-                resultado = listaLocacoes.get(i).toString();
+                resultado += listaLocacoes.get(i).toString();
             }
         } else {
             resultado = "Não há locações cadastradas";
