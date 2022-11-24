@@ -9,9 +9,6 @@ public class Main {
         MenuVeiculo menuVeiculo = new MenuVeiculo();
         MenuCliente menuCliente = new MenuCliente();
         MenuLocacao menuLocacao = new MenuLocacao();
-
-        
-
         
         try (Scanner input = new Scanner(System.in)) {
             int opcao = 0;

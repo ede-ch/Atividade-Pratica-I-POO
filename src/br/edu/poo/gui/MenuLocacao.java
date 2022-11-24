@@ -6,9 +6,20 @@ import java.util.Scanner;
 public class MenuLocacao {
     // Criando um novo objeto da classe ListaLocacao, ListaVeiculo e ListaCliente.
     private ListaLocacao metodoLocacao = new ListaLocacao();
-    private ListaCliente metodoCliente = new ListaCliente();
-    private ListaVeiculo metodoVeiculo = new ListaVeiculo();
+    private ListaCliente metodoCliente;
+    private ListaVeiculo metodoVeiculo;
     Scanner input = new Scanner(System.in);
+    
+    public MenuLocacao (ListaCliente metodoCliente) {
+        this.metodoCliente = metodoCliente;
+    }
+
+    public MenuLocacao (ListaVeiculo metodoVeiculo) {
+        this.metodoVeiculo = metodoVeiculo;
+    }
+
+    public MenuLocacao () {
+    }
 
     // Menu do programa.
     public void Menu() {

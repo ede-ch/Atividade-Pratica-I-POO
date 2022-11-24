@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 public class MenuVeiculo {
     private ListaVeiculo metodoVeiculo = new ListaVeiculo();
+    private MenuLocacao menuLocacao = new MenuLocacao(metodoVeiculo);
     Scanner input = new Scanner(System.in);
 
     public void Menu() {

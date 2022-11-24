@@ -6,6 +6,7 @@ import br.edu.poo.objects.*;
 
 public class MenuCliente {
     private ListaCliente metodoCliente = new ListaCliente();
+    private MenuLocacao metodoLocacao = new MenuLocacao(metodoCliente);
     Scanner input1 = new Scanner(System.in);
 
     public void Menu() {
