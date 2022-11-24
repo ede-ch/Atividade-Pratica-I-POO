@@ -1,7 +1,7 @@
 package br.edu.poo.gui;
 
 import br.edu.poo.objects.*;
-
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MenuVeiculo {
@@ -12,73 +12,77 @@ public class MenuVeiculo {
     public void Menu() {
         int opcao = 0;
         do {
-            System.out.println("+-------------------------------------------------------+");
-            System.out.println("|              Menu de Opções do Veiculo                |");
-            System.out.println("+-------------------------------------------------------+");
-            System.out.println("| 1 - Adicionar veículo                                 |");
-            System.out.println("| 2 - Pesquisar um veículo                              |");
-            System.out.println("| 3 - Exibir informações de um veículo                  |");
-            System.out.println("| 4 - Exibir informações de todos veículos              |");
-            System.out.println("| 5 - Exibir informações resumidas de todos veículos    |");
-            System.out.println("| 6 - Remover um veículo                                |");
-            System.out.println("| 7 - Verificar existência de um veículo                |");
-            System.out.println("| 8 - Voltar ao menu principal                          |");
-            System.out.println("| 9 - Sair                                              |");
-            System.out.println("+-------------------------------------------------------+");
-            
-            System.out.print("Opção: ");
-            opcao = input.nextInt();
+            try {
+                System.out.println("+-------------------------------------------------------+");
+                System.out.println("|              Menu de Opções do Veiculo                |");
+                System.out.println("+-------------------------------------------------------+");
+                System.out.println("| 1 - Adicionar veículo                                 |");
+                System.out.println("| 2 - Pesquisar um veículo                              |");
+                System.out.println("| 3 - Exibir informações de um veículo                  |");
+                System.out.println("| 4 - Exibir informações de todos veículos              |");
+                System.out.println("| 5 - Exibir informações resumidas de todos veículos    |");
+                System.out.println("| 6 - Remover um veículo                                |");
+                System.out.println("| 7 - Verificar existência de um veículo                |");
+                System.out.println("| 8 - Voltar ao menu principal                          |");
+                System.out.println("| 9 - Sair                                              |");
+                System.out.println("+-------------------------------------------------------+");
 
-            switch (opcao) {
-                case 1:
-                    addVeiculo();
-                    break;
+                System.out.print("Opção: ");
+                opcao = input.nextInt();
 
-                case 2:
-                    pesquisarVeiculo();
-                    break;
+                switch (opcao) {
+                    case 1:
+                        addVeiculo();
+                        break;
 
-                case 3:
-                    exibeInfoVeiculo();
-                    break;
+                    case 2:
+                        pesquisarVeiculo();
+                        break;
 
-                case 4:
-                    dadosTodosVeiculos();
-                    break;
+                    case 3:
+                        exibeInfoVeiculo();
+                        break;
 
-                case 5:
-                    resumoVeiculos();
-                    break;
+                    case 4:
+                        dadosTodosVeiculos();
+                        break;
 
-                case 6:
-                    removeVeiculo();
-                    break;
+                    case 5:
+                        resumoVeiculos();
+                        break;
 
-                case 7:
-                    existeVeiculo();
-                    break;
+                    case 6:
+                        removeVeiculo();
+                        break;
 
-                case 8:
-                    System.out.println("Voltando ao menu principal...");
-                    break;
+                    case 7:
+                        existeVeiculo();
+                        break;
 
-                case 9:
-                    System.out.println("Deseja sair? 1 - Sim 2 - Não: ");
-                    opcao = input.nextInt();
-                    if (opcao == 1) {
-                        System.out.println("Saindo...");
-                        System.exit(0);
-                    } else if (opcao == 2) {
-                        Menu();
-                    } else {
-                        System.out.println("Opção inválida!");
-                        Menu();
-                    }
-                    break;
+                    case 8:
+                        System.out.println("Voltando ao menu principal...");
+                        break;
 
-                default:
-                    System.out.println("Opção inválida");
-                    break;
+                    case 9:
+                        System.out.println("Deseja sair? 1 - Sim 2 - Não: ");
+                        opcao = input.nextInt();
+                        if (opcao == 1) {
+                            System.out.println("Saindo...");
+                            System.exit(0);
+                        } else if (opcao == 2) {
+                            Menu();
+                        } else {
+                            System.out.println("Opção inválida!");
+                            Menu();
+                        }
+                        break;
+
+                    default:
+                        System.out.println("Opção inválida");
+                        break;
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Opção inválida");
             }
         } while (opcao != 8);
     }
@@ -86,37 +90,49 @@ public class MenuVeiculo {
     public void addVeiculo() {
         int tipo = 0;
         do {
-            System.out.print(
-                    "Qual o tipo de veículo? \n1 - Caminhão \n2 - Carro \n3 - ônibus \n4 - Voltar \nDigite a opção desejada: ");
-            tipo = input.nextInt();
-            switch (tipo) {
-                case 1:
-                    addCaminhao();
-                    break;
+            try {
+                System.out.print(
+                        "Qual o tipo de veículo? \n1 - Caminhão \n2 - Carro \n3 - ônibus \n4 - Voltar \nDigite a opção desejada: ");
+                tipo = input.nextInt();
+                switch (tipo) {
+                    case 1:
+                        addCaminhao();
+                        break;
 
-                case 2:
-                    addCarro();
-                    break;
+                    case 2:
+                        addCarro();
+                        break;
 
-                case 3:
-                    addOnibus();
-                    break;
+                    case 3:
+                        addOnibus();
+                        break;
 
-                case 4:
-                    Menu();
-                    break;
+                    case 4:
+                        Menu();
+                        break;
 
-                default:
-                    System.out.println("Opção inválida");
-                    break;
+                    default:
+                        System.out.println("Opção inválida");
+                        break;
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Opção inválida");
             }
         } while (tipo != 4);
     }
 
     public void addCaminhao() {
-        String placa = input.nextLine();
-        System.out.print("Digite a placa do caminhão: ");
-        placa = input.nextLine();
+        boolean erro = false;
+        String placa = "";
+        do {
+            try {
+                placa = input.nextLine();
+                System.out.print("Digite a placa do caminhão: ");
+                placa = input.nextLine();
+            } catch (InputMismatchException e) {
+                System.out.println("Placa inválida");
+            }
+        } while (erro == true);
 
         String modelo = input.nextLine();
         System.out.print("Digite o modelo do caminhão: ");
