@@ -11,9 +11,9 @@ public class MenuCliente {
     Scanner input1 = new Scanner(System.in);
 
     public void Menu() {
-        try {
-            int opcao = 0;
-            do {
+        int opcao = 0;
+        do {
+            try {
                 System.out.println("\n\n");
                 System.out.println("+-------------------------------------------------------+");
                 System.out.println("|              Menu de Opções do Cliente                |");
@@ -82,11 +82,10 @@ public class MenuCliente {
                         System.out.println("Opção inválida!");
                         Menu();
                 }
-            } while (opcao != 8);
-        } catch (InputMismatchException e) {
-            System.out.println("Opção inválida!");
-        }
-
+            } catch (InputMismatchException e) {
+                System.out.println("Opção inválida!");
+            }
+        } while (opcao != 8);
     }
 
     public void addCliente() {
@@ -158,7 +157,7 @@ public class MenuCliente {
     public void pesquisarCliente() {
         long cpf = 0;
         boolean erro = false;
-        
+
         do {
             try {
                 System.out.print("Digite o CPF do cliente: ");
@@ -177,7 +176,7 @@ public class MenuCliente {
     public void exibeInfoCliente() {
         long cpf = 0;
         boolean erro = false;
-        
+
         do {
             try {
                 System.out.print("Digite o CPF do cliente: ");
@@ -206,7 +205,7 @@ public class MenuCliente {
     public void removeCliente() {
         long cpf = 0;
         boolean erro = false;
-        
+
         do {
             try {
                 System.out.print("Digite o CPF do cliente: ");
@@ -224,7 +223,7 @@ public class MenuCliente {
     public void existeCliente() {
         long cpf = 0;
         boolean erro = false;
-        
+
         do {
             try {
                 System.out.print("Digite o CPF do cliente: ");
