@@ -11,78 +11,90 @@ public class MenuVeiculo {
 
     public void Menu() {
         int opcao = 0;
+        boolean erro = false;
         do {
-            try {
-                System.out.println("+-------------------------------------------------------+");
-                System.out.println("|              Menu de Opções do Veiculo                |");
-                System.out.println("+-------------------------------------------------------+");
-                System.out.println("| 1 - Adicionar veículo                                 |");
-                System.out.println("| 2 - Pesquisar um veículo                              |");
-                System.out.println("| 3 - Exibir informações de um veículo                  |");
-                System.out.println("| 4 - Exibir informações de todos veículos              |");
-                System.out.println("| 5 - Exibir informações resumidas de todos veículos    |");
-                System.out.println("| 6 - Remover um veículo                                |");
-                System.out.println("| 7 - Verificar existência de um veículo                |");
-                System.out.println("| 8 - Voltar ao menu principal                          |");
-                System.out.println("| 9 - Sair                                              |");
-                System.out.println("+-------------------------------------------------------+");
+            System.out.println("+-------------------------------------------------------+");
+            System.out.println("|              Menu de Opções do Veiculo                |");
+            System.out.println("+-------------------------------------------------------+");
+            System.out.println("| 1 - Adicionar veículo                                 |");
+            System.out.println("| 2 - Pesquisar um veículo                              |");
+            System.out.println("| 3 - Exibir informações de um veículo                  |");
+            System.out.println("| 4 - Exibir informações de todos veículos              |");
+            System.out.println("| 5 - Exibir informações resumidas de todos veículos    |");
+            System.out.println("| 6 - Remover um veículo                                |");
+            System.out.println("| 7 - Verificar existência de um veículo                |");
+            System.out.println("| 8 - Voltar ao menu principal                          |");
+            System.out.println("| 9 - Sair                                              |");
+            System.out.println("+-------------------------------------------------------+");
 
+            try {
                 System.out.print("Opção: ");
                 opcao = input.nextInt();
-
-                switch (opcao) {
-                    case 1:
-                        addVeiculo();
-                        break;
-
-                    case 2:
-                        pesquisarVeiculo();
-                        break;
-
-                    case 3:
-                        exibeInfoVeiculo();
-                        break;
-
-                    case 4:
-                        dadosTodosVeiculos();
-                        break;
-
-                    case 5:
-                        resumoVeiculos();
-                        break;
-
-                    case 6:
-                        removeVeiculo();
-                        break;
-
-                    case 7:
-                        existeVeiculo();
-                        break;
-
-                    case 8:
-                        System.out.println("Voltando ao menu principal...");
-                        break;
-
-                    case 9:
-                        System.out.println("Deseja sair? 1 - Sim 2 - Não: ");
-                        opcao = input.nextInt();
-                        if (opcao == 1) {
-                            System.out.println("Saindo...");
-                            System.exit(0);
-                        } else if (opcao == 2) {
-                            Menu();
-                        } else {
-                            System.out.println("Opção inválida!");
-                            Menu();
-                        }
-                        break;
-
-                    default:
-                        System.out.println("Opção inválida");
-                        break;
-                }
+                erro = false;
+                input.nextLine();
             } catch (InputMismatchException e) {
                 System.out.println("Opção inválida");
+                input.nextLine();
+            }
+
+            switch (opcao) {
+                case 1:
+                    addVeiculo();
+                    break;
+
+                case 2:
+                    pesquisarVeiculo();
+                    break;
+
+                case 3:
+                    exibeInfoVeiculo();
+                    break;
+
+                case 4:
+                    dadosTodosVeiculos();
+                    break;
+
+                case 5:
+                    resumoVeiculos();
+                    break;
+
+                case 6:
+                    removeVeiculo();
+                    break;
+
+                case 7:
+                    existeVeiculo();
+                    break;
+
+                case 8:
+                    System.out.println("Voltando ao menu principal...");
+                    break;
+
+                case 9:
+                    do {
+                        try {
+                            System.out.println("Deseja sair? 1 - Sim 2 - Não: ");
+                            opcao = input.nextInt();
+                            erro = false;
+                        } catch (InputMismatchException e) {
+                            System.out.println("Opção inválida");
+                            input.nextLine();
+                        }
+                    } while (erro);
+                    if (opcao == 1) {
+                        System.out.println("Saindo...");
+                        System.exit(0);
+                    } else if (opcao == 2) {
+                        Menu();
+                    } else {
+                        System.out.println("Opção inválida!");
+                        Menu();
+                    }
+                    break;
+
+                default:
+                    System.out.println("Opção inválida");
+                    break;
             }
         } while (opcao != 8);
     }
@@ -117,38 +129,91 @@ public class MenuVeiculo {
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Opção inválida");
+                input.nextLine();
+                input.nextLine();
             }
         } while (tipo != 4);
     }
 
     public void addCaminhao() {
         boolean erro = false;
-        String placa = "";
+        String placa = "",
+                modelo = "";
+        int ano = 0,
+                numEixos = 0;
+        float valorDiaria = 0,
+                capacidadeCarga = 0;
         do {
             try {
-                placa = input.nextLine();
                 System.out.print("Digite a placa do caminhão: ");
                 placa = input.nextLine();
+                erro = false;
             } catch (InputMismatchException e) {
                 System.out.println("Placa inválida");
+                input.nextLine();
+                erro = true;
             }
         } while (erro == true);
 
-        String modelo = input.nextLine();
-        System.out.print("Digite o modelo do caminhão: ");
-        modelo = input.nextLine();
+        do {
+            try {
+                System.out.print("Digite o modelo do caminhão: ");
+                modelo = input.nextLine();
+                erro = false;
+            } catch (InputMismatchException e) {
+                System.out.println("Modelo inválido");
+                input.nextLine();
+                erro = true;
+            }
+        } while (erro == true);
 
-        System.out.print("Digite o ano do caminhão: ");
-        int ano = input.nextInt();
+        do {
+            try {
+                System.out.print("Digite o ano do caminhão: ");
+                ano = input.nextInt();
+                erro = false;
+            } catch (InputMismatchException e) {
+                System.out.println("Ano inválido");
+                input.nextLine();
+                erro = true;
+            }
+        } while (erro == true);
 
-        System.out.print("Digite o valor da diária do caminhão: ");
-        float valorDiaria = input.nextFloat();
+        do {
+            try {
+                System.out.print("Digite o valor da diária do caminhão: ");
+                valorDiaria = input.nextFloat();
+                erro = false;
+            } catch (InputMismatchException e) {
+                System.out.println("Valor inválido");
+                input.nextLine();
+                erro = true;
+            }
+        } while (erro == true);
 
-        System.out.print("Digite o número de eixos do caminhão: ");
-        int numEixos = input.nextInt();
+        do {
+            try {
+                System.out.print("Digite o número de eixos do caminhão: ");
+                numEixos = input.nextInt();
+                erro = false;
+            } catch (InputMismatchException e) {
+                System.out.println("Número inválido");
+                input.nextLine();
+                erro = true;
+            }
+        } while (erro == true);
 
-        System.out.print("Digite a capacidade de carga do caminhão: ");
-        float capacidadeCarga = input.nextFloat();
+        do {
+            try {
+                System.out.print("Digite a capacidade de carga do caminhão: ");
+                capacidadeCarga = input.nextFloat();
+                erro = false;
+            } catch (InputMismatchException e) {
+                System.out.println("Capacidade inválida");
+                input.nextLine();
+                erro = true;
+            }
+        } while (erro == true);
 
         Veiculo caminhao = new Caminhao(placa, modelo, ano, valorDiaria, numEixos, capacidadeCarga);
 
@@ -156,39 +221,115 @@ public class MenuVeiculo {
     }
 
     public void addCarro() {
-        String placa = input.nextLine();
-        System.out.print("Digite a placa do carro: ");
-        placa = input.nextLine();
-
-        String modelo = input.nextLine();
-        System.out.print("Digite o modelo do carro: ");
-        modelo = input.nextLine();
-
-        System.out.print("Digite o ano do carro: ");
-        int ano = input.nextInt();
-
-        System.out.print("Digite o valor da diária do carro: ");
-        float valorDiaria = input.nextFloat();
-
-        System.out.print("Digite o número de portas do carro: ");
-        int numPortas = input.nextInt();
-
-        System.out.print("Digite o número de passageiros do carro: ");
-        int numPassageiros = input.nextInt();
-
-        System.out.print("O carro possui ar condicionado? \n1 - Sim 2 - Não: ");
-        int arCond = input.nextInt();
+        boolean erro = false;
+        String placa = "",
+                modelo = "";
+        int ano = 0,
+                numPortas = 0,
+                numPassageiros = 0;
+        float valorDiaria = 0,
+                mediaKmLitro = 0;
         boolean arCondicionado = false;
-        if (arCond == 1) {
-            arCondicionado = true;
-        } else if (arCond == 2) {
-            arCondicionado = false;
-        } else {
-            System.out.print("Opção inválida");
-        }
 
-        System.out.println("Digite a média de consumo do carro: ");
-        float mediaKmLitro = input.nextFloat();
+        do {
+            try {
+                System.out.print("Digite a placa do carro: ");
+                placa = input.nextLine();
+                erro = false;
+            } catch (InputMismatchException e) {
+                System.out.println("Placa inválida");
+                input.nextLine();
+                erro = true;
+            }
+        } while (erro == true);
+
+        do {
+            try {
+                System.out.print("Digite o modelo do carro: ");
+                modelo = input.nextLine();
+                erro = false;
+            } catch (InputMismatchException e) {
+                System.out.println("Modelo inválido");
+                input.nextLine();
+                erro = true;
+            }
+        } while (erro == true);
+
+        do {
+            try {
+                System.out.print("Digite o ano do carro: ");
+                ano = input.nextInt();
+                erro = false;
+            } catch (InputMismatchException e) {
+                System.out.println("Ano inválido");
+                input.nextLine();
+                erro = true;
+            }
+        } while (erro == true);
+
+        do {
+            try {
+                System.out.print("Digite o valor da diária do carro: ");
+                valorDiaria = input.nextFloat();
+                erro = false;
+            } catch (InputMismatchException e) {
+                System.out.println("Valor inválido");
+                input.nextLine();
+                erro = true;
+            }
+        } while (erro == true);
+
+        do {
+            try {
+                System.out.print("Digite o número de portas do carro: ");
+                numPortas = input.nextInt();
+                erro = false;
+            } catch (InputMismatchException e) {
+                System.out.println("Número inválido");
+                input.nextLine();
+                erro = true;
+            }
+        } while (erro == true);
+
+        do {
+            try {
+                System.out.print("Digite o número de passageiros do carro: ");
+                numPassageiros = input.nextInt();
+                erro = false;
+            } catch (InputMismatchException e) {
+                System.out.println("Número inválido");
+                input.nextLine();
+                erro = true;
+            }
+        } while (erro == true);
+
+        do {
+            try {
+                System.out.print("O carro possui ar condicionado? \n1 - Sim 2 - Não: ");
+                int arCond = input.nextInt();
+                arCondicionado = false;
+                if (arCond == 1) {
+                    arCondicionado = true;
+                } else if (arCond == 2) {
+                    arCondicionado = false;
+                } else {
+                    System.out.print("Opção inválida");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Opção inválida");
+                input.nextLine();
+            }
+        } while (erro == true);
+
+        do {
+            try {
+                System.out.println("Digite a média de consumo do carro: ");
+                mediaKmLitro = input.nextFloat();
+            } catch (InputMismatchException e) {
+                System.out.println("Média inválida");
+                input.nextLine();
+            }
+        } while (erro == true);
 
         Veiculo carro = new Carro(placa, modelo, ano, valorDiaria, numPortas, numPassageiros,
                 arCondicionado,
@@ -198,30 +339,91 @@ public class MenuVeiculo {
     }
 
     public void addOnibus() {
-        String placa = input.nextLine();
-        System.out.print("Digite a placa do ônibus: ");
-        placa = input.nextLine();
+        boolean erro = false;
+        String placa = "",
+                modelo = "",
+                categoria = "";
+        int ano = 0,
+                numPassageiros = 0;
+        float valorDiaria = 0;
+        boolean arCondicionado = false,
+                internet = false;
 
-        String modelo = input.nextLine();
-        System.out.print("Digite o modelo do ônibus: ");
-        modelo = input.nextLine();
+        do {
+            try {
+                System.out.print("Digite a placa do ônibus: ");
+                placa = input.nextLine();
+                erro = false;
+            } catch (InputMismatchException e) {
+                System.out.println("Placa inválida");
+                input.nextLine();
+                erro = true;
+            }
+        } while (erro == true);
 
-        System.out.print("Digite o ano do ônibus: ");
-        int ano = input.nextInt();
+        do {
+            try {
+                System.out.print("Digite o modelo do ônibus: ");
+                modelo = input.nextLine();
+                erro = false;
+            } catch (InputMismatchException e) {
+                System.out.println("Modelo inválido");
+                input.nextLine();
+                erro = true;
+            }
+        } while (erro == true);
 
-        System.out.print("Digite o valor da diária do ônibus: ");
-        float valorDiaria = input.nextFloat();
+        do {
+            try {
+                System.out.print("Digite o ano do ônibus: ");
+                ano = input.nextInt();
+                erro = false;
+            } catch (InputMismatchException e) {
+                System.out.println("Ano inválido");
+                input.nextLine();
+                erro = true;
+            }
+        } while (erro == true);
 
-        System.out.print("Digite o número de passageiros do ônibus: ");
-        int numPassageiros = input.nextInt();
+        do {
+            try {
+                System.out.print("Digite o valor da diária do ônibus: ");
+                valorDiaria = input.nextFloat();
+                erro = false;
+            } catch (InputMismatchException e) {
+                System.out.println("Valor inválido");
+                input.nextLine();
+                erro = true;
+            }
+        } while (erro == true);
 
-        String categoria = input.nextLine();
-        System.out.print("Digite a categoria do ônibus: ");
-        categoria = input.nextLine();
+        do {
+            try {
+                System.out.print("Digite o número de passageiros do ônibus: ");
+                numPassageiros = input.nextInt();
+                erro = false;
+            } catch (InputMismatchException e) {
+                System.out.println("Número inválido");
+                input.nextLine();
+                erro = true;
+            }
+        } while (erro == true);
+
+        do {
+            try {
+                System.out.print("Digite a categoria do ônibus: ");
+                categoria = input.nextLine();
+                erro = false;
+            } catch (InputMismatchException e) {
+                System.out.println("Categoria inválida");
+                input.nextLine();
+                erro = true;
+            }
+        } while (erro == true);
 
         System.out.print("O ônibus possui ar condicionado? \n1 - Sim 2 - Não: ");
         int arCond = input.nextInt();
-        boolean arCondicionado = false;
+        arCondicionado = false;
         if (arCond == 1) {
             arCondicionado = true;
         } else if (arCond == 2) {
@@ -232,7 +434,7 @@ public class MenuVeiculo {
 
         System.out.print("O ônibus possui internet? \n1 - Sim 2 - Não: ");
         int net = input.nextInt();
-        boolean internet = false;
+        internet = false;
         if (net == 1) {
             internet = true;
         } else if (net == 2) {
@@ -249,17 +451,39 @@ public class MenuVeiculo {
     }
 
     public void pesquisarVeiculo() {
-        String placa = input.nextLine();
-        System.out.print("Digite a placa do veículo: ");
-        placa = input.nextLine();
+        boolean erro = false;
+        String placa = "";
+
+        do {
+            try {
+                System.out.print("Digite a placa do veículo: ");
+                placa = input.nextLine();
+                erro = false;
+            } catch (InputMismatchException e) {
+                System.out.println("Placa inválida");
+                input.nextLine();
+                erro = true;
+            }
+        } while (erro == true);
 
         System.out.println("Veículo encontrado:\n " + metodoVeiculo.get(placa));
     }
 
     public void exibeInfoVeiculo() {
-        String placa = input.nextLine();
-        System.out.print("Digite a placa do veículo: ");
-        placa = input.nextLine();
+        boolean erro = false;
+        String placa = "";
+
+        do {
+            try {
+                System.out.print("Digite a placa do veículo: ");
+                placa = input.nextLine();
+                erro = false;
+            } catch (InputMismatchException e) {
+                System.out.println("Placa inválida");
+                input.nextLine();
+                erro = true;
+            }
+        } while (erro == true);
 
         System.out.println("Veículo encontrado:\n " + metodoVeiculo.getInfo(placa));
     }
@@ -277,9 +501,20 @@ public class MenuVeiculo {
     }
 
     public void removeVeiculo() {
-        String placa = input.nextLine();
-        System.out.print("Digite a placa do veículo: ");
-        placa = input.nextLine();
+        boolean erro = false;
+        String placa = "";
+
+        do {
+            try {
+                System.out.print("Digite a placa do veículo: ");
+                placa = input.nextLine();
+                erro = false;
+            } catch (InputMismatchException e) {
+                System.out.println("Placa inválida");
+                input.nextLine();
+                erro = true;
+            }
+        } while (erro == true);
 
         System.out.print("Essa ação é irreversível. Deseja continuar?  \n1 - Sim 2 - Não: ");
         int opcao = input.nextInt();
@@ -294,9 +529,21 @@ public class MenuVeiculo {
     }
 
     public void existeVeiculo() {
-        String placa = input.nextLine();
-        System.out.print("Digite a placa do veículo: ");
-        placa = input.nextLine();
+        boolean erro = false;
+        String placa = "";
+
+        do {
+            try {
+                placa = input.nextLine();
+                System.out.print("Digite a placa do veículo: ");
+                placa = input.nextLine();
+                erro = false;
+            } catch (InputMismatchException e) {
+                System.out.println("Placa inválida");
+                input.nextLine();
+                erro = true;
+            }
+        } while (erro == true);
 
         System.out.println(metodoVeiculo.existe(placa));
     }
