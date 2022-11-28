@@ -1,5 +1,6 @@
 package br.edu.poo.gui;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -7,7 +8,9 @@ public class Main {
         MenuVeiculo menuVeiculo = new MenuVeiculo();
         MenuCliente menuCliente = new MenuCliente();
         MenuLocacao menuLocacao = new MenuLocacao();
-        
+
+        boolean erro = false;
+
         try (Scanner input = new Scanner(System.in)) {
             int opcao = 0;
             do {
@@ -20,7 +23,17 @@ public class Main {
                 System.out.println("| 4 - Sair                                              |");
                 System.out.println("+-------------------------------------------------------+");
                 System.out.print("Opção: ");
-                opcao = input.nextInt();
+                do {
+                    try {
+                        opcao = input.nextInt();
+                        erro = false;
+                    } catch (InputMismatchException e) {
+                        input.nextLine();
+                        System.out.println("Opção inválida! Digite novamente.");
+                        erro = true;
+                    }
+                } while (erro == true);
+
 
                 switch (opcao) {
                     case 1:
@@ -30,14 +43,21 @@ public class Main {
                     case 2:
                         menuCliente.Menu();
                         break;
-                    
+
                     case 3:
                         menuLocacao.Menu();
                         break;
 
                     case 4:
-                        System.out.println("Deseja sair? 1 - Sim 2 - Não: ");
-                        opcao = input.nextInt();
+                        do {
+                            try {
+                                System.out.println("Deseja sair? 1 - Sim 2 - Não: ");
+                                opcao = input.nextInt();
+                                erro = false;
+                            } catch (InputMismatchException e) {
+                                input.nextLine();
+                            }
+                        } while (erro == true);
                         if (opcao == 1) {
                             System.out.println("Saindo...");
                             opcao = 4;
@@ -53,6 +73,4 @@ public class Main {
             } while (opcao != 4);
         }
     }
-
-   
-        }
+}

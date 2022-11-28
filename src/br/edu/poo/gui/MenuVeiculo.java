@@ -33,7 +33,6 @@ public class MenuVeiculo {
                 erro = false;
                 input.nextLine();
             } catch (InputMismatchException e) {
-                System.out.println("Opção inválida");
                 input.nextLine();
             }
 
@@ -77,10 +76,9 @@ public class MenuVeiculo {
                             opcao = input.nextInt();
                             erro = false;
                         } catch (InputMismatchException e) {
-                            System.out.println("Opção inválida");
                             input.nextLine();
                         }
-                    } while (erro);
+                    } while (erro == true);
                     if (opcao == 1) {
                         System.out.println("Saindo...");
                         System.exit(0);
@@ -130,7 +128,6 @@ public class MenuVeiculo {
             } catch (InputMismatchException e) {
                 System.out.println("Opção inválida");
                 input.nextLine();
-                input.nextLine();
             }
         } while (tipo != 4);
     }
@@ -145,6 +142,7 @@ public class MenuVeiculo {
                 capacidadeCarga = 0;
         do {
             try {
+                input.nextLine();
                 System.out.print("Digite a placa do caminhão: ");
                 placa = input.nextLine();
                 erro = false;
@@ -226,13 +224,15 @@ public class MenuVeiculo {
                 modelo = "";
         int ano = 0,
                 numPortas = 0,
-                numPassageiros = 0;
+                numPassageiros = 0,
+                arCond = 0;
         float valorDiaria = 0,
                 mediaKmLitro = 0;
         boolean arCondicionado = false;
 
         do {
             try {
+                input.nextLine();
                 System.out.print("Digite a placa do carro: ");
                 placa = input.nextLine();
                 erro = false;
@@ -306,28 +306,31 @@ public class MenuVeiculo {
         do {
             try {
                 System.out.print("O carro possui ar condicionado? \n1 - Sim 2 - Não: ");
-                int arCond = input.nextInt();
+                arCond = input.nextInt();
                 arCondicionado = false;
-                if (arCond == 1) {
-                    arCondicionado = true;
-                } else if (arCond == 2) {
-                    arCondicionado = false;
-                } else {
-                    System.out.print("Opção inválida");
-                }
+                erro = false;
             } catch (InputMismatchException e) {
-                System.out.println("Opção inválida");
                 input.nextLine();
+                erro = true;
+            }
+            if (arCond == 1) {
+                arCondicionado = true;
+            } else if (arCond == 2) {
+                arCondicionado = false;
+            } else {
+                System.out.println("Opção inválida");
             }
         } while (erro == true);
 
         do {
             try {
-                System.out.println("Digite a média de consumo do carro: ");
+                System.out.print("Digite a média de consumo do carro: ");
                 mediaKmLitro = input.nextFloat();
+                erro = false;
             } catch (InputMismatchException e) {
                 System.out.println("Média inválida");
                 input.nextLine();
+                erro = true;
             }
         } while (erro == true);
 
@@ -344,13 +347,16 @@ public class MenuVeiculo {
                 modelo = "",
                 categoria = "";
         int ano = 0,
-                numPassageiros = 0;
+                numPassageiros = 0,
+                arCond = 0,
+                net = 0;
         float valorDiaria = 0;
         boolean arCondicionado = false,
                 internet = false;
 
         do {
             try {
+                input.nextLine();
                 System.out.print("Digite a placa do ônibus: ");
                 placa = input.nextLine();
                 erro = false;
@@ -421,27 +427,43 @@ public class MenuVeiculo {
             }
         } while (erro == true);
 
-        System.out.print("O ônibus possui ar condicionado? \n1 - Sim 2 - Não: ");
-        int arCond = input.nextInt();
-        arCondicionado = false;
-        if (arCond == 1) {
-            arCondicionado = true;
-        } else if (arCond == 2) {
-            arCondicionado = false;
-        } else {
-            System.out.println("Opção inválida");
-        }
+        do {
+            try {
+                System.out.print("O ônibus possui ar condicionado? \n1 - Sim 2 - Não: ");
+                arCond = input.nextInt();
+                arCondicionado = false;
+                erro = false;
+            } catch (InputMismatchException e) {
+                input.nextLine();
+                erro = true;
+            }
+            if (arCond == 1) {
+                arCondicionado = true;
+            } else if (arCond == 2) {
+                arCondicionado = false;
+            } else {
+                System.out.println("Opção inválida");
+            }
+        } while (erro == true);
 
-        System.out.print("O ônibus possui internet? \n1 - Sim 2 - Não: ");
-        int net = input.nextInt();
-        internet = false;
-        if (net == 1) {
-            internet = true;
-        } else if (net == 2) {
-            internet = false;
-        } else {
-            System.out.println("Opção inválida");
-        }
+        do {
+            try {
+                System.out.print("O ônibus possui internet? \n1 - Sim 2 - Não: ");
+                net = input.nextInt();
+                internet = false;
+                erro = false;
+            } catch (InputMismatchException e) {
+                input.nextLine();
+                erro = true;
+            }
+            if (net == 1) {
+                internet = true;
+            } else if (net == 2) {
+                internet = false;
+            } else {
+                System.out.println("Opção inválida");
+            }
+        } while (erro == true);
 
         Veiculo onibus = new Onibus(placa, modelo, ano, valorDiaria, numPassageiros, categoria,
                 arCondicionado,

@@ -12,78 +12,85 @@ public class MenuCliente {
 
     public void Menu() {
         int opcao = 0;
+        boolean erro = false;
         do {
+            System.out.println("\n\n");
+            System.out.println("+-------------------------------------------------------+");
+            System.out.println("|              Menu de Opções do Cliente                |");
+            System.out.println("+-------------------------------------------------------+");
+            System.out.println("| 1 - Adicionar cliente                                 |");
+            System.out.println("| 2 - Pesquisar um cliente                              |");
+            System.out.println("| 3 - Exibir informações de um cliente                  |");
+            System.out.println("| 4 - Exibir informações de todos clientes              |");
+            System.out.println("| 5 - Exibir informações resumidas de todos clientes    |");
+            System.out.println("| 6 - Remover um cliente                                |");
+            System.out.println("| 7 - Verificar existência de um cliente                |");
+            System.out.println("| 8 - Voltar ao menu principal                          |");
+            System.out.println("| 9 - Sair                                              |");
+            System.out.println("+-------------------------------------------------------+");
+            System.out.print("Opção: ");
+
             try {
-                System.out.println("\n\n");
-                System.out.println("+-------------------------------------------------------+");
-                System.out.println("|              Menu de Opções do Cliente                |");
-                System.out.println("+-------------------------------------------------------+");
-                System.out.println("| 1 - Adicionar cliente                                 |");
-                System.out.println("| 2 - Pesquisar um cliente                              |");
-                System.out.println("| 3 - Exibir informações de um cliente                  |");
-                System.out.println("| 4 - Exibir informações de todos clientes              |");
-                System.out.println("| 5 - Exibir informações resumidas de todos clientes    |");
-                System.out.println("| 6 - Remover um cliente                                |");
-                System.out.println("| 7 - Verificar existência de um cliente                |");
-                System.out.println("| 8 - Voltar ao menu principal                          |");
-                System.out.println("| 9 - Sair                                              |");
-                System.out.println("+-------------------------------------------------------+");
-                System.out.print("Opção: ");
-
-
                 opcao = input1.nextInt();
+            } catch (InputMismatchException e) {
+                input1.nextLine();
+            }
 
-                switch (opcao) {
-                    case 1:
-                        addCliente();
-                        break;
+            switch (opcao) {
+                case 1:
+                    addCliente();
+                    break;
 
-                    case 2:
-                        pesquisarCliente();
-                        break;
+                case 2:
+                    pesquisarCliente();
+                    break;
 
-                    case 3:
-                        exibeInfoCliente();
-                        break;
+                case 3:
+                    exibeInfoCliente();
+                    break;
 
-                    case 4:
-                        dadosTodosClientes();
-                        break;
+                case 4:
+                    dadosTodosClientes();
+                    break;
 
-                    case 5:
-                        resumoClientes();
-                        break;
+                case 5:
+                    resumoClientes();
+                    break;
 
-                    case 6:
-                        removeCliente();
-                        break;
+                case 6:
+                    removeCliente();
+                    break;
 
-                    case 7:
-                        existeCliente();
-                        break;
+                case 7:
+                    existeCliente();
+                    break;
 
-                    case 8:
-                        System.out.println("Voltando ao menu principal...");
-                        break;
+                case 8:
+                    System.out.println("Voltando ao menu principal...");
+                    break;
 
-                    case 9:
-                        System.out.print("Deseja sair? 1 - Sim 2 - Não: ");
-                        opcao = input1.nextInt();
-                        if (opcao == 1) {
-                            System.out.println("Saindo...");
-                            System.exit(0);
-                        } else if (opcao == 2) {
-                            Menu();
-                        } else {
-                            System.out.println("Opção inválida!");
-                            Menu();
+                case 9:
+                    do {
+                        try {
+                            System.out.println("Deseja sair? 1 - Sim 2 - Não: ");
+                            opcao = input1.nextInt();
+                            erro = false;
+                        } catch (InputMismatchException e) {
+                            input1.nextLine();
                         }
-                    default:
+                    } while (erro);
+                    if (opcao == 1) {
+                        System.out.println("Saindo...");
+                        System.exit(0);
+                    } else if (opcao == 2) {
+                        Menu();
+                    } else {
                         System.out.println("Opção inválida!");
                         Menu();
-                }
-            } catch (InputMismatchException e) {
-                System.out.println("Opção inválida!");
+                    }
+                default:
+                    System.out.println("Opção inválida!");
+                    Menu();
             }
         } while (opcao != 8);
     }
@@ -102,6 +109,7 @@ public class MenuCliente {
                 erro = false;
             } catch (InputMismatchException e) {
                 System.out.println("CPF inválido!");
+                input1.nextLine();
                 erro = true;
             }
         } while (erro == true);
@@ -113,6 +121,7 @@ public class MenuCliente {
                 erro = false;
             } catch (InputMismatchException e) {
                 System.out.println("Nome inválido!");
+                input1.nextLine();
                 erro = true;
             }
         } while (erro == true);
@@ -124,6 +133,7 @@ public class MenuCliente {
                 erro = false;
             } catch (InputMismatchException e) {
                 System.out.println("Telefone inválido!");
+                input1.nextLine();
                 erro = true;
             }
         } while (erro == true);
@@ -135,6 +145,7 @@ public class MenuCliente {
                 erro = false;
             } catch (InputMismatchException e) {
                 System.out.println("Endereço inválido!");
+                input1.nextLine();
                 erro = true;
             }
         } while (erro == true);
@@ -146,6 +157,7 @@ public class MenuCliente {
                 erro = false;
             } catch (InputMismatchException e) {
                 System.out.println("Carteira inválida!");
+                input1.nextLine();
                 erro = true;
             }
         } while (erro == true);
@@ -165,6 +177,7 @@ public class MenuCliente {
                 erro = false;
             } catch (InputMismatchException e) {
                 System.out.println("CPF inválido!");
+                input1.nextLine();
                 erro = true;
             }
         } while (erro == true);
@@ -184,6 +197,7 @@ public class MenuCliente {
                 erro = false;
             } catch (InputMismatchException e) {
                 System.out.println("CPF inválido!");
+                input1.nextLine();
                 erro = true;
             }
         } while (erro == true);
@@ -213,6 +227,7 @@ public class MenuCliente {
                 erro = false;
             } catch (InputMismatchException e) {
                 System.out.println("CPF inválido!");
+                input1.nextLine();
                 erro = true;
             }
         } while (erro == true);
@@ -231,6 +246,7 @@ public class MenuCliente {
                 erro = false;
             } catch (InputMismatchException e) {
                 System.out.println("CPF inválido!");
+                input1.nextLine();
                 erro = true;
             }
         } while (erro == true);
