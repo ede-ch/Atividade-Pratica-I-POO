@@ -2,8 +2,6 @@ package br.edu.poo.gui;
 
 import java.util.Scanner;
 
-import br.edu.poo.objects.*;
-
 public class Main {
     public static void main(String[] args) {
         MenuVeiculo menuVeiculo = new MenuVeiculo();
