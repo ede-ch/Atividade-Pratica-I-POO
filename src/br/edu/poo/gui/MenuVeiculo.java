@@ -525,6 +525,7 @@ public class MenuVeiculo {
     public void removeVeiculo() {
         boolean erro = false;
         String placa = "";
+        int opcao = 0;
 
         do {
             try {
@@ -538,8 +539,19 @@ public class MenuVeiculo {
             }
         } while (erro == true);
 
-        System.out.print("Essa ação é irreversível. Deseja continuar?  \n1 - Sim 2 - Não: ");
-        int opcao = input.nextInt();
+        do {
+            try {
+                System.out
+                        .print("Essa ação é irreversível. Deseja continuar?  \n1 - Sim 2 - Não: ");
+                opcao = input.nextInt();
+                erro = false;
+            } catch (InputMismatchException e) {
+                System.out.println("Opção inválida");
+                input.nextLine();
+                erro = true;
+            }
+        } while (erro == true);
+
         if (opcao == 1) {
             System.out.println(metodoVeiculo.remove(placa));
             System.out.println("Veículo removido com sucesso!");

@@ -20,78 +20,85 @@ public class MenuLocacao {
         this.metodoVeiculo = metodoVeiculo;
     }
 
-    public MenuLocacao() {
-    }
+    public MenuLocacao() {}
 
     // Menu do programa.
     public void Menu() {
         int opcao = 0;
+        boolean erro = false;
         do {
-            try {
+            System.out.println("\n\n");
+            System.out.println("+-------------------------------------------+");
+            System.out.println("|          Menu de Opções da Locação        |");
+            System.out.println("+-------------------------------------------+");
+            System.out.println("| 1 - Cadastrar                            |");
+            System.out.println("| 2 - Pesquisar                            |");
+            System.out.println("| 3 - Exibe Info                           |");
+            System.out.println("| 4 - Todas locações                       |");
+            System.out.println("| 5 - Remove                               |");
+            System.out.println("| 6 - Verifica                             |");
+            System.out.println("| 7 - Voltar ao menu principal             |");
+            System.out.println("| 8 - Sair                                 |");
+            System.out.println("+-------------------------------------------+");
 
-                System.out.println("\n\n");
-                System.out.println("+-------------------------------------------+");
-                System.out.println("|          Menu de Opções da Locação        |");
-                System.out.println("+-------------------------------------------+");
-                System.out.println("| 1 - Cadastrar                            |");
-                System.out.println("| 2 - Pesquisar                            |");
-                System.out.println("| 3 - Exibe Info                           |");
-                System.out.println("| 4 - Todas locações                       |");
-                System.out.println("| 5 - Remove                               |");
-                System.out.println("| 6 - Verifica                             |");
-                System.out.println("| 7 - Voltar ao menu principal             |");
-                System.out.println("| 8 - Sair                                 |");
-                System.out.println("+-------------------------------------------+");
-
-                System.out.print("Opção: ");
-
-                opcao = input.nextInt();
-
-                input.nextLine();
-
-                // Switch case para navegar pelo menu.
-                switch (opcao) {
-                    case 1:
-                        addLocacao();
-                        break;
-                    case 2:
-                        pesquisarLocacao();
-                        break;
-                    case 3:
-                        exibeInfoLocacao();
-                        break;
-                    case 4:
-                        dadosTodasLocacoes();
-                        break;
-                    case 5:
-                        removeLocacao();
-                        break;
-                    case 6:
-                        existeLocacao();
-                        break;
-                    case 7:
-                        System.out.println("Voltando ao menu principal...");
-                        break;
-
-                    case 8:
-                        System.out.println("Deseja sair? 1 - Sim 2 - Não: ");
-                        opcao = input.nextInt();
-                        if (opcao == 1) {
-                            System.out.println("Saindo...");
-                            System.exit(0);
-                        } else if (opcao == 2) {
-                            Menu();
-                        } else {
-                            System.out.println("Opção inválida!");
-                            Menu();
-                        }
-                        break;
-                    default:
-                        System.out.println("Opção inválida!");
+            System.out.print("Opção: ");
+            do {
+                try {
+                    opcao = input.nextInt();
+                    erro = false;
+                } catch (InputMismatchException e) {
+                    System.out.println("Opção inválida!");
+                    input.nextLine();
+                    erro = true;
                 }
-            } catch (InputMismatchException e) {
-                System.out.println("Opção inválida!");
-                input.nextLine();
+            } while (erro == true);
+
+            // Switch case para navegar pelo menu.
+            switch (opcao) {
+                case 1:
+                    addLocacao();
+                    break;
+                case 2:
+                    pesquisarLocacao();
+                    break;
+                case 3:
+                    exibeInfoLocacao();
+                    break;
+                case 4:
+                    dadosTodasLocacoes();
+                    break;
+                case 5:
+                    removeLocacao();
+                    break;
+                case 6:
+                    existeLocacao();
+                    break;
+                case 7:
+                    System.out.println("Voltando ao menu principal...");
+                    break;
+
+                case 8:
+                    do {
+                        try {
+                            System.out.println("Deseja sair? 1 - Sim 2 - Não: ");
+                            opcao = input.nextInt();
+                            erro = false;
+                        } catch (InputMismatchException e) {
+                            input.nextLine();
+                        }
+                    } while (erro == true);
+                    if (opcao == 1) {
+                        System.out.println("Saindo...");
+                        System.exit(0);
+                    } else if (opcao == 2) {
+                        Menu();
+                    } else {
+                        System.out.println("Opção inválida!");
+                        Menu();
+                    }
+                    break;
+                default:
+                    System.out.println("Opção inválida!");
             }
         } while (opcao != 7);
     }
@@ -153,13 +160,21 @@ public class MenuLocacao {
                 erro = true;
             }
         } while (erro = true);
-        
-        
+
+
         do {
             try {
                 System.out.print("O veículo possui seguro? \n1 - Sim 2 - Não: ");
-                int segr = input.nextInt();
-                seguro = false;
+                int segr = 0;
+                do {
+                    try {
+                        segr = input.nextInt();
+                        seguro = false;
+                    } catch (InputMismatchException e) {
+                        erro = true;
+                        input.nextLine();
+                    }
+                } while (erro == true);
                 if (segr == 1) {
                     seguro = true;
                 } else if (segr == 2) {
@@ -172,7 +187,7 @@ public class MenuLocacao {
                 input.nextLine();
             }
         } while (erro = true);
-        
+
         // Criando um novo objeto da classe Locacao.
         Locacao locacao = new Locacao(cliente, veiculo, dataLocacao, dataDevolucao, seguro);
 
@@ -248,7 +263,8 @@ public class MenuLocacao {
 
         do {
             try {
-                System.out.print("Essa ação é irreversível. Deseja continuar?  \n1 - Sim 2 - Não: ");
+                System.out
+                        .print("Essa ação é irreversível. Deseja continuar?  \n1 - Sim 2 - Não: ");
                 opcao = input.nextInt();
                 erro = false;
             } catch (InputMismatchException e) {
@@ -271,11 +287,11 @@ public class MenuLocacao {
     // Este método verifica se uma locação existe no sistema.
     public void existeLocacao() {
         boolean erro = false;
+        int codigo = 0;
         do {
             try {
                 System.out.print("Digite o código da locação: ");
-                int codigo = input.nextInt();
-                System.out.println(metodoLocacao.existe(codigo));
+                codigo = input.nextInt();
                 erro = false;
             } catch (InputMismatchException e) {
                 System.out.println("Código inválido!");
@@ -283,6 +299,7 @@ public class MenuLocacao {
                 erro = true;
             }
         } while (erro = true);
+        System.out.println(metodoLocacao.existe(codigo));
 
     }
 }
