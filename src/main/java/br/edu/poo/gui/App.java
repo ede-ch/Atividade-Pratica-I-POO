@@ -1,4 +1,4 @@
-package br.edu.poo;
+package br.edu.poo.gui;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -17,9 +17,10 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("teste"), 640, 480);
+        scene = new Scene(loadFXML("home"), 640, 480);
         stage.setScene(scene);
         stage.show();
+        stage.setTitle("Locadora");
     }
 
     static void setRoot(String fxml) throws IOException {

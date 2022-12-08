@@ -2,6 +2,6 @@ module br.edu.poo {
     requires javafx.controls;
     requires javafx.fxml;
 
-    opens br.edu.poo to javafx.fxml;
-    exports br.edu.poo;
+    opens br.edu.poo.gui to javafx.fxml;
+    exports br.edu.poo.gui;
 }
