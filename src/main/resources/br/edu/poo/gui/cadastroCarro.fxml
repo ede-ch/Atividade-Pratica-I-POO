@@ -11,41 +11,47 @@
    <children>
       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="640.0">
          <children>
-            <Text layoutX="185.0" layoutY="60.0" stroke="#d64747" strokeType="OUTSIDE" strokeWidth="0.0" text="MENU DE CADASTRO DE CLIENTE" textAlignment="CENTER" underline="true">
+            <Text layoutX="239.0" layoutY="59.0" stroke="#d64747" strokeType="OUTSIDE" strokeWidth="0.0" text="CADASTRAR CARRO" textAlignment="CENTER" underline="true">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text layoutX="48.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPF:">
+            <Text layoutX="48.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PLACA:">
                <font>
                   <Font size="13.0" />
                </font>
             </Text>
             <TextField layoutX="47.0" layoutY="135.0" prefHeight="25.0" prefWidth="150.0" />
-            <Text layoutX="247.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NOME:">
+            <Text layoutX="247.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MODELO:">
                <font>
                   <Font size="13.0" />
                </font>
             </Text>
             <TextField layoutX="247.0" layoutY="135.0" prefHeight="25.0" prefWidth="150.0" />
-            <Text layoutX="450.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ENDEREÇO:" wrappingWidth="74.0">
+            <Text layoutX="450.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ANO:" wrappingWidth="41.03759765625">
                <font>
                   <Font size="13.0" />
                </font>
             </Text>
             <TextField layoutX="450.0" layoutY="135.0" prefHeight="25.0" prefWidth="150.0" />
-            <Text layoutX="46.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TELEFONE:" wrappingWidth="110.0">
+            <Text layoutX="46.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VALOR DA DIÁRIA:" wrappingWidth="110.0">
                <font>
                   <Font size="13.0" />
                </font>
             </Text>
             <TextField layoutX="46.0" layoutY="220.0" prefHeight="25.0" prefWidth="150.0" />
-            <Text layoutX="247.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CARTEIRA DE MOTORISTA:" wrappingWidth="163.0">
+            <Text layoutX="247.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nº PORTAS:" wrappingWidth="74.0">
                <font>
                   <Font size="13.0" />
                </font>
             </Text>
             <TextField layoutX="247.0" layoutY="220.0" prefHeight="25.0" prefWidth="150.0" />
+            <Text layoutX="450.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nº PASSAGEIROS:" wrappingWidth="110.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Text>
+            <TextField layoutX="450.0" layoutY="220.0" prefHeight="25.0" prefWidth="150.0" />
             <Button layoutX="190.0" layoutY="318.0" mnemonicParsing="false" text="Cancelar" />
             <Button layoutX="387.0" layoutY="318.0" mnemonicParsing="false" text="Cadastrar" />
          </children>
