@@ -17,9 +17,10 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("main"), 640, 480);
+        scene = new Scene(loadFXML("main"), 640, 400);
         stage.setScene(scene);
         stage.show();
+        stage.setResizable(false);
         stage.setTitle("Locadora");
     }
 
