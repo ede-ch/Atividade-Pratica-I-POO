@@ -1,4 +1,4 @@
-package br.edu.poo.objects;
+package br.edu.poo.backend;
 
 public class Veiculo {
     private String placa;

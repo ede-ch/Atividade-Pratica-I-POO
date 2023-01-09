@@ -7,19 +7,18 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.poo.gui.ControladorVeiculo">
    <children>
       <AnchorPane prefHeight="150.0" prefWidth="300.0">
          <children>
-            <TextField layoutX="14.0" layoutY="50.0" />
+            <TextField fx:id="placa_gui" layoutX="14.0" layoutY="50.0" />
             <Label layoutX="15.0" layoutY="28.0" text="DIGITE A PLACA DO VEÍCULO:">
                <font>
                   <Font size="13.0" />
                </font>
             </Label>
-            <Button layoutX="199.0" layoutY="96.0" mnemonicParsing="false" text="Pesquisar" />
-            <Button layoutX="47.0" layoutY="96.0" mnemonicParsing="false" text="Cancelar" />
+            <Button fx:id="btn_pesquisar" layoutX="199.0" layoutY="96.0" mnemonicParsing="false" onAction="#pesquisarVeiculo" text="Pesquisar" />
+            <Button fx:id="btn_cancelar" layoutX="47.0" layoutY="96.0" mnemonicParsing="false" onAction="#fecharJanela" text="Cancelar" />
          </children>
       </AnchorPane>
    </children>

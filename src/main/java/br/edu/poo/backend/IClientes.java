@@ -1,4 +1,4 @@
-package br.edu.poo.objects;
+package br.edu.poo.backend;
 /**
  * Interface que permite a manipulação de um conjunto de clientes.
  * @author Aline

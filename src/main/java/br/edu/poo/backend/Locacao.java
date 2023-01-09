@@ -1,4 +1,4 @@
-package br.edu.poo.objects;
+package br.edu.poo.backend;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -13,34 +13,31 @@ public class Locacao {
     private int codigo;
     private Date dataLocacao; // Variável aparece como "não usada" no VSCode devido a um problema
     private Date dataDevolucao; // de tempo de execução, mas funciona normalmente.
-    
-    SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy", new Locale("pt","BR"));
-    
+
+    SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy", new Locale("pt", "BR"));
+
     /**
      * Construtor da classe Locacao.
+     * 
      * @param cliente Cliente que está locando o veículo.
-     * @param veiculo Veículo que está sendo locado. 
+     * @param veiculo Veículo que está sendo locado.
      * @param seguro Booleano indicando se o cliente contratou o seguro.
      * @param dataLocacao String para ser convertida em Date e armazenando data da locação.
      * @param dataDevolucao String para ser convertida em Date e armazenando data de devolução.
-     * dataLocacao e dataDevolucao estão em um bloco try/catch para tratar uma exceção do tipo 
-     * ParseException, pois o método parse() não pode ser verificado em tempo de execução.
-     * https://stackoverflow.com/questions/41058499/why-the-parseexception-appears-when-use-simpledateformat
+     *        dataLocacao e dataDevolucao estão em um bloco try/catch para tratar uma exceção do
+     *        tipo ParseException, pois o método parse() não pode ser verificado em tempo de
+     *        execução.
+     *        https://stackoverflow.com/questions/41058499/why-the-parseexception-appears-when-use-simpledateformat
      * @param codigo Código da locação. !IMPORTANTE! O código deve ser único.
      */
-    public Locacao(Cliente cliente, Veiculo veiculo, String dataLocacao,
-    String dataDevolucao, boolean seguro) {
+    public Locacao(Cliente cliente, Veiculo veiculo, String dataDevolucao, boolean seguro) {
         this.cliente = cliente;
         this.veiculo = veiculo;
         this.seguro = seguro;
-        try {
-            formatoData.setLenient(false); // Não aceita datas inválidas.
-            this.dataLocacao = formatoData.parse(dataLocacao);
-        } catch (ParseException e) {
-            System.err.println(
-                    "Erro ao converter data de locação. Verifique se a data e o formato (dd/MM/yyyy) estão corretos.");
-            e.printStackTrace();
-        }
+
+        formatoData.setLenient(false); // Não aceita datas inválidas.
+        this.dataLocacao = new Date();
+
         try {
             formatoData.setLenient(false); // Não aceita datas inválidas.
             this.dataDevolucao = formatoData.parse(dataDevolucao);
@@ -58,7 +55,7 @@ public class Locacao {
     public Locacao() {
         // Construtor padrão
     }
-    
+
 
     /**
      * @return Cliente do tipo Cliente.
@@ -66,14 +63,14 @@ public class Locacao {
     public Cliente getCliente() {
         return cliente;
     }
-    
+
     /**
      * @param cliente Seta o cliente do tipo Cliente.
      */
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
-    
+
     /**
      * @return Veículo do tipo Veiculo.
      */
@@ -108,6 +105,7 @@ public class Locacao {
     public int getCodigo() {
         return codigo;
     }
+
     /**
      * @param codigo Seta o código da locação do tipo int.
      */
@@ -145,7 +143,8 @@ public class Locacao {
 
     public String toString() {
         return "Locação: " + codigo + "\n" + cliente + "\n" + veiculo + "\nSeguro: "
-                + seguro + "\nData de locação: " + formatoData.format(dataLocacao) + "\nData de devolução: "
+                + seguro + "\nData de locação: " + formatoData.format(dataLocacao)
+                + "\nData de devolução: "
                 + formatoData.format(dataDevolucao);
     }
 }

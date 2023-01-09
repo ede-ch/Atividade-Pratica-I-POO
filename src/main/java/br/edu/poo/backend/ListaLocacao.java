@@ -1,9 +1,11 @@
-package br.edu.poo.objects;
+package br.edu.poo.backend;
 
 import java.util.ArrayList;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 public class ListaLocacao implements ILocacoes {
-    private ArrayList<Locacao> listaLocacoes = new ArrayList<Locacao>();
+    private static ArrayList<Locacao> listaLocacoes = new ArrayList<Locacao>();
     /**
      * @param l Locação do tipo Locacao. 
      * Se "l" não é nulo e é uma instância do tipo Locacao, adiciona uma locação na lista de locações.
@@ -14,9 +16,19 @@ public class ListaLocacao implements ILocacoes {
     public void add(Locacao l) {
         if (l != null && l instanceof Locacao) {
             listaLocacoes.add(l);
-            System.out.println("Locação adicionada com sucesso!");
+
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Cliente cadastrado");
+            alert.setHeaderText(null);
+            alert.setContentText(l.toString());
+            alert.showAndWait();
         } else {
-            System.err.println("Não é uma locação válida.");
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Error Dialog");
+            alert.setHeaderText("Erro ao cadastrar cliente");
+            alert.setContentText("Verifique as informaçoes preenchidas e tente novamente!");
+
+            alert.showAndWait();
         }
     }
 

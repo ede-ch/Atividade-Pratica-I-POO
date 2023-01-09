@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SeparatorMenuItem?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
 <VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.poo.gui.ControladorMenu">
   <children>
@@ -22,13 +19,12 @@
         </Menu>
         <Menu mnemonicParsing="false" text="Cliente">
           <items>
-            <MenuItem mnemonicParsing="false" text="Adicionar" onAction="#cadastrarCliente" />
-            <MenuItem mnemonicParsing="false" text="Remover" onAction="#pesquisarCliente" />
-            <MenuItem mnemonicParsing="false" text="Pesquisar" onAction="#pesquisarCliente" />
+            <MenuItem fx:id="addCliente" mnemonicParsing="false" onAction="#cadastrarCliente" text="Adicionar" />
+            <MenuItem mnemonicParsing="false" onAction="#pesquisarCliente" text="Remover" />
+            <MenuItem mnemonicParsing="false" onAction="#pesquisarCliente" text="Pesquisar" />
             <SeparatorMenuItem mnemonicParsing="false" />
             <Menu mnemonicParsing="false" text="Informações">
               <items>
-                <MenuItem mnemonicParsing="false" text="Um cliente" />
                 <MenuItem mnemonicParsing="false" text="Todos clientes" />
                 <MenuItem mnemonicParsing="false" text="Resumo de todos clientes" />
               </items>
@@ -37,13 +33,12 @@
         </Menu>
         <Menu mnemonicParsing="false" text="Locação">
           <items>
-            <MenuItem mnemonicParsing="false" text="Adicionar" onAction="#cadastrarLocacao" />
-            <MenuItem mnemonicParsing="false" text="Remover" onAction="#pesquisarLocacao" />
-            <MenuItem mnemonicParsing="false" text="Pesquisar" onAction="#pesquisarLocacao" />
+            <MenuItem fx:id="addLocacao" mnemonicParsing="false" onAction="#cadastrarLocacao" text="Adicionar" />
+            <MenuItem mnemonicParsing="false" onAction="#pesquisarLocacao" text="Remover" />
+            <MenuItem mnemonicParsing="false" onAction="#pesquisarLocacao" text="Pesquisar" />
             <SeparatorMenuItem mnemonicParsing="false" />
             <Menu mnemonicParsing="false" text="Informações">
               <items>
-                <MenuItem mnemonicParsing="false" text="Uma locação" />
                 <MenuItem mnemonicParsing="false" text="Todas locações" />
                 <MenuItem mnemonicParsing="false" text="Resumo de todas locações" />
               </items>
@@ -54,17 +49,16 @@
           <items>
             <Menu mnemonicParsing="false" text="Adicionar">
               <items>
-                <MenuItem mnemonicParsing="false" text="Caminhão" onAction="#cadastrarCaminhao" />
-                <MenuItem mnemonicParsing="false" text="Carro" onAction="#cadastrarCarro" />
-                <MenuItem mnemonicParsing="false" text="Ônibus" onAction="#cadastrarOnibus" />
+                <MenuItem fx:id="addCaminhao" mnemonicParsing="false" onAction="#cadastrarCaminhao" text="Caminhão" />
+                <MenuItem fx:id="addCarro" mnemonicParsing="false" onAction="#cadastrarCarro" text="Carro" />
+                <MenuItem fx:id="AddOnibus" mnemonicParsing="false" onAction="#cadastrarOnibus" text="Ônibus" />
               </items>
             </Menu>
-            <MenuItem mnemonicParsing="false" text="Remover" onAction="#pesquisarVeiculo" />
-            <MenuItem mnemonicParsing="false" text="Pesquisar" onAction="#addRelease" />
+            <MenuItem mnemonicParsing="false" onAction="#pesquisarVeiculo" text="Remover" />
+            <MenuItem mnemonicParsing="false" onAction="#pesquisarVeiculo" text="Pesquisar" />
             <SeparatorMenuItem mnemonicParsing="false" />
             <Menu mnemonicParsing="false" text="Informações">
               <items>
-                <MenuItem mnemonicParsing="false" text="Um veículo" />
                 <MenuItem mnemonicParsing="false" text="Todos veículos" />
                 <MenuItem mnemonicParsing="false" text="Resumo de todos veículos" />
               </items>
@@ -73,19 +67,6 @@
         </Menu>
       </menus>
     </MenuBar>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
-      <children>
-        <Label alignment="CENTER" layoutX="20.0" layoutY="14.0" prefHeight="80.0" prefWidth="600.0" style="-fx-background-color: GRAY;" text="Adicione um banner maneiro aqui por favor" textAlignment="CENTER" underline="true" wrapText="false">
-          <font>
-            <Font name="Arial" size="18.0" />
-          </font>
-        </Label>
-        <ScrollPane layoutX="20.0" layoutY="160.0" prefHeight="200.0" prefWidth="600.0">
-          <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="600.0" />
-          </content>
-        </ScrollPane>
-      </children>
-    </AnchorPane>
+      <BorderPane fx:id="borderPaneHome" prefHeight="401.0" prefWidth="640.0" />
   </children>
 </VBox>

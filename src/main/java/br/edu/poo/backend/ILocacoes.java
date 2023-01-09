@@ -1,4 +1,4 @@
-package br.edu.poo.objects;
+package br.edu.poo.backend;
 /**
  * Interface que permite manipular um conjunto de locações.
  * @author Aline

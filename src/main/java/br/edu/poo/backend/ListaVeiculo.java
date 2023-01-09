@@ -1,6 +1,8 @@
-package br.edu.poo.objects;
+package br.edu.poo.backend;
 
 import java.util.ArrayList;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 /**
  * Classe que implementa uma lista de veículos e seus métodos.
@@ -14,7 +16,7 @@ import java.util.ArrayList;
  * 
  */
 public class ListaVeiculo implements IVeiculos {
-    private ArrayList<Veiculo> listaVeiculos = new ArrayList<Veiculo>();
+    private static ArrayList<Veiculo> listaVeiculos = new ArrayList<Veiculo>();
 
     /**
      * @param v veiculo do tipo Veiculo. 
@@ -26,9 +28,18 @@ public class ListaVeiculo implements IVeiculos {
     public void add(Veiculo v) {
         if (v != null && v instanceof Veiculo) {
             listaVeiculos.add(v);
-            System.out.println("Veículo adicionado com sucesso!");
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Veículo cadastrado");
+            alert.setHeaderText(null);
+            alert.setContentText(v.toString());
+            alert.showAndWait();
         } else {
-            System.err.println("Não é um veículo válido.");
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Error Dialog");
+            alert.setHeaderText("Erro ao cadastrar veículo");
+            alert.setContentText("Verifique as informaçoes preenchidas e tente novamente!");
+
+            alert.showAndWait();
         }
     }
 
@@ -64,7 +75,7 @@ public class ListaVeiculo implements IVeiculos {
      */
     @Override
     public String getInfo(String placa) {
-        String resultado = null;
+        String resultado = "";
 
         if (placa != null) {
             for (int i= 0; i < listaVeiculos.size(); i++) {
