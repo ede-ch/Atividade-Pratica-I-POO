@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.poo.gui.ControladorMenu">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="Cliente">
+          <items>
+            <MenuItem fx:id="addCliente" mnemonicParsing="false" onAction="#cadastrarCliente" text="Adicionar" />
+            <MenuItem fx:id="removerCliente" mnemonicParsing="false" onAction="#removeCliente" text="Remover" />
+            <MenuItem mnemonicParsing="false" onAction="#pesquisarCliente" text="Pesquisar" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+          <MenuItem fx:id="relatorioCliente" mnemonicParsing="false" onAction="#relatorioCliente" text="Relatório" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Locação">
+          <items>
+            <MenuItem fx:id="addLocacao" mnemonicParsing="false" onAction="#cadastrarLocacao" text="Adicionar" />
+            <MenuItem mnemonicParsing="false" onAction="#pesquisarLocacao" text="Remover" />
+            <MenuItem mnemonicParsing="false" onAction="#pesquisarLocacao" text="Pesquisar" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+          <MenuItem fx:id="relatorioLocacao_gui" mnemonicParsing="false" text="Relatório" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Veículo">
+          <items>
+            <Menu mnemonicParsing="false" text="Adicionar">
+              <items>
+                <MenuItem fx:id="addCaminhao" mnemonicParsing="false" onAction="#cadastrarCaminhao" text="Caminhão" />
+                <MenuItem fx:id="addCarro" mnemonicParsing="false" onAction="#cadastrarCarro" text="Carro" />
+                <MenuItem fx:id="AddOnibus" mnemonicParsing="false" onAction="#cadastrarOnibus" text="Ônibus" />
+              </items>
+            </Menu>
+            <MenuItem mnemonicParsing="false" onAction="#pesquisarVeiculo" text="Remover" />
+            <MenuItem mnemonicParsing="false" onAction="#pesquisarVeiculo" text="Pesquisar" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+          <MenuItem fx:id="relatorioVeiculo" mnemonicParsing="false" onAction="#relatorioVeiculo" text="Relatório" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+      <BorderPane fx:id="borderPaneHome" prefHeight="401.0" prefWidth="640.0" />
+  </children>
+</VBox>
