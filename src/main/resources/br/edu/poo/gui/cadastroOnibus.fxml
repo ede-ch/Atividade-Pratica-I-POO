@@ -56,13 +56,12 @@
          </font>
       </Text>
       <ChoiceBox fx:id="arCondicionado_gui" layoutX="44.0" layoutY="273.0" prefWidth="150.0" />
-      <Text layoutX="245.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="INTERNET:" wrappingWidth="110.0">
+      <Text layoutX="447.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="INTERNET:" wrappingWidth="110.0">
          <font>
             <Font size="13.0" />
          </font>
       </Text>
-      <ChoiceBox fx:id="internet_gui" layoutX="245.0" layoutY="273.0" prefWidth="150.0" />
-      <Button layoutX="188.0" layoutY="332.0" mnemonicParsing="false" text="Cancelar" />
-      <Button fx:id="btn_cadastrar" layoutX="385.0" layoutY="332.0" mnemonicParsing="false" onAction="#addOnibus" text="Cadastrar" />
+      <ChoiceBox fx:id="internet_gui" layoutX="447.0" layoutY="270.0" prefWidth="150.0" />
+      <Button fx:id="btn_cadastrar" layoutX="287.0" layoutY="328.0" mnemonicParsing="false" onAction="#addOnibus" text="Cadastrar" />
    </children>
 </AnchorPane>

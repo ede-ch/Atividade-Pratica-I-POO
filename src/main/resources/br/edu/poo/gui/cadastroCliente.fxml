@@ -43,7 +43,6 @@
          </font>
       </Text>
       <TextField id="carteira_gui" fx:id="carteira_gui" layoutX="247.0" layoutY="220.0" prefHeight="25.0" prefWidth="150.0" promptText="xxxxxxxxxxx" />
-      <Button id="btn_cancelar" fx:id="btn_cancelar" cancelButton="true" layoutX="190.0" layoutY="318.0" mnemonicParsing="false" onAction="#fecharJanela" text="Cancelar" />
-      <Button id="btn_cadastrar" fx:id="btn_cadastrar" layoutX="387.0" layoutY="318.0" mnemonicParsing="false" onAction="#addCliente" text="Cadastrar" />
+      <Button id="btn_cadastrar" fx:id="btn_cadastrar" layoutX="287.0" layoutY="312.0" mnemonicParsing="false" onAction="#addCliente" text="Cadastrar" />
    </children>
 </AnchorPane>

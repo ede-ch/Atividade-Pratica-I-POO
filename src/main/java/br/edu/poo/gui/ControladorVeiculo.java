@@ -1,11 +1,8 @@
 package br.edu.poo.gui;
 
-import java.net.URL;
-import java.util.ResourceBundle;
 import br.edu.poo.backend.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -13,7 +10,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class ControladorVeiculo implements Initializable{
+public class ControladorVeiculo {
     private ListaVeiculo metodoVeiculo = new ListaVeiculo();
 
     @FXML
@@ -37,12 +34,13 @@ public class ControladorVeiculo implements Initializable{
     @FXML
     private TextField mediaKm_gui;
     @FXML
-    private ChoiceBox<String> arCondicionado_gui;
+    private ChoiceBox<Object> arCondicionado_gui;
     private String[] arCondicionado = {"Sim", "Não"};
-    @FXML ChoiceBox<String> categoria_gui;
+    @FXML 
+    private ChoiceBox<Object> categoria_gui;
     private String[] categoria = {"Popular", "Intermediário", "Luxo"};
     @FXML
-    private ChoiceBox<String> internet_gui;
+    private ChoiceBox<Object> internet_gui;
     private String[] internet = {"Sim", "Não"};
     @FXML
     private Button btn_pesquisar;
@@ -89,6 +87,7 @@ public class ControladorVeiculo implements Initializable{
         String parseMediaKm = mediaKm_gui.getText();
         float mediaKm = Float.parseFloat(parseMediaKm);
 
+        arCondicionado_gui.getItems().addAll(arCondicionado);
         boolean arCondicionado = false;
         String arCondicionadoString = arCondicionado_gui.getValue().toString();
         if (arCondicionadoString.equals("Sim")) {
@@ -116,8 +115,10 @@ public class ControladorVeiculo implements Initializable{
         String parseNumPortas = numPortas_gui.getText();
         int numPortas = Integer.parseInt(parseNumPortas);
 
+        
         String categoria = categoria_gui.getValue().toString();
         
+        arCondicionado_gui.getItems().addAll(arCondicionado);
         boolean arCondicionado = false;
         String arCondicionadoString = arCondicionado_gui.getValue().toString();
         if (arCondicionadoString.equals("Sim")) {
@@ -126,6 +127,7 @@ public class ControladorVeiculo implements Initializable{
             arCondicionado = false;
         }
 
+        internet_gui.getItems().addAll(internet);
         boolean internet = false;
         String internetString = internet_gui.getValue().toString();
         if (internetString.equals("Sim")) {
@@ -165,21 +167,60 @@ public class ControladorVeiculo implements Initializable{
             alert.showAndWait();
         }
     }
+    
+    @FXML
+    public void infoTodosVeiculos(ActionEvent event) {
+        String resultado = metodoVeiculo.getInfo();
 
-    public ListaVeiculo getMetodoVeiculo() {
-        return metodoVeiculo;
+        if (!resultado.equals("")) {
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Veículos encontrados");
+            alert.setHeaderText(null);
+            alert.setContentText(resultado.toString());
+            alert.showAndWait();
+        } else {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Error Dialog");
+            alert.setHeaderText("Veículos não encontrados!");
+            alert.setContentText(
+                    "Verifique as informaçoes preenchidas e tente novamente!");
+            alert.showAndWait();
+        }
+    }
+
+    @FXML
+    public void resumoInfoTodosVeiculos(ActionEvent event){
+        String resultado = metodoVeiculo.getResumoInfo();
+
+        if (!resultado.equals("")) {
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Veículos encontrados");
+            alert.setHeaderText(null);
+            alert.setContentText(resultado.toString());
+            alert.showAndWait();
+        } else {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Error Dialog");
+            alert.setHeaderText("Veículos não encontrados!");
+            alert.setContentText(
+                    "Verifique as informaçoes preenchidas e tente novamente!");
+            alert.showAndWait();
+        }
+    }
+
+    @FXML
+    public void removeVeiculo(ActionEvent event) {
+
+    }
+
+    @FXML
+    public boolean existeVeiculo(String placa) {
+        return metodoVeiculo.existe(placa);
     }
 
     @FXML
     public void fecharJanela(ActionEvent event) {
         Stage stage = (Stage) btn_cancelar.getScene().getWindow();
         stage.close();
-    }
-
-    @Override
-    public void initialize(URL arg0, ResourceBundle arg1) {
-        arCondicionado_gui.getItems().addAll(arCondicionado);
-        categoria_gui.getItems().addAll(categoria);
-        internet_gui.getItems().addAll(internet);
     }
 }

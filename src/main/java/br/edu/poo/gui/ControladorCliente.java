@@ -1,11 +1,13 @@
 package br.edu.poo.gui;
 
 import javafx.fxml.FXML;
+import java.util.Optional;
 import br.edu.poo.backend.*;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -41,10 +43,20 @@ public class ControladorCliente {
         String nome = nome_gui.getText(),
                 endereco = endereco_gui.getText();
 
-        Cliente cliente = new Cliente(cpf, nome, endereco, telefone, carteira);
-        metodoCliente.add(cliente);
+        if (existeCliente(cpf) == true) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Erro");
+            alert.setHeaderText("CPF já cadastrado!");
+            alert.setContentText("Digite um CPF válido!");
+            alert.showAndWait();
 
-        limparCampos(event);
+            cpf_gui.setText("");
+        } else {
+            Cliente cliente = new Cliente(cpf, nome, endereco, telefone, carteira);
+            metodoCliente.add(cliente);
+
+            limparCampos(event);
+        }
     }
 
     @FXML
@@ -129,7 +141,22 @@ public class ControladorCliente {
 
     @FXML
     void removeCliente(ActionEvent event) {
+        Alert alert = new Alert(AlertType.WARNING);
+        alert.setTitle("Excluindo cliente");
+        alert.setHeaderText("Atenção! Esta ação não poderá ser desfeita!");
+        alert.setContentText("Você tem certeza disso?");
 
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK) {
+            Alert alertEnd = new Alert(AlertType.INFORMATION);
+            alertEnd.setTitle("Information Dialog");
+            alertEnd.setHeaderText(null);
+            alertEnd.setContentText("Voce deletou um cliente!");
+
+            alert.showAndWait();
+        } else {
+            fecharJanela(event);
+        }
     }
 
     @FXML

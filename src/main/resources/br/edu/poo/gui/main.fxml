@@ -11,24 +11,13 @@
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
-        <Menu mnemonicParsing="false" text="File">
-          <items>
-            <MenuItem mnemonicParsing="false" text="Preferences…" />
-            <MenuItem mnemonicParsing="false" text="Quit" />
-          </items>
-        </Menu>
         <Menu mnemonicParsing="false" text="Cliente">
           <items>
             <MenuItem fx:id="addCliente" mnemonicParsing="false" onAction="#cadastrarCliente" text="Adicionar" />
-            <MenuItem mnemonicParsing="false" onAction="#pesquisarCliente" text="Remover" />
+            <MenuItem fx:id="removerCliente" mnemonicParsing="false" onAction="#removeCliente" text="Remover" />
             <MenuItem mnemonicParsing="false" onAction="#pesquisarCliente" text="Pesquisar" />
             <SeparatorMenuItem mnemonicParsing="false" />
-            <Menu mnemonicParsing="false" text="Informações">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Todos clientes" />
-                <MenuItem mnemonicParsing="false" text="Resumo de todos clientes" />
-              </items>
-            </Menu>
+          <MenuItem fx:id="relatorioCliente" mnemonicParsing="false" onAction="#relatorioCliente" text="Relatório" />
           </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Locação">
@@ -37,12 +26,7 @@
             <MenuItem mnemonicParsing="false" onAction="#pesquisarLocacao" text="Remover" />
             <MenuItem mnemonicParsing="false" onAction="#pesquisarLocacao" text="Pesquisar" />
             <SeparatorMenuItem mnemonicParsing="false" />
-            <Menu mnemonicParsing="false" text="Informações">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Todas locações" />
-                <MenuItem mnemonicParsing="false" text="Resumo de todas locações" />
-              </items>
-            </Menu>
+          <MenuItem fx:id="relatorioLocacao_gui" mnemonicParsing="false" text="Relatório" />
           </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Veículo">
@@ -57,12 +41,7 @@
             <MenuItem mnemonicParsing="false" onAction="#pesquisarVeiculo" text="Remover" />
             <MenuItem mnemonicParsing="false" onAction="#pesquisarVeiculo" text="Pesquisar" />
             <SeparatorMenuItem mnemonicParsing="false" />
-            <Menu mnemonicParsing="false" text="Informações">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Todos veículos" />
-                <MenuItem mnemonicParsing="false" text="Resumo de todos veículos" />
-              </items>
-            </Menu>
+          <MenuItem fx:id="relatorioVeiculo" mnemonicParsing="false" onAction="#relatorioVeiculo" text="Relatório" />
           </items>
         </Menu>
       </menus>

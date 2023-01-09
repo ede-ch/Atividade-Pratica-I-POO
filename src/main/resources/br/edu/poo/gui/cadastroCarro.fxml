@@ -50,16 +50,15 @@
          </font>
       </Text>
       <TextField fx:id="numPassageiros_gui" layoutX="447.0" layoutY="187.0" prefHeight="25.0" prefWidth="150.0" />
-      <Button layoutX="190.0" layoutY="318.0" mnemonicParsing="false" text="Cancelar" />
-      <Button fx:id="btn_cadastrar" layoutX="387.0" layoutY="318.0" mnemonicParsing="false" onAction="#addCarro" text="Cadastrar" />
+      <Button fx:id="btn_cadastrar" layoutX="286.0" layoutY="316.0" mnemonicParsing="false" onAction="#addCarro" text="Cadastrar" />
       <Text layoutX="43.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MEDIA KM/L:" wrappingWidth="110.0">
          <font>
             <Font size="13.0" />
          </font>
       </Text>
       <TextField fx:id="mediaKm_gui" layoutX="43.0" layoutY="269.0" prefHeight="25.0" prefWidth="150.0" />
-      <ChoiceBox fx:id="arCondicionado_gui" layoutX="244.0" layoutY="269.0" prefWidth="150.0" />
-      <Text layoutX="244.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AR CONDICIONADO:" wrappingWidth="150.0">
+      <ChoiceBox fx:id="arCondicionado_gui" layoutX="447.0" layoutY="268.0" prefWidth="150.0" />
+      <Text layoutX="447.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AR CONDICIONADO:" wrappingWidth="150.0">
          <font>
             <Font size="13.0" />
          </font>
